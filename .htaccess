@@ -1,0 +1,41 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+# cPanel Setup Python App will manage and update these directives
+PassengerBaseURI "/"
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 1. Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Direct static file serving for React SPA assets (bypasses Python for optimal performance)
+RewriteCond %{REQUEST_URI} ^/assets/
+RewriteCond %{DOCUMENT_ROOT}/app/static%{REQUEST_URI} -f
+RewriteRule ^assets/(.*)$ app/static/assets/$1 [L]
+
+# Direct serving of favicon if present in app/static
+RewriteCond %{REQUEST_URI} ^/favicon\.(ico|png|svg)$
+RewriteCond %{DOCUMENT_ROOT}/app/static%{REQUEST_URI} -f
+RewriteRule ^(.*)$ app/static/$1 [L]
+</IfModule>
+
+# 3. Security: Deny direct access to sensitive files, configs, and databases
+<FilesMatch "(^\.env|^\.git|\.db$|\.sqlite3$|\.log$|\.sh$|\.ini$|requirements\.txt|package\.json)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 4. Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

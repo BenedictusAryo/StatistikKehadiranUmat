@@ -1,0 +1,220 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:99d83c5e5334d4c7f119210d6509b7a0513f7745d5c09e5184fba7179455d376",
+  "claims": [
+    {
+      "id": "claim_7d93b5d8f84d4657a3886e840be8184c",
+      "statement": "The admin dashboard subsystem is the primary authenticated interface for Litbang and ADMIN roles, owning event lifecycle, pos management, live monitoring, capacity warnings, A4 report generation, evaluation notes editing, CSV export, and Videotron links.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/misa.py#L16-L22",
+          "version": "repo-lines-v1:sha256:f230e7ec0f0bc736bd1d319d13a1a4691207200ef9a42aac29ffbeb7ae097991:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NkMWMzYTQ4M2I5MjYwNmQxOTY5ZDkxNDU2OTU1ZjRhYmE3MWJiYjBhYmQ1ZGI3YzNhZDczZDNhYzgzNGY1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODQwYWU3ZGU4YjRkNTM0MGFlYTM5ODE5ZDkyODY2MjQ5Y2Q3MjY3YjQzZjgyZTg5NWJlMjg2Y2YzNWM1NTNmNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWFiYTE5MmRmNGJkN2ZiMTE1ZWQ1YTVmZWJhMDhmMGQ3NDI4M2ZjNWJhMTM2YTYzNDBiZGJkOWM4YTc2MDEwZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWU0MWIzNTMxMjYwYjNlMmIxYWUyZjMyYmJlNTMyODgxOWFiNmIwZDNhZDE5ZTUwNjA3MjdhMjE1NzM5NjhhMSJ9"
+        },
+        {
+          "resource": "repo://app/routers/stats.py#L17-L20",
+          "version": "repo-lines-v1:sha256:57643f73d15b9de19a261dbcaaae8b400be7cd9cd3cb3ee08a3940400e815bd2:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM2ZjAwNGQwNzdhYTFiOWIyNDNjZGJhNDY3N2U1NTZkMDIxNTMwMmM5OTRiNDUyMDgyODQxMWJlYTA1ZTU3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjg5ZTZlZWM1MTFmMTEwMzdkZDE3Y2RmYWViYWU1MjQwN2E3NWI0YmY4MjBhZTg3MGUzOWU3MTA1MTNiNTkxNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTRmYWFjYzA5YzZhOTdhNDI5ZmVjOTIxOWVmMDdjMDE4ZGZhZWNjMmZhYzYzZTlhYmU3NDJiZGU1MWEyMWNmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODY3OTZhMjFmZGE0YjM3ZWY5N2I2ZGVjMzIxZmMxZjE1NDNkZTg0MGFlYTE2NGI2OWJhODliMTFiMjhhMzAwNiJ9"
+        },
+        {
+          "resource": "repo://frontend/src/components/QrModal.tsx#L5-L11",
+          "version": "repo-lines-v1:sha256:b05b88e8fbeae8c91b5c006342e87fa44605cc715698ee1d9d5ce655838d4f45:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGVlOGZkNWQxODdmNjFlMzA5NmQ4ZDdhNDNiYThiNzJkYTg5MGUxNDc4NjkwMjNjZDhiYmY5YTYyMDMyY2QzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiN2Q2NTFkNjQ2YjBkOTcwN2U2MTNiODc5MTc0MGYxNDFiZGYxYjI1MmFkZWQ1NzY1MGQzNzMzYTUyZTkyNmQ1ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTRlNDU1MjI0ZWM5NzYyOGQ5ZGU4M2VmNzFjZWQzMGQ3MDk3Y2ZkZDZhOWI1NDE2NjE3M2I0Y2NhZGMyZTlkOSJ9"
+        },
+        {
+          "resource": "repo://frontend/src/pages/AdminDashboard.tsx#L1-L15",
+          "version": "repo-lines-v1:sha256:ce8eacfbcb08fe812dba634771047df602a2492e9456fa2458f7524021322aeb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgwNjUzYjEyOGRiM2E4NzVmOTNjYmVlNWY0OTE1MDQyOWQyNzAwOWQ4OTBjMzdiOGQxNzFjNmU2MDY3NDhhNzkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3ZDI0N2I4NjVlZTU0YTliOTNmMTdjOTViNzQxYTA3NjU5YzlmMmRjOTg4YmE4MGI0NWQ3YTdiZGJjNzVmMzMifQ"
+        },
+        {
+          "resource": "repo://frontend/src/pages/EventDetailDashboard.tsx#L15-L18",
+          "version": "repo-lines-v1:sha256:2fc785e25be451fbea8cea7cd06bb1519f36b94853ccb4ef51d441b1302d907a:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTIxZmE5MTVhYWI5ZGM5OWVlNDc0NWE2NWQ1YTBjMDcwYTNkOWU3MzMwNWU4ZjJmYjhkMTQ4N2UzNWVlNmRhMiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMTViYmJkZTJmYWI0ZDA4YTI0NWZhMmY3MzRkY2Q0YTdmODg3MzU0MmQyMjE2ZWRjODI5ZGRmOWYzZDgxOTAwMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGUxN2YxZTg4ZDFmZDc2MGYzZmMzM2RkOGMwNjI2YWExNjkxMDY1OWNkNThmMmZjODZjN2IzNTBjYjZmMjM3NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWNkNGY5MmY5NzE0NWM0YmUyNzE1MjkwNmM5OWNhZTRlNTAzMTIzYTY2ZjdiM2ZjMTBjMjc3ODQ1ODQ5OTE0YyJ9"
+        },
+        {
+          "resource": "repo://frontend/src/pages/ReportPrintView.tsx#L14-L19",
+          "version": "repo-lines-v1:sha256:742cd9709854c125700bb01debbaefad7ee4690976c4154b7e4fc96a5536f25e:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGNlNmY2MjdhMGYwZjk3ZWI1NDM2M2FjYmUyMmYwYzdiZGZmOGI3YWVmOGI3OGMyNzViYzA0NDU1NzNkMzlmNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWE4ZDhkZjMzODJlMzgwZDk5MzYxODlkZjVlYWVhODMyNDUzODUxMzlhNjEyMzc4MWUyMDNkMGNlNDVjMmU5NyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWIxOGI0N2RhZmZkNmYwYjNkMzU3MTYzOWFlMzVlZjIyZDQ0NmU0ZTMzOGU3OTEyMWY4YzMzYjQwOThlMzEyNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzg3MjgyOGRiOWJjNWJjNWUyNTVmY2Q3OGIyYjY2MTE2ODZlOTM2MmU5MTgwOTVhZTU4Y2VjNThiNzY1MjkxMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_221ac45b39344a07a0c68201154b57f8",
+      "statement": "All admin event endpoints are protected by `require_litbang_or_admin`, which checks JWT-authenticated user role is ADMIN or LITBANG.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L69-L75",
+          "version": "repo-lines-v1:sha256:dbf3dbbc9b68cf0d08ab7f8790e40132a996bdf961aee000ab6f6e2133a56b81:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q3NzQzNDQzMDA4OWYxYjMzYjMxNTg1NjJlYWVmMmE5YzU3MDJhZGFlMmVkN2U5YjJlNGIxYTBhNzAzN2E5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODdlZmYxZTkyODM4ZDdhODU2ZWE3YjBjODM5YWQ5OWQ2NDdmNDdlMDE4OTVmN2NjNTg1M2I1MzBmZWEzZDBhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQzM2I0ZDRiMTFiZGNhNzM0N2FhMjI1NGYxZGRhZTMxMzk3MGE3MzljYTA0Y2VhNjQwNzE0ZTcwY2ZhNDU4MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://app/routers/misa.py#L20-L21",
+          "version": "repo-lines-v1:sha256:53ef42d4723af7f3618045db951eae8e3a69ae5fd9ac6fb688cab7a54adc9ef9:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTY3MTQwOThkNGY4ODhiZDM3NWYwMWUyNjk5NjhmMDk0NTJiMjlhN2M5Njc1ODdjMGQ1NTBhY2ViNWE5ZDE4ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGU3MDk2ODVmZjg3MTFhMjBmZDZjYmI2NTMxNDE4NGQ1OGExMzM3MjczOWZmNjc4MmI3MGZlMTA1YzgxNzkyNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJkNWE1M2ExNzZiZTNkYmYzYWQyNmMyOWEyODY1MjdhOWE2MGY1MWE0YjM2YjE3YWNkYjYzOGEzYjIxZWFhOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzZiMmEwNGUxN2I4NDQ5NjE3NjA2ZWJkYTM0YzkxNWM1NTU5YzBmOGE2NWI4ZWI3ZWVlOGY1ZjI5ODkwNzU5YSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b1e8195439d54fa9b97548d05a45c5c7",
+      "statement": "The `GET /api/stats/{event_id}/live` endpoint is intentionally unauthenticated because it is consumed by the public Videotron display.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L19-L21",
+          "version": "repo-lines-v1:sha256:cafb1d475ef1552789ce665328614c9680275e7e2d28f4933b5ef14d9b0459f0:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzA3NmZiMGJlMmIwN2E1OWQ0OGMyMGFjNjAzNTkwMzVmNDQ3MWZmZTc3NDNlMzZjNjdkNDcxODljYmQxZGI0MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWNiOTJjODFjYzA2OWU0ODU0NGQ4MzFkN2U3YzMzNDhkZDc4MWU1YWM4YTNiYjE3YjUwYTExZTdlYWI2NTRhMCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTQ1NTA2ZjhjZmE4NWYyOTFkZjc2YmFhNGExNGNhNTkwZDhkNDUyYTJhM2MxY2VkY2Y4ZWQ2N2NkZjQ5NWRjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYTEyYjMwYjZjZTJmYWMzNmRlODgxZjRmMjY3MzQ0NDdjZWM2MzIwYWE2YTNkZGZmNjcxM2EyY2EwM2VlZjJjOCJ9"
+        },
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L34-L36",
+          "version": "repo-lines-v1:sha256:f2a0e96cfc21c2230eed8b3da95adb1505deb3571077c226414d5cf9b184d2b3:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQwNDZhZGEzYzRhMTY1ZjJkNTQyYzY1MmViMDJhZDljZDQ5NDE0MWFkNTAxZjZkMTRkYmUyMmUyNmMxODg3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWY4MGFjMGY2NTUxNGQ3N2IxMzYzYzUyZjQ2M2YzZmU2ZWM4YjI4MjJmOGU0ZTAxNmZkMzU1YjRiZjc4YWRkNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTFkMWU3NTgzNTkyNGJkYTc1MTRiMDFjYWQ3NWQ5MTI3YzY5Y2VlNmQ5ZDNhOTcwNGE5ZDczMjg5MzU5ZTAyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmVjNDg2YTI1OGZhY2MyMWEyM2UxYTY3YmYwYzYwN2I1NTdiYTJmYzZlNGZjNzE4NTczODU5OGFlMzcxYjI3MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_0b420f3b21d44b9590eb0a3288ee527d",
+      "statement": "An EventSession transitions through three states: SCHEDULED (initial, no recording), OPEN (attendance active), COMPLETED (read-only).",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L13-L16",
+          "version": "repo-lines-v1:sha256:b5e0aede4c9bbeb0acc516a7990ab74ef87589699ce166909bf33332c0d7a6e9:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E0M2ZmNWI2ZjdmMzMzOWY5YjYwMzgxYTQ2OTE4MTlkYjUzYmMxY2IyOWY5YTA0ZDY1MDViZmM4ZGY5Zjc0NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJjMjkxNDQ4NGM3YzI5NmM2YmNhNjA3ZjI3N2VhMjg2MTc5ODcyYmQ2NGE1YWM5NmE1NWUyYWQ1ZGQwNzQ3ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTFmNzYxODkxMWMwYWVjNGNhNWM3NTdiNzBhMjY2NTU1OTliYzM1YjAxMmQ3OTY5Y2QxOWMyZTVkZGYxYTg1NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTcyYjM2NDMyYjFmMDUyM2FhYzllZjRlYmUwYmEyYjI4MDE5MzNlYzFhNGU1NDMwZTEzNzU3NmVjMzFjNTdiNCJ9"
+        },
+        {
+          "resource": "repo://app/routers/misa.py#L148-L150",
+          "version": "repo-lines-v1:sha256:e06470220e07a3d5a946cb51b616105de27a33f4bcd3d319ddab838d1685e1c9:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTE3NzkyZDdhNTNiNzVlZjRiZDA5ZWYyMzVhZWUwYjdmM2M2Y2Y4NDhiYmI0NTRmNTA0YThlZDZkNWI0NGViMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmFiMzAxOTczMGY0NGJmMDNiZTQ0MDc1NjVmN2MzOGZmYjRiMTVmZDMzMTU3NTIyMmM5MjI0MGFkN2ViZWNmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmVlNGI4M2U2MjYyZjUxMDM5OTY3ZmJiOThhZjhiMGFiM2EwY2U2MGNkMTlkMDRkNmFjNTYwYjczMzI1ODVmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjY5YjM5ZjhmMzFkMjJkYTU4ZDJjY2RlOTRkZmI3ZTI2ODQwMmU2YjRiMDNlZTU2MmIzYjQ3ZDRiY2MzYTAwMyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cfa58955acf54f968934f9f64224c441",
+      "statement": "Pos entries are created in priority order: selected MasterPos IDs, then custom pos names, then all active MasterPos, then four hardcoded fallback defaults.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/misa.py#L47-L110",
+          "version": "repo-lines-v1:sha256:076969cf9eb62aaf569c985146e8933553e730ec42a324dd98b38b418066cec5:eyJzZWxlY3RlZExpbmVDb3VudCI6NjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjlhODQ1MzU5MWFkYWM2YTY0ZTczNzZjYWQ5ODYwY2QzNmM3OGU5YzYxM2Q1ZTBmMzI3MTA3MDJjMGZiNzczMDIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJlYzYwZGEzNTIxNGQ2ZWRjNmE5OTljM2UxZWVjOWEzY2Y2YjYyOGY1M2IzZTBiZTJkYTY2MGEzYmNhMTNiYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjhiMDhlYTg2ZTg1OWUwM2FkNGUyMWZhNThmNTdiOGU1YzI1OTA3OGMzMzI1NjE5NWY4YTdkZjJiYTA2ZDdjOTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjYyNGI1NTJiMDExZDMzYTM4YTkwOWFmMTJhOWJmYzcyNDE4ODY0ZjExMGI0ZWVkOWUxNjQ0NmIwYjk4NjA1ZWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2beeb39d7b4240258f73b3b54e8fe02e",
+      "statement": "Each EventPos receives a unique 16-character hex token derived from uuid4().hex[:16] for constructing kiosk URLs.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L72-L72",
+          "version": "repo-lines-v1:sha256:c3b52900be1da789138e07438fa2592e6b14f2758b47c9b090456e4aef435363:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzNiNTI5MDBiZTFkYTc4OTEzOGUwNzQzOGZhMjU5MmU2YjE0ZjI3NThiNDdjOWIwOTA0NTZlNGFlZjQzNTM2MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzNiNTI5MDBiZTFkYTc4OTEzOGUwNzQzOGZhMjU5MmU2YjE0ZjI3NThiNDdjOWIwOTA0NTZlNGFlZjQzNTM2MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzhmNzUxMDIyZWI2NWQxMTliOTdmZjUxMGViOGQ3MTBmYWY2ZDQ4YzAzODYyZmFmY2Y2ZDE3MGFiYjJiMzUyNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmMyMTFmYTc0YTUxYTQ1Mzg3OGFlZWIwN2E4YWQzZGNiYzc3MDAzYjNmMjlmMTNiYmMyMmIwYzg1ZmQwNjg4OSJ9"
+        },
+        {
+          "resource": "repo://app/routers/misa.py#L60-L61",
+          "version": "repo-lines-v1:sha256:4be2c117f59a76e075ea6aef35645809e3b348b34c88c6206df69687e438aca3:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNmNjliNmRlMDQxNDc5ZWU4YzVlOTFkOTI5YTMxMDgzY2Q3NWExOTM3NWRmYWFjNWFiOTI4MTY5ZTExNmY2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGQxODY2M2ZjOTBmOGMyNzVhNjQ2ZDU4NjQ0ZWExMzQzNTA3MjM4ZjVkMmIyODdhNjYwNjc1M2QzNDc4ODJhOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmE3Yzg0NTg1MTBiNjkzZGE4YjRlNTliMGRmNjA4MjY3NGM0ZWI1ZDEyZjAxZWE0MzVlZWY4OGM0ZjU2N2Y2ZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzViNTVhYWRiMmYzODhlNDc4MDI4YzM5NjhhOGU2NzlmYjkyMTg2MDg1ZjlkZWU3YWNmY2M0ZWIwNDk0MWY3MyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c1a7272118ef4ea0b59616b94d0caa29",
+      "statement": "Evaluation notes are stored as a JSON string in the event_sessions.evaluation_notes column and serialized/deserialized via the EvaluationNotes Pydantic model.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L57-L57",
+          "version": "repo-lines-v1:sha256:8b36dae9417fac99d2474504fbeb87a4aecac559e0a04b07767a2ea282de53a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGIzNmRhZTk0MTdmYWM5OWQyNDc0NTA0ZmJlYjg3YTRhZWNhYzU1OWUwYTA0YjA3NzY3YTJlYTI4MmRlNTNhNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGIzNmRhZTk0MTdmYWM5OWQyNDc0NTA0ZmJlYjg3YTRhZWNhYzU1OWUwYTA0YjA3NzY3YTJlYTI4MmRlNTNhNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjM4MzcyNjE2OWIxMGRhOTdhMjdmMmIzMDJkNjIwYjljMTJhNjZiYzhkZGQ4ZjI3MjE0YWE2NjZjYjYxNzZiNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGQ0YmI1NWRkN2FlNDE0ZjcxMzIzZTFlOTEyOTZkN2RhZjgwMjk1M2YzYTZjODU2ODg2NDg3Y2I2MzlkOTg0NyJ9"
+        },
+        {
+          "resource": "repo://app/routers/misa.py#L183-L200",
+          "version": "repo-lines-v1:sha256:fb1c60d771d3892df637d29f1e0ed63b725355262c18ed6e6f2f4dc6aaa71d1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU4NjNjZTZiMDA5Y2NhZWExMzg3OWIwMDllZGVjNTE2N2EwN2NmMTA3Njg5ZDA4MWRjNzJhZjE3MzJhMTg5OTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZjMzRmNzM3ZjM1NDhkNzhiMDIxNGUwZTZlYTM5ODkyMDFiNWZlNDQ1YjY1NDk3M2Q2YmYwZWZlOWM5MTU0MTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjljNTU3OWExYTBmYmMyNjQ4M2ZkYzUyYTg4NWVhMWFiMGE0YmYzYWRkM2JkZTEyNTM1OWQzMGNhZjc0YmUzZDUifQ"
+        },
+        {
+          "resource": "repo://app/schemas.py#L82-L86",
+          "version": "repo-lines-v1:sha256:6033bbebc85dc4cca0cb1b8877047997b0569c3e6c9b3f9a759f6ee7e23bd5be:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODcwOGZmYjFmYjM0M2NiZDY2NmEwMDRlZWFjOTQ3MjQwMDY2YWFlZDY3OGY3M2E4ZjI0ZGQwNmEzNjY5Y2Q2OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjYxYjUxNjU5Y2I5M2JiZjQ1Zjg4N2ZmMzZmYzlkNzI3OTUzM2MxMzIzNjE4ZTg3ODVjZGY5Y2FkNmZlZDllZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTUxMDk3NjUzYmEzY2VlMGUyOTBkYWE0OTMzYzJiYjY5YTYyMTk2Y2VjOWI4YjlkNmU2MjMyYjViMjBkMTk4ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzJiZDk0MDZmZjRjMjYzZjBkNGQ4MjFiNGIyNWUyMWVkZWUwZDNhOTllMmM0OWQwMjk3MzVlNjk2ZDU2YzAxOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c4512e1333ff4ddb9ff0e22f7d7017a0",
+      "statement": "Live statistics are computed by the stats.py `/live` endpoint: total attendance, Paroki Bintaro/Luar Paroki breakdown, capacity percentage (75%/95% thresholds), per-pos breakdown, per-building breakdown, and 15-minute time-series buckets.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L19-L144",
+          "version": "repo-lines-v1:sha256:ca72eb2849aef44b7aa36e844dd8a8d63fce3ee29b5a1b67653be5264544c4a3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTI2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzMDc2ZmIwYmUyYjA3YTU5ZDQ4YzIwYWM2MDM1OTAzNWY0NDcxZmZlNzc0M2UzNmM2N2Q0NzE4OWNiZDFkYjQxIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJmYTExYzA1NjdkMGE1ZjllOWIxMzVmNjVjZDI1MzcyZGZkNjI4Nzc1ZjdjMWVkMjUzZjhiYWQ0MmRkMmQ2NjY5IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJhNDU1MDZmOGNmYTg1ZjI5MWRmNzZiYWE0YTE0Y2E1OTBkOGQ0NTJhMmEzYzFjZWRjZjhlZDY3Y2RmNDk1ZGM2IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJjZTY4ZGY3MDA2YzUxYWExOWZiNDUwMTFmNTY5NzFiMjZhMzAyMmYxMjkyNDY2MGE5MzM5MGM1OGRiZTBlYzM5In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_e155691d09a84a0e8450067d252a5bee",
+      "statement": "Live stats are cached in SimpleTTLCache with a 3-second TTL and invalidated on any mutable event operation.",
+      "evidence": [
+        {
+          "resource": "repo://app/cache.py#L5-L9",
+          "version": "repo-lines-v1:sha256:02574c2446b048bcf50e27ea783e43b24020831d203709d72124eb8b5b184d7c:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDUzOWYzZDRhY2MxOWNiMmUxM2ZjYmY2MmYwZmVjYWQ0ODg3ZjY1YjVkOWYyYTEwNDMxMTE3OWZjMDY2ZTVjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRiN2ZjNDM5NDExMmUzYzVlNmViYTI4ZTM4MjZkODA1MDJjOWRjYzFjYzZiNmY5MGFmMjRhZDk2ZDcyYjc3MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2MwN2I3OTdkNzEzY2RlZjQyMjQ0NmRkM2E2MTVkZTk2OTEzMWE5OTRhNjYzNjRiZWEwYjg5YWIyMWNlZTMyNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDc1ZGEyYmZiNzgyY2QzOGI0MzFjNzlmYjEzMzM0YzBmYzc1MzI2OTE2NjM1MmEyZGYyMmE4YTgwMGQwYTM2ZSJ9"
+        },
+        {
+          "resource": "repo://app/config.py#L18-L18",
+          "version": "repo-lines-v1:sha256:78341b980142802021b8ff413a320e8e2d8cf604ad8c8c52c8cdb8ab72567391:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzNDFiOTgwMTQyODAyMDIxYjhmZjQxM2EzMjBlOGUyZDhjZjYwNGFkOGM4YzUyYzhjZGI4YWI3MjU2NzM5MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzNDFiOTgwMTQyODAyMDIxYjhmZjQxM2EzMjBlOGUyZDhjZjYwNGFkOGM4YzUyYzhjZGI4YWI3MjU2NzM5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTNkN2EwZWIyMGM5ZWEzOTFiNTRjYTU3Mjk3YzlhZjEwYjM5MDlkMjU1MjE5NjhkODBmZWYwZjVmNDQxMWNlNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTMxN2M3MGE0Y2U4NDZjMjIwNjNhYjdkNjI5MzU1MmMxNGJhYmQzNmU2NGVkMjRlYTY1NTM5OTM3NTRiZDllZCJ9"
+        },
+        {
+          "resource": "repo://app/routers/misa.py#L160-L160",
+          "version": "repo-lines-v1:sha256:b1aaa12175f00b2c6f5254164630f46ae11d16cea4804c1a1c53e7fbde2639af:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFhYWExMjE3NWYwMGIyYzZmNTI1NDE2NDYzMGY0NmFlMTFkMTZjZWE0ODA0YzFhMWM1M2U3ZmJkZTI2MzlhZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFhYWExMjE3NWYwMGIyYzZmNTI1NDE2NDYzMGY0NmFlMTFkMTZjZWE0ODA0YzFhMWM1M2U3ZmJkZTI2MzlhZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTE4YmNkYzNlMjA1NWNmMTFkZGYwOWJmYTkyOGMzOTUzNDI5NjM3M2VmZmE4YTZiNTU5YzQ2YmFhN2I3NGJmYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNzlhMDFlNjZkYjNmMzEzZWJkMGJmMDk4MDgxZTdkNjQwNmVjZTU1ZTI0ZjljNDZiZGYyNjg4YWI4NjRlMmE1OCJ9"
+        },
+        {
+          "resource": "repo://app/routers/misa.py#L179-L179",
+          "version": "repo-lines-v1:sha256:b1aaa12175f00b2c6f5254164630f46ae11d16cea4804c1a1c53e7fbde2639af:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFhYWExMjE3NWYwMGIyYzZmNTI1NDE2NDYzMGY0NmFlMTFkMTZjZWE0ODA0YzFhMWM1M2U3ZmJkZTI2MzlhZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFhYWExMjE3NWYwMGIyYzZmNTI1NDE2NDYzMGY0NmFlMTFkMTZjZWE0ODA0YzFhMWM1M2U3ZmJkZTI2MzlhZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZDFmNjUzNDg5MmVjZjNiMWZlMjg4ZTk2ODc0ZjY5MmIzZjc2OWZjNTBlZTRmYjFlNTE4OTJhMGM5MmQzNWQwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmMzNGY3MzdmMzU0OGQ3OGIwMjE0ZTBlNmVhMzk4OTIwMWI1ZmU0NDViNjU0OTczZDZiZjBlZmU5YzkxNTQxOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c189bd1e9c36495f80f1014402272c2e",
+      "statement": "The EventDetailDashboard polls the live stats endpoint every 6 seconds using setInterval.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/EventDetailDashboard.tsx#L73-L73",
+          "version": "repo-lines-v1:sha256:70a24b738d2c41e23512f3995374a7b4f9257d3a181548a9cce5688db0598e1b:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBhMjRiNzM4ZDJjNDFlMjM1MTJmMzk5NTM3NGE3YjRmOTI1N2QzYTE4MTU0OGE5Y2NlNTY4OGRiMDU5OGUxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzBhMjRiNzM4ZDJjNDFlMjM1MTJmMzk5NTM3NGE3YjRmOTI1N2QzYTE4MTU0OGE5Y2NlNTY4OGRiMDU5OGUxYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWUzOTE1MTZlOTljYTNiOTgxNGFhODVmY2U0ZTgxNTJkZWVjNWQ4ZTk0MGRkN2EzMDAzMGI0YjMwNmRmZTVjYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTRjZWIxOGY5NDI1ZGYxMDg3ZTZlMGJkYjE4NDFlY2IxMTdhMGZiNTg3M2IyOWE4MDI4MGU0MWQzNjJiNTIzZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ab0f3c0bd1e242799f7b37093abcd79b",
+      "statement": "The QrModal renders SVG QR codes at error-correction level H encoding the URL {origin}/pos/{token}.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/components/QrModal.tsx#L24-L63",
+          "version": "repo-lines-v1:sha256:e46f10326649ba4e5825b0dd0c0c23a35835694e8c3b369c0bf36c04be79f899:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE2YjYxOTA4ZWU4ZTQ5MjFjMGE5Y2NiOTBmYmZiMGEyNGUzZjRkMTgwZjQ0MDg2MjRkZmVjZmRhYzRkMjNlM2YiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFmMjE1ZmQwM2NmYzJiZWViZjgwNGExN2FjNWU5NDc5NTFmN2NkMmRjMDU2MDUyMjQ5OWM2MDZmZGJjZDcxODUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlNTcyOTIyYmFkYmQ5YTFhYzI1NWIwNmNhYmI2NTJjMTZjNzJlMmM4YzgwMWFmYjMzNjA3NzdmYTM2ZGE5MTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjU0ZDk1OGIzNjFmNDdkZjdiMDk2YzEzN2IzMTM2ZjIxNzFiM2RkZGFiYTMxNjVmNDRlM2QwZWUzZGQ0YjhkZGUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_290111bd474f4e3fb4a4a0ba12fbf5e3",
+      "statement": "Event deletion cascades to all child EventPos and AttendanceLog records via SQLAlchemy cascade='all, delete-orphan'.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L61-L62",
+          "version": "repo-lines-v1:sha256:6aa425e71574339166c1fb66ca323e4b4eead9f1138d368d4aab6d83ad0e6846:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmE3OTM3M2Q2MjU2MjIwZThhYTAxOTQyZDM1ODNmOTU5M2E0ZDQ4OWE4YWJiMTk2ZTg4ZTc4YzEzZGExNTQ3YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjU0Y2VkNmQ4OWRlMmUxZTczNjBlMjViZmRiODVkNmE1MTAzMGZiYzA1NTRjNDkzYWMzMmExMzU3N2NiYWQyMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGQ0YmI1NWRkN2FlNDE0ZjcxMzIzZTFlOTEyOTZkN2RhZjgwMjk1M2YzYTZjODU2ODg2NDg3Y2I2MzlkOTg0NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMmM3ZTI0MTg4MTM1MzZjNTI2ZWY5NWU4MmVjODM4ZjUzODkyZWVjZjE2YmM5ZmJiNTQ1ZTI5MWRjMTE0Y2UxOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f06aefc180b740058b5c9ea517748a53",
+      "statement": "Attendance log entries use client-side UUIDs as primary keys to ensure idempotent batch sync; duplicate submissions increment already_existed_count rather than creating duplicate rows.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L82-L82",
+          "version": "repo-lines-v1:sha256:7632ab3b76b5308fba89c9e263fe81dc20d88eed0b829fa81d2fc3d87aac6e3e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzYzMmFiM2I3NmI1MzA4ZmJhODljOWUyNjNmZTgxZGMyMGQ4OGVlZDBiODI5ZmE4MWQyZmMzZDg3YWFjNmUzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzYzMmFiM2I3NmI1MzA4ZmJhODljOWUyNjNmZTgxZGMyMGQ4OGVlZDBiODI5ZmE4MWQyZmMzZDg3YWFjNmUzZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjkxYmM2MzY5ZjEzZTIwM2QyY2YyMGQ1OWMyNjE2NTExZmE5YzZhMTExMGE2Y2JkZTE4M2JlNGJlOTE2MjYzYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjhiYmZhOTA5YzlmNjNiZWYzM2E5OTJhMjQ2MTNjN2Y2ZTZiZTRjMDgxYzgyNjdjOTdjZWVmNDAwMjFjNDZiNyJ9"
+        },
+        {
+          "resource": "repo://tests/test_api.py#L156-L159",
+          "version": "repo-lines-v1:sha256:335dd16171c51fd21e44f691b68c8874b2e90e74ffe0de959f0ae36448525fd0:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWYzODNhYTU3YmU1ZDA4ZDU5YjgzZThjMTM2M2E3NmRlNTczZTdjNGRkMGQ3NjczMWViNDY4YTQ0ODM1ZTYzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjcwMWViZGIzOWM5ODI4MTA1MWZhZDk2ZDMzZTlmMWZjZDE2Yjk1ZDI5NTYxNWRhMjkyYTc3NzdjNmQwMTExZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjRhN2E5ODE5YmJjNWFkYjgwZWJiZjgyMTI5MmFhMWIxMWY4NzdmZTczMWQyYmI0NDk0OTBkOTJhNzhjM2RiNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWFiYzZlOWVhMjhmZjVhYzc3MmVjYzhhNjU1YjllYTZlNTQwZjdjYTAxNWQ4MTk1YTFhMGI5Y2M3ZThmNzEyMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b87a241c93e14be2ada6076a951ba3a3",
+      "statement": "The CSV export writes attendance logs with columns: ID_Tap, Nama_Event, Gedung_Lokasi, Nama_Pos_Pintu, Pilihan_Umat, Waktu_Sentuh_Lokal, Waktu_Diterima_Server, Metadata_Tambahan.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L146-L198",
+          "version": "repo-lines-v1:sha256:8f3adffdefa90bca74e94cbd2b6709cddf43a312063b14bab75bbff22d87be1a:eyJzZWxlY3RlZExpbmVDb3VudCI6NTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2N2E3NTQyMTUzN2I0ZjExY2ZkZDMxZjBkZTc3ODA1YTFlY2NkNTMwY2Y0ODIzNDAwZTQ5OWQwMWJiMWMyMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2YjA0NDkxNDY5NzIyZTgzNjNhOTRlNDA0NDUzOGUwMTNhMmEyMTdlMzZiMWU1NjhiYTYwYWNiN2I0YzhmMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUxOGEyNWU0NzQwMGYyMzVlZGYxZGQ0ZWRkOTVjZDlmOTIyODU3OGY4YjFiNzVhMzg5NDc5ODg3NmE4ZmFjMWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_3aa81d9734d94cfb948777e4c82a0c53",
+      "statement": "The test suite covers the full admin dashboard flow: event creation, batch sync with idempotency, live stats verification, CSV export content, evaluation notes persistence, and SPA routing.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_api.py#L91-L272",
+          "version": "repo-lines-v1:sha256:21dea1db70275d871d01a50d0e9b0520e9460e0733c014fbff29eae2ac0052e5:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgyLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiJjNjU5NGYxYzY3M2Q0NjQ4NTJlZDNmYzdiMmJhZmI1NDM1YWQwODIyYjE0YTVjN2U2Y2ZmYjBlNGE1Yzg0NTE0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI2MjQ1NDBjMGVlOWE4Yjc1N2M4Yzk0OThjYmVjOTM5MDIyZGEzMzM1MGIyZDdjNTFhYWZmOGFkOWViNzY5MDdlIiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T04:05:02.987Z"
+  }
+}

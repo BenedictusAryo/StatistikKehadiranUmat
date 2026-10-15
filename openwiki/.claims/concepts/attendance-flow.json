@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:53b8fac2057829bd9e03e383f79b672df4a1b8ed09be134628de9bb780be6476",
+  "claims": [
+    {
+      "id": "claim_d2ac72e816da4eb58026344b5a4fb6d1",
+      "statement": "The offline queue store uses client-generated UUIDs (crypto.randomUUID()) as the primary key for AttendanceLog.id, providing idempotency when re-sending batches after network failure.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L72-L73",
+          "version": "repo-lines-v1:sha256:994779cb14791043f3b04448de1b82ea989c506e2f5657aa57db589493489ed2:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTE0ZDY2YWJjZDU3YjcwMTQ1Y2FmYTRiODQ4N2I2YjUxZjljYjVjNGUzZjRjMzdiODFmMjFlMzZiMWZhZDRiYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODY3MmJlNDNmYmM2MDA2MzYzOGM5ODc2OGY4OWFlN2M1ODZhNzQ4MjAzNDllYzMwOWNkZDY0ZWVmYmRlM2VmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZWU4NDAwZjhkODJiZGRlNDY0YmEzYTNiNmViZjkzNDYzODhlYzliNzQ2NmJlOTk3M2UzNzU1MzNhYmQwYWE4NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTMyOThmYThlY2VkNDc5NzRhYTM4NzliZmEzODdjMzZlYjdjOTczMzJlYTQ1ZmI3YzNjYmY3Yzc2NmJjMjU3NyJ9"
+        },
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L72-L113",
+          "version": "repo-lines-v1:sha256:358015ddf98c9ad2917bac7ef30144fd7cf7a0bf702ee60c340d8ed792bc0c2e:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiN2RjN2JiZTJjYjQ0MjI2OTE5NDE1MjZjMzM2MmM2N2M2N2I1YzQzMDU2ZjQzODA0NzZiMzUyNDQ3MjUxZWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5NzhlMjUwM2I4Y2YzN2EwNmY3ZDZmMGEzYTZiNmZlMzU2OTFmYmNhYjUwYjg3NzVjYWI2ZmFiYzcxYzU5MmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZGNmYjRmNmFiZmI1MzEwOGQyZDVjZTViZjA1NmQ3ZDQ2NWI3ZDA1NzcyN2ZmZGFkZjE2NWE5NDU0NTJiYWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyMGJjNDdjOTNkOTEzMTUxMDJlMmIzZTIwZDMzMDEwZmQ0NDdlNzdiNDI0MjBhODAyMmEzYTdiZjNlZDkzYmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_11c11ee8a9ba40f397249a4d3ae52b34",
+      "statement": "The batch sync endpoint at POST /api/counter/{token}/sync checks AttendanceLog.id against existing rows before inserting, preventing duplicate tap records on retry.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L69-L102",
+          "version": "repo-lines-v1:sha256:51eca5ed7b7c6a3b3a5d5fc52a97d4f4d21d93a57387b91ebc8c6a0f468149f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZlNGMwZmMxNzZmMjE3YjAwMTJiMjNhNWY3MDJjY2U4ZTBlZmFmNGZhYjQxMjEzMzRmM2QwNDdiOGY4MDI4YTMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMTgxNjdjNTdmMDhiMGVkNmQ1ZjYwOGUwNTEyY2I3YTgyMzIwNzgwYzFmZDA3ODNlOTgxM2RiODg0NzY0M2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjgyZTk5ZmMyMDU3Mjc0NDg5NWUzNzBmY2Q2Y2RmNWNhYmVhZjllMTA1MjMwMjE5MmFjZDIxZDRmZDgzYmExNWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQxYjA2OWQ5ODY0YzI2OGY1YjdjMjNmZTkyZWQ3OTc5ZTgxNTA2ZjkzNGM3NjUwMTUxY2MxOWJkNDBiZGNiMzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_699ae39b15884273a5c9563cbfc7665a",
+      "statement": "After successful batch sync, the endpoint invalidates the TTL cache for that event via stats_cache.invalidate('stats_{event.id}'), ensuring the next live stats poll recomputes from the database.",
+      "evidence": [
+        {
+          "resource": "repo://app/cache.py#L27-L34",
+          "version": "repo-lines-v1:sha256:c409ac7dcc12b6f37c7bcca9798560e8a58112207ec77b829efd86eab63cd046:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmU2NWRlNzRiMDRlMDVmZTg4MmJlNjk4YThmOTU3MTcyNzEwZjBmOTY3NDM1NzA2NmRjOGI0OWM5NjZmMGI4MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOWI2ZDc4MTFlYWMwMmFlNDE1MWZkZDJjZjhjMjUzZTMwMjVmYjZjOWJkMDRmZWVlZTM0YjMxNWZlZTAxNDgyZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTc3M2FjZjI3OWVlMmYxMDUzNWE3YWQ1MWU0ZTQxMGQ0ZTYyZWNlNDUzM2E1MWYzMTZjNTBkZThhOTViODU0MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDk5ZWRhZDhiZTBhMzAxMjBjN2I1Yzg1ZGEwMzZlYzc0NTMxNjA3ZmI0YzJlOWVmNTAyMjE0ZDVkOThjM2Q0YiJ9"
+        },
+        {
+          "resource": "repo://app/routers/counter.py#L108-L108",
+          "version": "repo-lines-v1:sha256:acc0129156c07ec5399704a262361030f839f513bc98f671d211a6f7b3f19570:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWNjMDEyOTE1NmMwN2VjNTM5OTcwNGEyNjIzNjEwMzBmODM5ZjUxM2JjOThmNjcxZDIxMWE2ZjdiM2YxOTU3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWNjMDEyOTE1NmMwN2VjNTM5OTcwNGEyNjIzNjEwMzBmODM5ZjUxM2JjOThmNjcxZDIxMWE2ZjdiM2YxOTU3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2EwMmIzNTU2NTliZTk0NjZiMGFiMjYyYTY1MDU4MmMzNTQxNWNiMzBmZmJlYWMwZjA5YWQwZmM5OThiNzNiMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGYyYWQ5MWVlMDBkNTFjMmQyMTVjM2EyZDM2YWQ0NDQ0ZjhiNjI3MjcxYzUzNjNkNjk0MzAyMzMzMzVkMTEwYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_2de755c506ce4d4399546c91d1a46163",
+      "statement": "The live stats endpoint at GET /api/stats/{event_id}/live checks the TTL cache first, and on miss loads all AttendanceLog rows for the event into memory, aggregates totals, percentages, building breakdown, and 15-minute time series, then stores the result in the cache with a configurable TTL.",
+      "evidence": [
+        {
+          "resource": "repo://app/cache.py#L36-L36",
+          "version": "repo-lines-v1:sha256:f4eb4bd88d900fabc1e5e66df1b66a2895756c2fd5cef4af62a7973635b8c7ce:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjRlYjRiZDg4ZDkwMGZhYmMxZTVlNjZkZjFiNjZhMjg5NTc1NmMyZmQ1Y2VmNGFmNjJhNzk3MzYzNWI4YzdjZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjRlYjRiZDg4ZDkwMGZhYmMxZTVlNjZkZjFiNjZhMjg5NTc1NmMyZmQ1Y2VmNGFmNjJhNzk3MzYzNWI4YzdjZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTFiMWE0ZWM5YWQ4ZTM0N2Q1MWVjYzQ0MDk3OTYxNjEyOTAyYmQ3ZjAyZTg3YmRhMzcwYzJlN2E4ZjBiNDJjMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://app/routers/stats.py#L19-L144",
+          "version": "repo-lines-v1:sha256:ca72eb2849aef44b7aa36e844dd8a8d63fce3ee29b5a1b67653be5264544c4a3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTI2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzMDc2ZmIwYmUyYjA3YTU5ZDQ4YzIwYWM2MDM1OTAzNWY0NDcxZmZlNzc0M2UzNmM2N2Q0NzE4OWNiZDFkYjQxIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJmYTExYzA1NjdkMGE1ZjllOWIxMzVmNjVjZDI1MzcyZGZkNjI4Nzc1ZjdjMWVkMjUzZjhiYWQ0MmRkMmQ2NjY5IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJhNDU1MDZmOGNmYTg1ZjI5MWRmNzZiYWE0YTE0Y2E1OTBkOGQ0NTJhMmEzYzFjZWRjZjhlZDY3Y2RmNDk1ZGM2IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJjZTY4ZGY3MDA2YzUxYWExOWZiNDUwMTFmNTY5NzFiMjZhMzAyMmYxMjkyNDY2MGE5MzM5MGM1OGRiZTBlYzM5In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_4df0f4d34e19464094f4f937d1fb5247",
+      "statement": "The TTL cache has a default TTL of 3 seconds (configurable via CACHE_TTL_SECONDS), and the Videotron polls every 6 seconds, so the maximum stats staleness is approximately 6 seconds.",
+      "evidence": [
+        {
+          "resource": "repo://app/cache.py#L6-L6",
+          "version": "repo-lines-v1:sha256:63b5004239418246d8cdcac112ff1d812ed8e3ec05ac351110489ed61f9de034:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjNiNTAwNDIzOTQxODI0NmQ4Y2RjYWMxMTJmZjFkODEyZWQ4ZTNlYzA1YWMzNTExMTA0ODllZDYxZjlkZTAzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjNiNTAwNDIzOTQxODI0NmQ4Y2RjYWMxMTJmZjFkODEyZWQ4ZTNlYzA1YWMzNTExMTA0ODllZDYxZjlkZTAzNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzI1YmYxNjU3YjZkNWQ1NDA1ZjczOWQ0NWFmZjQ5ODc2MTFmMzFhMzM5NTE3ZGUxYTk3NjU2MDA2ZDhmYmM2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWYyNTM5NWIyMjBmNDYxYjYwMDFmZjE5YzYxMDEwNDZkOTdlZTJlMTIzM2NiZDJiMDg5MzkwZjczYmI4YmRkNCJ9"
+        },
+        {
+          "resource": "repo://app/config.py#L18-L18",
+          "version": "repo-lines-v1:sha256:78341b980142802021b8ff413a320e8e2d8cf604ad8c8c52c8cdb8ab72567391:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzNDFiOTgwMTQyODAyMDIxYjhmZjQxM2EzMjBlOGUyZDhjZjYwNGFkOGM4YzUyYzhjZGI4YWI3MjU2NzM5MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzNDFiOTgwMTQyODAyMDIxYjhmZjQxM2EzMjBlOGUyZDhjZjYwNGFkOGM4YzUyYzhjZGI4YWI3MjU2NzM5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTNkN2EwZWIyMGM5ZWEzOTFiNTRjYTU3Mjk3YzlhZjEwYjM5MDlkMjU1MjE5NjhkODBmZWYwZjVmNDQxMWNlNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTMxN2M3MGE0Y2U4NDZjMjIwNjNhYjdkNjI5MzU1MmMxNGJhYmQzNmU2NGVkMjRlYTY1NTM5OTM3NTRiZDllZCJ9"
+        },
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L51-L51",
+          "version": "repo-lines-v1:sha256:c72590b98f0e0f329a1a519e42f2ac67569169c89ba283d2192e93ec2f06c6f4:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcyNTkwYjk4ZjBlMGYzMjlhMWE1MTllNDJmMmFjNjc1NjkxNjljODliYTI4M2QyMTkyZTkzZWMyZjA2YzZmNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcyNTkwYjk4ZjBlMGYzMjlhMWE1MTllNDJmMmFjNjc1NjkxNjljODliYTI4M2QyMTkyZTkzZWMyZjA2YzZmNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTkyMGFjYWRiZTUzYzk3ZmZjMWQ3ZjUxOWZhNDVlNzk3NzFiYTg4YWJiNGM5NjBmOTIzZjBjOGY0ODhkZGQyMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2QzY2VhYjNlYzQ4NDVmNTljNjcxOGQwOTFlYmQ2YWFjZjdhMDM3ODZmMmY0YzcyYWQyMGYyOWFiOTZhNWI0NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_3d2b5f454fdc4cf9b392ac9e83c13876",
+      "statement": "The kiosk page at /pos/{token} validates the POS token via GET /api/counter/validate/{token}, which checks EventPos.is_active and EventSession existence, returning event metadata or 404.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L16-L36",
+          "version": "repo-lines-v1:sha256:22721e25df8d243614becc1587917d0070ea43a2cf2fcac48d31c76c927d3543:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3ZmRmNDQxN2I2NTU0NWQ2OTE5NTkyNDg3YTRjZjI3OTM2MGJhYmRmZDExNjljZTBiYWIzMzMzOWNjYTUzOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1OWNiZmUwODdhMDM5NWZjNDRmOGI1MWEyMGM4MTU5OWI2OGU3NjJhMjRjY2Q2OTMxMmNkN2ZkY2MyYzJmZjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiYjA0NThkZDdmMzJmMmNlMzY4ZjZmMDA1MTI1MjNiYmIzZTAwZmVlNzA4YjgyYjEwNzU1MmRhYTUwMWU2MTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9b1b347427294567875aa70e32e641e6",
+      "statement": "The kiosk implements a 500ms cooldown debounce in handleTouchChoice to prevent accidental double-taps, and a 700ms success feedback overlay.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L96-L119",
+          "version": "repo-lines-v1:sha256:56171cae162c33b76064e8fc8ef4ac0e88632016643dddce2ec75393558f714a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5NDMwNGViMGIzMDQ0MDY0YjM5MjhlNzY3YmVlMjEyYWU5ZmMxNTIzNzZjYjcyMmZmMWQ1YjY4MGRhYzg4MDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY4OWIxZDBlMzQ3ZThhMGExYmQzY2M4ODgxMTJhMzNkMmRiYmNiOGJkZjcyZmUxMDU0MTEzODViMjVmMThjZWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ4Y2E1Njk4ODE4OGM5MjE3ZjE5NDNiMDAxZGY5NDQ3ZmFjYTFiYzk3NjgzYzBjNGFlMTc2ZDA2OTRlMWFjZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxYzUxYTAzMGYwMWM3Zjg0ZjYwMjc0NzE4Y2MxOWZmOGUwZDE4N2VhMTIxYWE4MjYzOTdkZDE2NjVhODg5ZmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_423da0f3c22d4609a0c2a9b404bebbef",
+      "statement": "The offline queue store persists queue and posCounters to localStorage via Zustand persist middleware, surviving page reloads with the storage key 'paroki-kiosk-offline-queue'.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L177-L181",
+          "version": "repo-lines-v1:sha256:fbef5b5e840c25fe1e9780f960156947405a040ffc28773dfedf54e86c3d8568:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ5ZDNmMWU1ODRjYjJhZDE4ZjU4ZjM5MDU1MGEzNTE0MTFmZDdmMzZhMjc2MWYwNmIzNGU3OWI4YWVjM2NhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTY3N2QyZjAzMWU5OGI1ZTkxMWM1YWQ0ZmI5YjIxODZhOTMyNTIyZThmNDZlZTQwYmFiZmFlM2RhMDBmYzEyMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWVjMjgzNmFkOTI2MjYzNmY1YjliNDI3ZmI4ZTRhYWExODFlZjFhMDdlY2E4OTlkYTUxMmVjNTU4Yzk5NGJlMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNjEyYmJmOWViY2UwODAyM2Q0MTkxNTgxMTg4YjdhNWVjYjM0MDYwZjViZDE5YWJmZTc1YzRkYjhlMGI2YzAxMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c8aec71af42f46169323b3f1f28e48df",
+      "statement": "The KioskPage listens for window online/offline events and runs a 6-second heartbeat interval that calls syncQueue when online with pending items and no active sync.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L69-L93",
+          "version": "repo-lines-v1:sha256:00b79f9057bf7858dbd10509e66a0373eae7139a88bd38d70edc03480d4c982d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5NjZmYmZhODg5OThkYTc0NjU2YzUwMTk0OTU2YzI1ZjA4NDk0NTc2NjBjMDA5ZmU2M2QxZTlmYTlkYzkzMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjZTBhYjMwYmQyODg3MjhlMTFiM2ZiNDNlMTUwNjkwMjE3MWQzM2FlMGZhZjhjZTc2NmIwOWY0ZTIzNTE5NzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1OTg5ZmY4YmZiODNmMmE4NzAyYTNkN2NhMzQxZmU5YzZjNThiM2U3YjgyNjJjZDZmYTgzM2YzN2U2MzcyZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUzOThhYWJmMjA5ZTVjNDBkNzY2MzYyNjU1NDIxNTE2MzUxN2JhMWU2ZDI3MGY3YmVlN2U0OGQ3MmUyZDcyZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9592d528c5904987bed4d1eaff370c11",
+      "statement": "The syncQueue method uses an isSyncing guard flag to prevent overlapping concurrent sync requests for the same POS token.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L117-L117",
+          "version": "repo-lines-v1:sha256:6f4fc857e87c0b3215bf3e6827554078dd965009ec74a7056634b1d6b164a2f1:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmY0ZmM4NTdlODdjMGIzMjE1YmYzZTY4Mjc1NTQwNzhkZDk2NTAwOWVjNzRhNzA1NjYzNGIxZDZiMTY0YTJmMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmY0ZmM4NTdlODdjMGIzMjE1YmYzZTY4Mjc1NTQwNzhkZDk2NTAwOWVjNzRhNzA1NjYzNGIxZDZiMTY0YTJmMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzIwYmM0N2M5M2Q5MTMxNTEwMmUyYjNlMjBkMzMwMTBmZDQ0N2U3N2I0MjQyMGE4MDIyYTNhN2JmM2VkOTNiYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjYxNjczYmNiYjkxMGRhZTVmYmY2ZjFkNWNlNzA1ZmM3Y2ZlNzk2Yjk1NjNmNmM2OGVlMTEyNzc0ZjMyODY2NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6bfcf0d372b44afb8f39cb28787ae76b",
+      "statement": "If an event's status is COMPLETED, the batch sync endpoint returns synced_count: 0 and a descriptive message, and the kiosk UI disables the touch buttons.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L52-L58",
+          "version": "repo-lines-v1:sha256:de82b764ca392c77ecf46c747d29b2cbf71410995bfab472bfb7412008f08f63:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzMxZWVmZTRhOWM5YmYwMjVmMmY2MWM2ZjM2MmQ0ZGIzMjg5MmFiNWJhMWY5ZmM3OWQzMzdhNTU0MGI4MmI1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGU5NGNlYjBhZmJjM2RhMzZiODNkODdlZjUwZWYzNjVhYjlmYTVmNTEzM2YwNmJmZmIzOTQ4YWYyYjI5NDUwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2M0YmIzNjBhNWI2OWQ5MWI1OTY2Yzc2NGVmNDgyZDkyNmI0YjUyOTc3NzRlOGNhNjYwYjg2MGI2NDIwOTAyYiJ9"
+        },
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L97-L97",
+          "version": "repo-lines-v1:sha256:06d8ceb6865ebcc43cff26928c190e4676adff1f3be70d1f5df6760465431e53:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMDZkOGNlYjY4NjVlYmNjNDNjZmYyNjkyOGMxOTBlNDY3NmFkZmYxZjNiZTcwZDFmNWRmNjc2MDQ2NTQzMWU1MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMDZkOGNlYjY4NjVlYmNjNDNjZmYyNjkyOGMxOTBlNDY3NmFkZmYxZjNiZTcwZDFmNWRmNjc2MDQ2NTQzMWU1MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTM5OGFhYmYyMDllNWM0MGQ3NjYzNjI2NTU0MjE1MTYzNTE3YmExZTZkMjcwZjdiZWU3ZTQ4ZDcyZTJkNzJlOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTlkNDMyOGQxZGYwMTU1MGY3MTc1ZmZiYzI5MzY2MjBlN2ZhY2U3MmFjMTAwNGZhMWYyYjRlMmIzODE1NDA4NyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_85e685506de444638de83f2b32544a13",
+      "statement": "The live stats aggregation computes capacity_status as NORMAL (<75% capacity), WARNING (75-95%), or FULL (>=95%) when enable_capacity_warning and capacity_target are set on the EventSession.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L44-L51",
+          "version": "repo-lines-v1:sha256:8d79ab1eda4e9b31da30261b0291aa26f948f42d53ef6b71b8184b63e15ac2e6:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjFkOWE3ZWMxYzE3MWZmZmU5Njc2MGNmNWMxYzAxYjlhMWQ4MDNiYTMwMTQ0ZTc5NDEwYTE1Njk2ODEyZDFjNyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDNiNmMxMDhiODIyN2RlZmI4N2NkYzEwNmQ1ZjE0MGQ1ZTc3MjkxZmQyMzhlOWJlOGRiNmZlYTg3NzYzMDFhMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWIwNTEzYTEzODA2ZDYzNjQwMTU2ZmM0OWU0YTA4ZjIxOGNiMWUxMWQxOGU0NDBiMzc1ZDA3NWJhMTFlYjRkNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWU3NDllYThkNjgyYzFhOGViZDE3Y2IxMTYzZWIyMDg0M2IzZTQyYzljMWVjNjg1MDNjN2NjNzFkOWExMjRiNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7072a7310d1c433bb9e8222c60742e9c",
+      "statement": "The VideotronPage supports three display modes (SPLIT, NUMBERS, CHART) that switch between a combined header + chart view, a giant-number view, and a full-viewport line chart, all polling from the same live stats response.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L22-L22",
+          "version": "repo-lines-v1:sha256:7d51e4965a04778d8c89f4461ae1262d94d943c34ee18e0c455a189004451cc5:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2Q1MWU0OTY1YTA0Nzc4ZDhjODlmNDQ2MWFlMTI2MmQ5NGQ5NDNjMzRlZTE4ZTBjNDU1YTE4OTAwNDQ1MWNjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2Q1MWU0OTY1YTA0Nzc4ZDhjODlmNDQ2MWFlMTI2MmQ5NGQ5NDNjMzRlZTE4ZTBjNDU1YTE4OTAwNDQ1MWNjNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTFjNDM0ZTZmNWFlYTgwZDRmNTAwMDAwNWVmNjk5ODkwYTk4OGFhNGZhZDhkMTQ3MjRhYmMzNDNhM2U5NTEyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzgzYmIzZjY2MmNiZGZhMGViMzMzMTE4ZDBiMjMwZTRhMGYzYzU1OTJkYzUwOWMyZWVlNGU5ODYzOGU4NTE0MSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ee37772edc2e491cbffff4f2764fff55",
+      "statement": "The CSV export endpoint queries AttendanceLog directly (bypassing cache) ordered by client_timestamp ASC and includes event name, building, pos name, choice label, local timestamp, server timestamp, and metadata.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L146-L199",
+          "version": "repo-lines-v1:sha256:e57c831ddafca9314c6d1bca0bb6891794e894e75755c81c6337c41e6b0cffbc:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ2N2E3NTQyMTUzN2I0ZjExY2ZkZDMxZjBkZTc3ODA1YTFlY2NkNTMwY2Y0ODIzNDAwZTQ5OWQwMWJiMWMyMjMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUxOGEyNWU0NzQwMGYyMzVlZGYxZGQ0ZWRkOTVjZDlmOTIyODU3OGY4YjFiNzVhMzg5NDc5ODg3NmE4ZmFjMWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_17f5d980635741cfb0c66b6a3fab6a58",
+      "statement": "The integration test in test_create_event_and_counter_flow validates the full attendance flow: event creation, POS token validation, batch sync, idempotent retry, and live stats accuracy.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_api.py#L91-L179",
+          "version": "repo-lines-v1:sha256:78b0da5a1c144a525a1cbc7871cce046e712651279e5d6c7b96e4ca80fd5c44b:eyJzZWxlY3RlZExpbmVDb3VudCI6ODksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2NTk0ZjFjNjczZDQ2NDg1MmVkM2ZjN2IyYmFmYjU0MzVhZDA4MjJiMTRhNWM3ZTZjZmZiMGU0YTVjODQ1MTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFhY2ExMjdhM2UwZDI1M2Y4ODMyNTg5ZWI4YTk3OGI0ZDc4OTNmOTdmOGYxMmQxMzIzMGYwMDY3MjcyMzk2ZDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyNDU0MGMwZWU5YThiNzU3YzhjOTQ5OGNiZWM5MzkwMjJkYTMzMzUwYjJkN2M1MWFhZmY4YWQ5ZWI3NjkwN2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxOTQyN2NhZWIwNWExYjU0ZDBlYjVjYzQ2MTdhZmJkODJhYzUwODk1ZGUwMWVjYjlkMDc5ZWExNjUxOGYzYjMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_531d7f1b0e5a418b9501e2644c3dac60",
+      "statement": "The kiosk records taps with haptic feedback (navigator.vibrate(35)) and a harmonic 2-tone audio chime via the Web Audio API before updating Zustand state.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L6-L38",
+          "version": "repo-lines-v1:sha256:1808641e0ace6f0f0c1be4c070b60aa60adbf1271844c5c6fbf5cc588fb2fea0:eyJzZWxlY3RlZExpbmVDb3VudCI6MzMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI4YTc2NTIwNmE2MzQzZTcxZmJhNmFhMjJiZGY5MTBhMDIyY2RjOTIzYmRjYzNkZmIwODIzYzFhYTM4YjA5MGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk5NGY5ZjJmZjc0M2Q2NDEzNDVkNzU2ZjcxNWU2NGNkYWI3ODQzMzZjMzY3OTY3N2Q3YTQwOGI5NTMzYWJmNmEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQwNDdlNjU5NDFlYzZhYjRlYWJkMjk1YmNkMzhlMGFiZjIxZWVkYzJmZDdkMDk1YjNkOGM0NGY0Yzk5Yjg4ODkifQ"
+        },
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L72-L78",
+          "version": "repo-lines-v1:sha256:86af0aa165ebd268626509fa5931b57133d61d0aa41c3db60f8c2c69c8dd3c51:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2I3ZGM3YmJlMmNiNDQyMjY5MTk0MTUyNmMzMzYyYzY3YzY3YjVjNDMwNTZmNDM4MDQ3NmIzNTI0NDcyNTFlYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMWVkY2ZiNGY2YWJmYjUzMTA4ZDJkNWNlNWJmMDU2ZDdkNDY1YjdkMDU3NzI3ZmZkYWRmMTY1YTk0NTQ1MmJhYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTVlNzg1ODNmYjA0ZDgwY2VhOTg0OGZmODEzZTJlYjMyNTRhYjcyZWZjZGMwMDk2Mjc2NDM1MTQ4NTI5MTVmMyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T04:05:02.987Z"
+  }
+}

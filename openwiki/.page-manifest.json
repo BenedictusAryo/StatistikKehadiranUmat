@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "pages": {
+    "/openwiki/architecture/authentication.md": {
+      "pageVersion": "sha256:9812470cac6f905c305f80cfebf68fd0f60f466b0cb09ec3b26baf8fb1047d86",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/architecture/backend-overview.md": {
+      "pageVersion": "sha256:4cb1fb19355670a3c0df663e3301eeb7089aa60240ebb15a6524b8473f847e73",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/architecture/data-model.md": {
+      "pageVersion": "sha256:eb5576f9cc5ac8c60498fd22e3f65e1c9cca34be2b103a3b33a78c5f6fcbe63a",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/concepts/attendance-flow.md": {
+      "pageVersion": "sha256:53b8fac2057829bd9e03e383f79b672df4a1b8ed09be134628de9bb780be6476",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/concepts/offline-sync.md": {
+      "pageVersion": "sha256:3afa4667f943b9c10ad2721296df166047663918d08c7bb1ba02cad43db5f7c8",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/integrations/admin-dashboard.md": {
+      "pageVersion": "sha256:99d83c5e5334d4c7f119210d6509b7a0513f7745d5c09e5184fba7179455d376",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/integrations/videotron.md": {
+      "pageVersion": "sha256:4f18654bda34303d3e46fec3985a453337c70f805c156c2f9d68a544ac07d9cd",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "0824bac3-4a5e-43ac-bb44-3f48b5b5ec57",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/operations/deployment-cpanel.md": {
+      "pageVersion": "sha256:2e1ca0824230bfc39d62113a09339d1646c59870ae29e1a8f9045f91f4727017",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/quickstart.md": {
+      "pageVersion": "sha256:ce0f2082307abdbdb7cf3d0f6363c5c6e09a847b4cda0be4477d9cf8f07486ee",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "0824bac3-4a5e-43ac-bb44-3f48b5b5ec57",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/testing/api-testing.md": {
+      "pageVersion": "sha256:b84ddbe40b96289167825462f785b0a784a63aa7649261c82ab92c7820cf04aa",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/workflows/create-event.md": {
+      "pageVersion": "sha256:a6d33d87bfb69179905d4958426dfca01d32a664465c577c43fe8bcce28ece2e",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    },
+    "/openwiki/workflows/kiosk-counter.md": {
+      "pageVersion": "sha256:2ba7b5e2ab0ead524dab6fbc3e4f514e20a7de31a40ab66684601f896070390b",
+      "completedBy": "openwiki/0.5.1",
+      "completedRunId": "fc006397-6bd8-4760-8ade-b47940854fd0",
+      "gitHead": "be3ae0dedad88ce54b13ca5523a1c4def4977605",
+      "sourceFingerprint": "sha256:d0fe903cc90bcaf839bc999c94582e2dc7fd5d8c145cc7154b9fdcbd82fbe7d5"
+    }
+  }
+}

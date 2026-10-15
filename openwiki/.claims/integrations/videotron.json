@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:4f18654bda34303d3e46fec3985a453337c70f805c156c2f9d68a544ac07d9cd",
+  "claims": [
+    {
+      "id": "claim_351d9fb8af034be98fab1669afc3997f",
+      "statement": "VideotronPage polls the backend every 6 seconds (6000ms) via setInterval at frontend/src/pages/VideotronPage.tsx line 51, providing near-real-time attendance data to the congregation projector display.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L50-L51",
+          "version": "repo-lines-v1:sha256:b6babe4014bfe1644ffc04f22ce7fce6780c89856ddb71262753d7b059bf850d:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTg2ZmY0ZmQyMDBkYzFjNTg2NDYzMzAzNGFkZmRhMzg3OWVjZmJmZTgwZTI4OTU4MWZiZDg3ZDY4OTlkOGM5ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYzcyNTkwYjk4ZjBlMGYzMjlhMWE1MTllNDJmMmFjNjc1NjkxNjljODliYTI4M2QyMTkyZTkzZWMyZjA2YzZmNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzZlZjQ2ZWY3MjkzZjMxOTBmNWU3ZjIwMzA2YzA0MjQ0OTZkNDg3NDVjZTlmZWQ3ZTg3YjdjNzEzMzhhN2RmNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiN2QzY2VhYjNlYzQ4NDVmNTljNjcxOGQwOTFlYmQ2YWFjZjdhMDM3ODZmMmY0YzcyYWQyMGYyOWFiOTZhNWI0NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4c63ef871ecf4e5db3676eef1e412241",
+      "statement": "The backend SimpleTTLCache (app/cache.py) has a default TTL of 3 seconds configured via settings.CACHE_TTL_SECONDS = 3 in app/config.py line 18, preventing repeated database aggregations within the same polling window.",
+      "evidence": [
+        {
+          "resource": "repo://app/cache.py#L6-L9",
+          "version": "repo-lines-v1:sha256:a89a4819b8beee718344fe75bf1b6188384e39731b5c7d8aa39b2a0df78a1312:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjNiNTAwNDIzOTQxODI0NmQ4Y2RjYWMxMTJmZjFkODEyZWQ4ZTNlYzA1YWMzNTExMTA0ODllZDYxZjlkZTAzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWRiN2ZjNDM5NDExMmUzYzVlNmViYTI4ZTM4MjZkODA1MDJjOWRjYzFjYzZiNmY5MGFmMjRhZDk2ZDcyYjc3MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNzI1YmYxNjU3YjZkNWQ1NDA1ZjczOWQ0NWFmZjQ5ODc2MTFmMzFhMzM5NTE3ZGUxYTk3NjU2MDA2ZDhmYmM2NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDc1ZGEyYmZiNzgyY2QzOGI0MzFjNzlmYjEzMzM0YzBmYzc1MzI2OTE2NjM1MmEyZGYyMmE4YTgwMGQwYTM2ZSJ9"
+        },
+        {
+          "resource": "repo://app/config.py#L18-L18",
+          "version": "repo-lines-v1:sha256:78341b980142802021b8ff413a320e8e2d8cf604ad8c8c52c8cdb8ab72567391:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzNDFiOTgwMTQyODAyMDIxYjhmZjQxM2EzMjBlOGUyZDhjZjYwNGFkOGM4YzUyYzhjZGI4YWI3MjU2NzM5MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzNDFiOTgwMTQyODAyMDIxYjhmZjQxM2EzMjBlOGUyZDhjZjYwNGFkOGM4YzUyYzhjZGI4YWI3MjU2NzM5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTNkN2EwZWIyMGM5ZWEzOTFiNTRjYTU3Mjk3YzlhZjEwYjM5MDlkMjU1MjE5NjhkODBmZWYwZjVmNDQxMWNlNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTMxN2M3MGE0Y2U4NDZjMjIwNjNhYjdkNjI5MzU1MmMxNGJhYmQzNmU2NGVkMjRlYTY1NTM5OTM3NTRiZDllZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_1f2ad2f974a8418cad8a48342edc5033",
+      "statement": "The GET /api/stats/{event_id}/live endpoint (app/routers/stats.py line 19) returns a LiveStatsResponse that includes total_umat, paroki_bintaro_count, luar_paroki_count, building_breakdown, pos_breakdown, time_series, capacity_percentage, and capacity_status.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L19-L25",
+          "version": "repo-lines-v1:sha256:c53c0e68e4f562cef4908455d82758c8c69f1cd97fa6784142c5b1c2e74eea85:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzA3NmZiMGJlMmIwN2E1OWQ0OGMyMGFjNjAzNTkwMzVmNDQ3MWZmZTc3NDNlMzZjNjdkNDcxODljYmQxZGI0MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWUzYzg4MmZlOGE2NmE4ZWRkYzEwZjRjMjdkY2U3MmZiOWM1MGQ2NGJlYjAxNmRjYjY4MzEyNzA1MWY0ODRjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTQ1NTA2ZjhjZmE4NWYyOTFkZjc2YmFhNGExNGNhNTkwZDhkNDUyYTJhM2MxY2VkY2Y4ZWQ2N2NkZjQ5NWRjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzcyMGI1YmFkNmNiOGNmOGQ2MWM5OTRjYzA1YmU4MDVjOWEzNGMxMjNjNzhjZmIwMWM5MDFjYjJiYWJlYTk5NiJ9"
+        },
+        {
+          "resource": "repo://app/schemas.py#L177-L196",
+          "version": "repo-lines-v1:sha256:dff1b14d8acd41dfca205bd5a416ef846a2e546b19743bfdb52735442072034d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg4MTA4NGZlZWJkZTc0YzQ3NGQ2MTMzOTM1ZTk3OWY1MDliMzczZjM1MjA3YWVkYWMxNDVjOTcyMzgzNTVhYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ0YmExMDFjMmFjNTIxOTUxMmUzOWMxYTlhZDQ3MGY1ZjdjMWU0NDY1ZDE4NTUzYzFkYTZlM2FlZGQzZjVhNzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkMTliOGVhZDEzZTNkY2ZiMWFiMTgzMWI5MTFlYTU3ZTBkZjZhNzk4ZDM1MDVkNDUwZWY2NWUwZTdlOGVlMTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_22ba09d6f0f140128506bd4d5f2d18da",
+      "statement": "Capacity thresholds are evaluated in app/routers/stats.py lines 46-49: cap_pct >= 95.0 sets capacity_status='FULL', cap_pct >= 75.0 sets 'WARNING', otherwise 'NORMAL'.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L46-L49",
+          "version": "repo-lines-v1:sha256:d1841b0d2c9fe32a55288991be8ba916b4abcddef39442ca07cb9f8edec97ab8:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjk3MGY2ZjNjM2MwY2ZkM2NjMDkxMzNiMTE4YTMwZDdlMDgxNjBjNWFiOGY4NGQyY2QxMzYxMWMxNWJmMWMzNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOGYxMjRjNDQ3NzY1OWIyNjc0MDFkYTdlMDIwNmU1NTY4Mjk1OWRlY2Q4MDkwZWQ3Mzg0YjZiY2ZkMjFmMjI3ZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmY2OTc5YzE3Yzk2NmY2ZjZiMTI2ODZmNDc2M2M0ZmE2ZmU0NGUwMDRmYTk3NDMzMzZmOWExOGYwODdiYTgzNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTdhYTIzOGI3MmFlYjc5NzNiYzliNjBmZDJhOGE1ZjdiNWYzYTM4NGNjYzg3MjFiNmNjN2M0NTc0MGQ2YjJiOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_4f4d12127bc24fb9bba20d1fd23e1c5c",
+      "statement": "The FULL capacity banner (displayed at >= 95%) uses a rose-red gradient container with Flame icon (animate-bounce), animate-pulse, and bold uppercase percentage pill, as rendered in frontend/src/pages/VideotronPage.tsx lines 199-215.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L199-L215",
+          "version": "repo-lines-v1:sha256:88da3c6a6de09f3a6f200958693796569f9f55914aa63143b1387c5011524d8b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjljNWRlNDE3MTYwYTJmMDBhY2NlNjZmNDBiN2ZmMTU2YjEyNGRjOGY3ZTA0Yjg5MjMxMjE1ZDc4OTFmYzJiZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTAwNTlmNDhjYTU2ZjZiNTBmZGM2OWExNWM3YjdlNjMzY2MxZTEzNjA4ZGFhNTBlZDkyM2JlYjBmNjM2ZmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYwYWVjMGU5OTg2ZTE2NjQ1MmUzMWI4NjQwMTNmMjg5MDZkOGJmZjNhMjgxZGM2ZGQ5MmJkODVjYzAxOTFjZDgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImRjZDQ0MzRjN2Q2ZGI2ZWEzMmM3Nzc5NzdhNzVmNGJjZWE4ODMxOTY3MTU1NzVjZTc1YmYyMmVkNjU3ZWY5MDIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c542942c83fd47dda7e3633e32937b60",
+      "statement": "The WARNING capacity banner (displayed at >= 75% and < 95%) uses an amber gradient container with AlertCircle icon, as rendered in frontend/src/pages/VideotronPage.tsx lines 216-229.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L216-L229",
+          "version": "repo-lines-v1:sha256:0c7a0afac99f84d65815887ee71fce9b4446c8d6dd35f2674596ac1c4646d453:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJkNTcyYjAzNzkzNzAwNjBkNDRkNjM0OWFiOTE0ZWEzMDA2NThkNjk0MDQ2OWYzYTNmYThkY2ZhMmQ0ZWQwYzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ5OTAwNTlmNDhjYTU2ZjZiNTBmZGM2OWExNWM3YjdlNjMzY2MxZTEzNjA4ZGFhNTBlZDkyM2JlYjBmNjM2ZmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI0YTYxNjdjYWMyYTUyNGIzN2RmYjk4MGNjOTJhZTUxY2RhZmUzYjUzYTU2NjE5ODA2NDVjZGNlOTgzNWQyNDAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjMzNzE2MDIxZjI1YjFkZDBlNmVhNDdhYThmMjgzYTYyZWI1ZWY3MTllMWRmY2Y0N2VjMGE3NTIyZDZlZDZkYjgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_94cf24728732436a8f5aab951873c7ca",
+      "statement": "Time-series aggregation buckets client_timestamp logs into 15-minute intervals using minute_bucket = (ct.minute // 15) * 15 in app/routers/stats.py lines 95-108, producing TimeSeriesBucket entries with time_label, total, paroki_bintaro, and luar_paroki counts.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L93-L108",
+          "version": "repo-lines-v1:sha256:1f6b46f52998df2ae6e329fe890c750cdd9ad2c0476e4172673d02aa8b7c56de:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2NjZiYmE1NzlkMjE4YmIzYTdiY2VhMTIxZWM1NGMzOTFmMWM3NGJkYTI0ZjgzNmQ1OGMwOWZiZjI1MzY5MjEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmODZmNmNlYWMxN2NmMTNiOGZmOWEzZWY2ZWM2YzliZTU3NTlmZDM4MmZlOTYzMTgwYmRjODY0NjQ1NTJhZGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjVhNWI4MGNhMThjNGNmZmJjYTEwMjUyNTA4MjQ1YmRhZDg2NWM5NTE0YmI3ZGE2ODhmOTk2ZDI4NzIyNzRjY2QiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImYyMjVkZWE3ZDM1NjgxYTNkM2IyNzI3MGFkODg5ZWQ0M2RhZmJiNGY4MzFhMmU3YzUxOWE4YjA4MDVjMDAzOTQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d2c333fadf6d4e0891ad557636c8e52c",
+      "statement": "The VideotronPage supports three view modes (SPLIT, NUMBERS, CHART) toggled via buttons in the header: SPLIT shows compact metrics row plus time-series line chart (lines 326-417), NUMBERS shows giant total with two split cards (lines 252-322), CHART shows full-height line chart (lines 420-493).",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L22-L22",
+          "version": "repo-lines-v1:sha256:7d51e4965a04778d8c89f4461ae1262d94d943c34ee18e0c455a189004451cc5:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2Q1MWU0OTY1YTA0Nzc4ZDhjODlmNDQ2MWFlMTI2MmQ5NGQ5NDNjMzRlZTE4ZTBjNDU1YTE4OTAwNDQ1MWNjNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2Q1MWU0OTY1YTA0Nzc4ZDhjODlmNDQ2MWFlMTI2MmQ5NGQ5NDNjMzRlZTE4ZTBjNDU1YTE4OTAwNDQ1MWNjNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTFjNDM0ZTZmNWFlYTgwZDRmNTAwMDAwNWVmNjk5ODkwYTk4OGFhNGZhZDhkMTQ3MjRhYmMzNDNhM2U5NTEyYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzgzYmIzZjY2MmNiZGZhMGViMzMzMTE4ZDBiMjMwZTRhMGYzYzU1OTJkYzUwOWMyZWVlNGU5ODYzOGU4NTE0MSJ9"
+        },
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L252-L322",
+          "version": "repo-lines-v1:sha256:c290a17da9d65d966149699b6e3453fbe1223c59520f2a511dd3d4537f6c8365:eyJzZWxlY3RlZExpbmVDb3VudCI6NzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyMDEzMWZlOTRhZjU0YjRmY2E5NGE5YzJiYjMxY2Y2ZWNmZjc3YzQwZTk0NjAxN2Y2OTVmNDZlYjE0MzZlNDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlMDA2Mzk5NzZmYTc2MzFhNWRiZDI3ZTNlNGNjMjI3YmI0YzM3MWM3NTVlNjVlNzlkNDlkZDMwMGVkOGY0M2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJkMGE4ZDNjYTZkM2JiOTQ4ZmQzNWRkYmFkZTIwZmQ2OWJmYjQxYjBmMDZiYTBlNTcxZTllN2JjOWVmNzBhMDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImNjZjI0MTJkOTA2ODE4YzU5MzJkZGQ2Yjc3YjhhNzNlYWRhZDUzNGVhZjBkNDliZmE4YTlmOTM3NGI0MWIyNTYifQ"
+        },
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L326-L417",
+          "version": "repo-lines-v1:sha256:d1bae3201de1e5300cfa2be0b362f26caf67c7a780152598de074aead72d3940:eyJzZWxlY3RlZExpbmVDb3VudCI6OTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA1MDMzNmE5NTk4MTZkYjRjZjNhZTdjYjYyOWU2MWI5NDkyMjI5MzFkN2ExZjRhMjNhZDBkNjIxNGIxODg1ZGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YjhjMTA4NWY5NWExYWZhYmU1ZDE1MmFkNThkYjlkYzI2MzM2YzEyMThlMmI4NDBhZTdhZDgyNmEwZDU3NDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjZjI0MTJkOTA2ODE4YzU5MzJkZGQ2Yjc3YjhhNzNlYWRhZDUzNGVhZjBkNDliZmE4YTlmOTM3NGI0MWIyNTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEyZWZmNzcwNjg0MDI3MzdjNTYxZmIyYmQ3NDFmNjRjZjc4MWE3YmQyYWFiMGM0ZTA0M2IyNzE1ZWNjYzUzYTQifQ"
+        },
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L420-L493",
+          "version": "repo-lines-v1:sha256:7592b17f6600ab3d84dc7fb8ee6abc3fe65e818794d63555c729cbdd5911f376:eyJzZWxlY3RlZExpbmVDb3VudCI6NzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU0NjAxNDIwZGZjNmJhNDRiZjkwZTg0NTNjY2VkYzA2OTZkZDk5MWFkYWVlNjQzODEwZWMzNzkyMDcxNGQzYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YjhjMTA4NWY5NWExYWZhYmU1ZDE1MmFkNThkYjlkYzI2MzM2YzEyMThlMmI4NDBhZTdhZDgyNmEwZDU3NDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImNjNmUyOTVkYzI0YmIxNjVkYzY1NTYyY2IyN2Y3MzNiNmJlYmE3Y2EzMzNkYWIyMWNmNmUxNjg4MWViZDliZTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg0YjBmNzI3YTFkZmY1MTAxY2Q3Y2VlNTM2MGU2YTBlOTlmZDViZWQwNDI3ZmU5NWMxNWE3NjdmNWMwMjNiM2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a59c3665e50146a1bb7800446096791b",
+      "statement": "The time-series line chart uses Recharts LineChart with three lines: total (stroke #38bdf8, strokeWidth 4), paroki_bintaro (stroke #3b82f6, strokeWidth 2, dashed), and luar_paroki (stroke #f59e0b, strokeWidth 2, dashed), as rendered in frontend/src/pages/VideotronPage.tsx lines 366-407.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L366-L407",
+          "version": "repo-lines-v1:sha256:410a912381c28598d67c46fbc31a0b6f381c8e72edf697bba8a9ec162066b036:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgzODZmMmUyZTU0M2Y4NmE1MjVlNWUxOTEzNzc0ZDI2ODVhOGI5YzRiMGQwYjU2ZjQ4MGJjOTM3YTFlZWQzYmQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2MWM3NjkxNTRkMTFhZGI4NWEzOTEzODY5YzRhNDhhMjc5Yjg3YjA4MzhlZTZjY2E1OWVkZTZmMmI0MmJjZDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjExNmY1ZGM0YTc1YWYxODhiYzQxMmE4YzQ3MDgxNTA1MWRlNjAyYTFjODJkYzRhOGEzODdkNTA2NzY2ZDBkMzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc5ZTgwMzAxY2M4MjY2OTY2YjYwOWUxNDkwYzA5MDkzNmVlYWMzY2Y4YmNjMDUzN2Q5MGY2ZDc2NTMwODAyMTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_644a9fa5e895471189859ea5c1b6d02f",
+      "statement": "The header displays a digital clock showing WIB time and Indonesian-format date (id-ID locale), updated every second via setInterval in frontend/src/pages/VideotronPage.tsx lines 25-28 and formatted at lines 88-98.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L25-L28",
+          "version": "repo-lines-v1:sha256:6ff01154d50b9a9d9db48e4a7ba16a65a1029a0ec5ac0d9ed8609ef254efbc76:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTk2NmZiZmE4ODk5OGRhNzQ2NTZjNTAxOTQ5NTZjMjVmMDg0OTQ1NzY2MGMwMDlmZTYzZDFlOWZhOWRjOTMxYyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmRjNTJmMDhiMzliMDhiMDFjOGQzMDhiZjg4MGIwYmVmMDJmZDFkZmNjOWQ5YWE5M2E0ZDFiNWY0ZDU4YjZjYiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWU5MDJmYjc5YWEyOGQ2MjllNzIyYTA4NTE1ZGM3NjI2ODRkZWVkZWY4ZjFlZjhjZjllNTg0NzkzNTQzNjMyNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNDNjYzkwYzNkYjUyNTFjY2QxNmJmMDNhN2UwNDhhNGNkNDE0ZmRmYTlhNTgxODkyODMyMjhlMWUyNzJlNmU5OCJ9"
+        },
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L88-L98",
+          "version": "repo-lines-v1:sha256:ecef5cdec252b94416e462a3c00ed630d8e048bc36a714f95c74679d065a05b0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1ZThjYjkwNTlkZWUwMTllYzRkYTRjODIzNGJjMjUxYjY0ZmU3OGFjNTg4ZTMxNDY4MzNjZGNhNzc2Y2U5ODEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI3NzEwMTljZDNjNDQzMDFkMTM2NWJjMjU4NDBkYjM3NzExYmExYTI4MWU0MGJkOWJiN2FiYmUwZGQ2YTA0MDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIyYmJiYzNjYmNhZTAxNjQ3NWRhMGQyM2ZjNGI0MDcyNzNmZGFiYmQ1MDBhMTc0ZGZhNDM4NjM2MTg1NTBlMzQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e2343d85c2c44c8f9b8c11904ff788d6",
+      "statement": "The building/zone breakdown footer renders one pill per BuildingStatItem with building name, total, paroki_bintaro count, and luar_paroki count, styled as bg-blue-950/60 border-blue-800/60 chips (frontend/src/pages/VideotronPage.tsx lines 499-516).",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L499-L516",
+          "version": "repo-lines-v1:sha256:01242d36aae906cc1dbddfe27a9b91afe3a8d0828c966bea70b771c6d6730129:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0MTE5OTViZTA0OGMzMTU5ZjkxZTA3ZTBiYzVlNDYzMzk3MWZjNjQxODc1N2Q4YTcyMWVlYzIyYzI3YzQxMGYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlMDA2Mzk5NzZmYTc2MzFhNWRiZDI3ZTNlNGNjMjI3YmI0YzM3MWM3NTVlNjVlNzlkNDlkZDMwMGVkOGY0M2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImQ3MDcwOTM4MWRhODM2N2YzNDU3ZTJiYTllZjdiZDg2YjFiYWQ5YmVmMzQyODk2NDJlMDRlYTRjNzNjYmVmMGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjIxMTc4NjlkYzMyMjhkZGNhYWIyNzAyMTZjMGY5ZTgxMDk2MmMzMmEzMTNlODEwNDE3ZTNkMjU0YmJlMjA5YWUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0aba8fb236184b79b8bc08968b1dd952",
+      "statement": "The building breakdown is computed server-side in app/routers/stats.py lines 69-89 by grouping pos_items by the 'building' field into a BuildingStatItem list.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L69-L89",
+          "version": "repo-lines-v1:sha256:05db24eb1f8e3913978c8bd890dd3f479cb29a4b2ea1be937353ebb7bf8658a3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1NzU3OGU2YjRhNjYwMTAyNjQ1YWQyMmUwYzUxNTgzNzZiZDZmN2QyNWE3YWFlZDQ3OGE2OTM4YWQzOWE1NzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFkZDI0NDU4MmI2ZmIwM2QyM2I4NDE1YWJlY2QzNDZiMGM5ZjQ2NmI2Zjc1MmIwNjgxODljZTdlOWEyZGMzNTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZmNDZkMzg0MzM2NTQwMGY4ZDM5ZjQwNzY5ODgzMzRiNWQ3ODc5YzFhOTE3NmIwYjFjNTdiODcxMGZlYmE2NjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjVhNWI4MGNhMThjNGNmZmJjYTEwMjUyNTA4MjQ1YmRhZDg2NWM5NTE0YmI3ZGE2ODhmOTk2ZDI4NzIyNzRjY2QifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_336d2d85b5244454bee0517c812ae35f",
+      "statement": "The SimpleTTLCache (app/cache.py) is a thread-safe in-memory cache using threading.Lock, with get/set/invalidate methods and a default_ttl of 3 seconds for the global stats_cache instance.",
+      "evidence": [
+        {
+          "resource": "repo://app/cache.py#L5-L36",
+          "version": "repo-lines-v1:sha256:19f69502b4f35206a420a4a146bb95021431b27e96d02a047c4bd8a5acd6985e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1MzlmM2Q0YWNjMTljYjJlMTNmY2JmNjJmMGZlY2FkNDg4N2Y2NWI1ZDlmMmExMDQzMTExNzlmYzA2NmU1YzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0ZWI0YmQ4OGQ5MDBmYWJjMWU1ZTY2ZGYxYjY2YTI4OTU3NTZjMmZkNWNlZjRhZjYyYTc5NzM2MzViOGM3Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNjMDdiNzk3ZDcxM2NkZWY0MjI0NDZkZDNhNjE1ZGU5NjkxMzFhOTk0YTY2MzY0YmVhMGI4OWFiMjFjZWUzMjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0e13339272364f77aced4c14232b9b7f",
+      "statement": "The VideotronPage is mounted from the URL path /videotron/:eventId extracted in App.tsx lines 28-30, where the eventId is passed as a prop with no authentication requirement.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/App.tsx#L28-L31",
+          "version": "repo-lines-v1:sha256:b454332ee18515acecbba9f37c1a18983ca8240ec28a1db601994eae351a9b75:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjM0MDZmOWI1MjJhOTlmOWM5ODRlYmM5YWE5ZGNlYTU5MjkxZGEzZGYxNDliN2Y2MDc4OGY1MGEyMGYyYTM5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMjdlNTc4OGQ1ZDlkNzNkMjRhODFkYmMwYTVhNzRiZmE4MmM5YzNiM2FmOTllNTJhZjc5NmU5MGI0NjhhOGEzZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzE2NWVkMWJjZDUyZWVlMmNlOTJjNGMyNTE1OWIzNTYxMDZkNzhlNTRmOTdmMTQyMDJlMDVjOTY2OTM3YjJlMyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOWE2NTljYTFjZGVhODEyNjI0Njk1MGViMjc1ZWQ2YTRkYjE3ZjEwMWZlZGEzYzQ3NWIyMzJiMTg3NWYxZGEwNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_f1efc946347348c9bfe9e70ba2bdeaa6",
+      "statement": "The fullscreen toggle button uses the Fullscreen API (document.documentElement.requestFullscreen / document.exitFullscreen) as defined in frontend/src/pages/VideotronPage.tsx lines 59-65.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/VideotronPage.tsx#L59-L65",
+          "version": "repo-lines-v1:sha256:ab6c262446aba49ad0f2a440736a82ad0156ac0dacab1edea42fec17f2d7ac5a:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzFjMThhNzg3YTFhZDMwN2Y5NWYxOTIwNjMyNzI0NDc1Y2Y1NjJjOTkzY2M1OWFmOTNiYzgzYmNkZjcyYTA2YiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDJhMmNiMjVhMTIyYjQ0MjIxYTYyMzRlYzY2MGE3YjVmYjdmOWJkZTdiM2I5ZTJiM2M1NTlhMGQ5NmZhYzczOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTNmMDk5ZjdhNGRmNDgzMWI5ZDg2ODQyZjkxZTdkMDI4YzU2YTY5MGU2ZDZkMWYyNWJjYzg5OGUzMzgzYWM4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzEwZDRkMzRhNzUxZTE5MDgzYjBiNjYwNjBkMWNiMjk0MDc5ODExZjkwMDQ0MzBhZmVlMDJkYzE0ZmY1ODI1YiJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T11:46:45.241Z"
+  }
+}

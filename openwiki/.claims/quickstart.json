@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:ce0f2082307abdbdb7cf3d0f6363c5c6e09a847b4cda0be4477d9cf8f07486ee",
+  "claims": [
+    {
+      "id": "claim_7f65634cd729412d89fa37f31f27bbd3",
+      "statement": "The FastAPI application is initialized in app/main.py with a lifespan that calls init_db_and_seed() to create tables and seed default users (Admin IT, Litbang) and seven default MasterPos doors organized by building.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L14-L69",
+          "version": "repo-lines-v1:sha256:3a505d4d014a681cca1a53d5a6b17ea31ecf6655c4cc0c38922cd76dbee42c74:eyJzZWxlY3RlZExpbmVDb3VudCI6NTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1ZDAyMGZkMWUzZDJjOWFiNGRhMzlmNzA0NmU3YzUyZWQ2NTY5N2FjOTgzNmJiZjk1MjVmZGQzNDg1ZTIzNzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNjVjMmJiZTNmNTYwY2IwMGQ3YjEwY2IwZWUzNDI1MDc4NTk0YTY5N2Y2YTc2ZWJkZjk0NDQ1MjhmNTFmMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlNjhkZTU0MTMyYjQ1YWU4MTY0NDc2YjlhZWU5NzgzMDkxMzBiM2M5YWIzOWQxZjhkODNjMmY0YmMzYTQ4OTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjViNDNmNGNjNDk5YmU1M2EyYzMyZWFjODNlZWEyYjFjNjRkODUzMDBmYmU0ZjJkZjMyYTc3YjI2NTNkOGIzYjYifQ"
+        },
+        {
+          "resource": "repo://app/main.py#L71-L83",
+          "version": "repo-lines-v1:sha256:5be962c145fe9c38da11245146e9fea08a569d57e2e905c93e20e895f8e946bf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3Y2ZmM2YxNzg0MmRlYzZlN2U5MWMzZTNiOGZjZTBhODIyZmMzMTEyNzM4MWIwMGY0NGE5ZjEzMzMzMDNhMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRiMjYzNGZkNjg3OTgyMzJhNjExNWJiMzQ5MjY2NWUyNWJmZDU0YzIxZGI4N2ZkZTcwZWU2ZDA1NDYxODhlMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkZmE5YjUyNDRkZWI0OGU0ZDRjZTIzYmEwYjMwYWYyYWFkODBiOTdjMzQ3MmM0MzY4ZmZjYmUwYTYwMjA1YjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1a344c1c67bf45fca8baed3a9c8d0348",
+      "statement": "The system serves three runtime domains: Petugas Kiosk (usher tablet, authenticated via QR token), Videotron public display (real-time congregation-facing projector view), and Admin/Litbang Dashboard (authenticated event management, live monitoring, reports).",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L9-L55",
+          "version": "repo-lines-v1:sha256:8cfbee6499220827f31b16cb5d022770d5fcbaec7bfab83e489380f0bae812a3:eyJzZWxlY3RlZExpbmVDb3VudCI6NDcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU1YjlhMmI3MDYwNzQ2NGNkYjI3MTgyYjJhMjZiOTJkNzMzNjJjYTg1MGJjNWEzYTcxZTI2YzdlOWE4ZTgwMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI5YWFmYWQyNDkzNTBiNDVkYWQ1NTVhN2RiMmZkMDEwMWUwZjVkZGZjNjM4YjFlMmI0YzUxMDI0YzcwODkyYjIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAyYzY0NDBhM2JjMTIxOWM1NmY2NWM5MGYyMmIwNjYwOTA4MDJiODFiNzgxOWI3M2Y3MTcxNzE4NjZhYzY0YTAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0N2VkMjhmMTk4NmJmZWRlZmE3NTIyNWY4ZjE1YmU1MWY4MTQ4NjE3MmM3YTA0Yzk0NDhhNTFkYzlkMjEzNDcifQ"
+        },
+        {
+          "resource": "repo://app/main.py#L95-L99",
+          "version": "repo-lines-v1:sha256:2fd694e07176dec674aba3d2ec95d5df05a2236e3ece2b396961ed804fffa94d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU4YzMxYzYzYWI3YjU5YTg3NjMwNTVjYTZjY2ZmMWNkOWJmMzcxOTNjYzFlZTMzM2FmNWMzYjFiYjg1YjM4YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM1MDkwNWEyYTMwMDJmZThmMDE0Mjk2MThjNjI1NjRmOTk4MWMwZTY0ZjQzODc3YjNjMDlkZmFhZGNkMTdmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjQzZjBkNjUzZWY3MmZlMGJjMzRiMzBlMjIyYjQwNWE3MDNhYTMwNTJiZWIwM2NkMzUzYWVhODU5YjYzMmNkOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzU2MjQzYmRkZTZhNzk3MjA3NTk5NTEzNDA1ODE5YjczZTdiN2EwMDNmZTgwMWRhZmVmOWYwOWU2YjFiNDYzMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_64af9998551047dcbd4d6351bfe58552",
+      "statement": "The offline-first kiosk sync uses client-generated idempotent UUIDs, Zustand local storage persistence with auto-sync background retry, and a server-side POST /api/counter/{token}/sync endpoint that deduplicates by UUID primary key and invalidates the stats TTL cache.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L79-L91",
+          "version": "repo-lines-v1:sha256:25cb55bb53cee4a6903e2cb6faf81f3e47ed700d0d89b3b49252171f0793dcff:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwMTlkYzU5MGIxM2JmMDZmYzM0ZGMyMzIwNDAyMTBkMDZlZjI2MGU0ZTNiYTgwZGMzM2RkZjEwMmM4ODJhYjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzYWY2N2UwYjYyNGJmNzFkN2JlM2ZmMWIwY2EzOTNhM2FlYWRlMWI4YjZhNTg0NTY1OWIwYjE1MGZjMjhhMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5NjI3ZTQ2M2QwMjg3YmY2MzhiZjExMTI3MDdlYTAyODVjMjVmYTdkZWZmZGQ0Yjg1NGQ5MGRlODRmODZlOTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://app/routers/counter.py#L38-L115",
+          "version": "repo-lines-v1:sha256:305f76ae016c3dad0d33236fe46b052e369ff0c6cccf3ca9cb380b9e706476a1:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhmMjBmNTViYjM5NzEzNmJjZWI1YWIyNjUwNjM5ZDFiZmMwNGIwMTVlNmUwZWQxY2ZmYmJiZWVhMjU4ZDMyZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5YmQxMzcyMmZmNmMxMDFmZGMzNWM0YmQ2Y2M3NTZjOGQxZTA5YjAyMGQ4OTYyYmE3NmQ1NzUxNzdhZjU0YjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://app/schemas.py#L128-L143",
+          "version": "repo-lines-v1:sha256:9658a67f6e0ce8fed91ff8c8b16a28320afe305b197fc6838e696a9db0232618:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4ZDRlODkzMGVjOTFlMzM3NGQzMGQ4NTVlYzkzZGUyZTI1YTY2MTAxZGRmZGEyMTk1NTE4MjQ4NDZmM2U2NTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBjNGJhMTE1MzFlNTk0NTA3NzliOTRhNGEyYWZlNzRjMzRhOGJmMTc0YmViMDMyYmZhN2QzYmY3MDdlZjk0YTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjBhZjY1NWZmZWU5YWU4YjcyNzBhY2ZjYmYxY2NiMTM2OTM1OWZhYWRiODdhMTlkZGUxNzZhMTE3YmZjOGVkNmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e13f2138e9204bfb8e4e8eed4fa2cf87",
+      "statement": "Event sessions follow a status lifecycle: created in SCHEDULED status, transitioned to OPEN when counting begins, then to COMPLETED when the session ends. Completed events reject new tap syncs.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L13-L16",
+          "version": "repo-lines-v1:sha256:b5e0aede4c9bbeb0acc516a7990ab74ef87589699ce166909bf33332c0d7a6e9:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2E0M2ZmNWI2ZjdmMzMzOWY5YjYwMzgxYTQ2OTE4MTlkYjUzYmMxY2IyOWY5YTA0ZDY1MDViZmM4ZGY5Zjc0NyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJjMjkxNDQ4NGM3YzI5NmM2YmNhNjA3ZjI3N2VhMjg2MTc5ODcyYmQ2NGE1YWM5NmE1NWUyYWQ1ZGQwNzQ3ZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTFmNzYxODkxMWMwYWVjNGNhNWM3NTdiNzBhMjY2NTU1OTliYzM1YjAxMmQ3OTY5Y2QxOWMyZTVkZGYxYTg1NyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOTcyYjM2NDMyYjFmMDUyM2FhYzllZjRlYmUwYmEyYjI4MDE5MzNlYzFhNGU1NDMwZTEzNzU3NmVjMzFjNTdiNCJ9"
+        },
+        {
+          "resource": "repo://app/routers/counter.py#L52-L58",
+          "version": "repo-lines-v1:sha256:de82b764ca392c77ecf46c747d29b2cbf71410995bfab472bfb7412008f08f63:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzMxZWVmZTRhOWM5YmYwMjVmMmY2MWM2ZjM2MmQ0ZGIzMjg5MmFiNWJhMWY5ZmM3OWQzMzdhNTU0MGI4MmI1NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZTZiMDQ0OTE0Njk3MjJlODM2M2E5NGU0MDQ0NTM4ZTAxM2EyYTIxN2UzNmIxZTU2OGJhNjBhY2I3YjRjOGYyZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGU5NGNlYjBhZmJjM2RhMzZiODNkODdlZjUwZWYzNjVhYjlmYTVmNTEzM2YwNmJmZmIzOTQ4YWYyYjI5NDUwZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2M0YmIzNjBhNWI2OWQ5MWI1OTY2Yzc2NGVmNDgyZDkyNmI0YjUyOTc3NzRlOGNhNjYwYjg2MGI2NDIwOTAyYiJ9"
+        },
+        {
+          "resource": "repo://app/routers/misa.py#L31-L43",
+          "version": "repo-lines-v1:sha256:43e7336a0f1a9250f104769bb6891fc93398f6e221e950579a3da90a6037533d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1YWQwYzA2NzVlMzdhNTY5OTA0MWYzZTY3Y2E4ZDYxNWExYTQ0MzkyYjZlZGRlNDA1NWEyNGEyMjM2Y2VkMTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBlMTEwZWJmN2UyMWY2YWMyYmMwZWZlZTE3YjBmZDVjMDhjOTBkYTc1NzljZmNjMzRkMzZjMDcxNWEwYzdiMDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhiMDhlYTg2ZTg1OWUwM2FkNGUyMWZhNThmNTdiOGU1YzI1OTA3OGMzMzI1NjE5NWY4YTdkZjJiYTA2ZDdjOTIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d4c26119c9a447bf97e3c3b8b35a6dc1",
+      "statement": "Live stats aggregation at GET /api/stats/{event_id}/live uses a 3-second in-memory TTL cache (stats_cache in app/cache.py) to shield the database from concurrent polling by Videotron and admin dashboard clients.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L19-L25",
+          "version": "repo-lines-v1:sha256:c53c0e68e4f562cef4908455d82758c8c69f1cd97fa6784142c5b1c2e74eea85:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzA3NmZiMGJlMmIwN2E1OWQ0OGMyMGFjNjAzNTkwMzVmNDQ3MWZmZTc3NDNlMzZjNjdkNDcxODljYmQxZGI0MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWUzYzg4MmZlOGE2NmE4ZWRkYzEwZjRjMjdkY2U3MmZiOWM1MGQ2NGJlYjAxNmRjYjY4MzEyNzA1MWY0ODRjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTQ1NTA2ZjhjZmE4NWYyOTFkZjc2YmFhNGExNGNhNTkwZDhkNDUyYTJhM2MxY2VkY2Y4ZWQ2N2NkZjQ5NWRjNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzcyMGI1YmFkNmNiOGNmOGQ2MWM5OTRjYzA1YmU4MDVjOWEzNGMxMjNjNzhjZmIwMWM5MDFjYjJiYWJlYTk5NiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ff33d22012a344a8a964f7c145498162",
+      "statement": "Five API routers are mounted via app.include_router: auth, master_pos, misa, counter, and stats, each registered under distinct URL prefixes such as /api/counter and /api/stats.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L94-L99",
+          "version": "repo-lines-v1:sha256:e833c936c338e5c87ad0e4e920e7929a99102065ffb79c6331f2e5d76e6ef61d:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzI5ZDM0ZDhhYjljM2IzY2YwZGI1NThlYTBlNjJiNTkwZGRjMWNhNWQ3NDE2MWNiZGJiN2JlYzZiZTY3ODU5YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM1MDkwNWEyYTMwMDJmZThmMDE0Mjk2MThjNjI1NjRmOTk4MWMwZTY0ZjQzODc3YjNjMDlkZmFhZGNkMTdmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGUzZDU4ZTFjZWI4YTA2N2NhOTUxNGNlYzllMDUwMmI5NTY0NmRiM2JiODZhZmVhMjQyODg3NGIxZDA1YTc2YyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzU2MjQzYmRkZTZhNzk3MjA3NTk5NTEzNDA1ODE5YjczZTdiN2EwMDNmZTgwMWRhZmVmOWYwOWU2YjFiNDYzMSJ9"
+        },
+        {
+          "resource": "repo://app/routers/counter.py#L14-L14",
+          "version": "repo-lines-v1:sha256:7a440d20633045e5c60cd9d3b148b9eeb436a40958498706ef5e30bfbb85d939:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2E0NDBkMjA2MzMwNDVlNWM2MGNkOWQzYjE0OGI5ZWViNDM2YTQwOTU4NDk4NzA2ZWY1ZTMwYmZiYjg1ZDkzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2E0NDBkMjA2MzMwNDVlNWM2MGNkOWQzYjE0OGI5ZWViNDM2YTQwOTU4NDk4NzA2ZWY1ZTMwYmZiYjg1ZDkzOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYmYxNDJmOGJmNDA3NDJhNzY1OWExNDk0NWU3MTA4MzY4YTY1MzA5MzY5MzJhNGVmMTBmODdmMzRmYWVkNzU4NCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzE1Y2VmMmFmMjQ2MTViMDA2MmZjYmJjOTJjNWQyYTZhNDlmMjdmMTYzMTQyMzM4ZWI4YTkzOWNmZjNjMWIzMyJ9"
+        },
+        {
+          "resource": "repo://app/routers/stats.py#L17-L17",
+          "version": "repo-lines-v1:sha256:0c6f004d077aa1b9b243cdba4677e556d0215302c994b4520828411bea05e575:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM2ZjAwNGQwNzdhYTFiOWIyNDNjZGJhNDY3N2U1NTZkMDIxNTMwMmM5OTRiNDUyMDgyODQxMWJlYTA1ZTU3NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGM2ZjAwNGQwNzdhYTFiOWIyNDNjZGJhNDY3N2U1NTZkMDIxNTMwMmM5OTRiNDUyMDgyODQxMWJlYTA1ZTU3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTRmYWFjYzA5YzZhOTdhNDI5ZmVjOTIxOWVmMDdjMDE4ZGZhZWNjMmZhYzYzZTlhYmU3NDJiZGU1MWEyMWNmZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiODM1NWYyMjE0NzI3MzU0ZTdhY2U0N2FjYjA1OGFkMTMyMTg4ZjY3NDg4Yzk0OTM0ZWU3MTZkMmU1MzE4YTY1YiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_cca15cc161ab45b89b495c2260ac29d2",
+      "statement": "The SPA fallback serving in app/main.py mounts the /assets directory from app/static/assets as a StaticFiles mount and serves any unmatched non-API route with app/static/index.html.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L109-L133",
+          "version": "repo-lines-v1:sha256:14ea46bdf511db76bd01f0b06547fb426378cd3ca3c260afcb6797bf7b07fae3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0YmE5ZmMyZWEwMTA4MDFjM2Y1ZDFhZjRhZGY3Y2RmMWE4YzFkZDI0MGY3N2VlMzcxNTFlMTlkMjg3MGYwMDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkYjkwYzc0YTVhNGQwOWEyYjdmMjI5NTQ2NGEwZGFjM2IwYjQ3MTRkNWYwM2JlODQ2MDhiODllMmFhNDRjZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T11:46:45.241Z"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:9812470cac6f905c305f80cfebf68fd0f60f466b0cb09ec3b26baf8fb1047d86",
+  "claims": [
+    {
+      "id": "claim_321228afcf944ce38f05eca6fe956577",
+      "statement": "The `hash_password` function in app/auth.py encodes a password with bcrypt using a generated salt and returns the hash as a UTF-8 decoded string.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L15-L18",
+          "version": "repo-lines-v1:sha256:9a84b0b531ddeda0f5bb09f4469ec4fb40ef6497a40dda18960fcf1971f662c6:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWI4MDQ0NjQ4Y2Q0YTI0NzYwMjI0MWU5ZGUzYzY4MTkyOWUyMGNhNGVjNzYwMzFjYTllY2U0YjgwYTM4ZTI1NSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDM0MTBkOTg2MTFkNWNiOTZhZDllNTUxOGJmMmNjZjVjMDZjNjAwN2I4Mzk2M2VkOWVkYmRlYWYwNDRmMTQ2NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTk5MTNkZTZkNzY1ZTNlNDEwNGIwODZiNDA0MmJkNTIxNDQ4YTlkYjg0ZGZmNTcyNzYzNGZlZjBhZWJhNjNmNCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTJhNjdmOTM3OGZkMDc3Y2IyYjk4N2YyNzhhYWVkMWU2NTBlYThlODBhMzFmYmIyY2JkNTdmZjA0Nzc0OTAyOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_82c57f8a1637468fbe0e4478b7e3739f",
+      "statement": "The `verify_password` function in app/auth.py checks a plain-text password against a bcrypt hash, returning False on exception instead of propagating errors.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L20-L24",
+          "version": "repo-lines-v1:sha256:05d3135ea93d8ed66c5eb29f8c6dd6a14ef4a0c23b95a5579bd7821790606dca:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDU3YWU4ODViNzU3MDFiYjBjNTdlNjgzODUzNWI0NzI4NDVlNDcxNGE0YzA3ZWI5YzA2NmQ3YzUxYzU4ZGZiYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYjk3YzcxMjQ3YWYzY2QxZWRmNTU1YTdkMTA3NTkzMTU3ZjZkYzJhMjJhZjBkZTgyZTc3NzRhYmYxMGY4YWRlMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjQzZDQ5YWQwM2ZhNTBhOGQ3ZTAwNzQ2YTU2ZTg5YjBkYjU1ZjJiNWYxMzY1ZWRjMzJmYTViNDdiYTc0MjVmZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjg0MWEzZDNhNmJkOTVjYzVhMDQ5M2ZlM2RlNjA5MzI3ZmQzNGYxMWMyZmJmODNhNjNkYmEyZWIxZWJhNTc0ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_73026819a28946b8b83e6adad174e303",
+      "statement": "`create_access_token` in app/auth.py builds a JWT with an `exp` claim defaulting to 24 hours (ACCESS_TOKEN_EXPIRE_MINUTES), signed with HS256 using the configured SECRET_KEY.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L26-L35",
+          "version": "repo-lines-v1:sha256:a3a29ff963ef872158d77305267c5eea95b5e5a6c272afd8a762410f6ac75d18:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ZWJhMTA4NDkzZGI4NTI5ZjE4NDE4MmM0OGI3NjcwNzFlNWQzZWFlZjY0MWZjZmQxNGE4NDRlNjBiOGYzNTciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNmYTBiZDkzMDgzNWM4MGMyNmU3YWMwYTgxMjkxZjdlY2YxZjgzYmFmNTI5NzkzZDE1ZWM4MTdlYWI4Yjc4NDQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFiYzZkMmFiNzQzZjA0MjhiYzRjNjQ1ZTAyNTljOWFkOGY3NjQzZWQwN2EwZjYxMmNkOWEyMjBlMjhjYWVlMjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijc0MjVlN2YzMGRiOGI3MTZlNWNkNTJhYWMzOTcyNzkxMjZiZjM0OWY3Y2IyMmVlNWRiNmRjOGY2OGZjNjE1ZTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8c6a6381440948a295afba859968c6f1",
+      "statement": "`get_current_user` extracts the Bearer token via FastAPI's HTTPBearer scheme, decodes the JWT, queries for the active User by the `sub` (email) claim, and returns the User or raises 401.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L37-L59",
+          "version": "repo-lines-v1:sha256:d3f63ea56479202d45cf01c3bfcc6ab2c8d49bab4aa4a65d1cecad65b04b8c53:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5OGY5ZjhjNGM3NGVlZDMwNGYxNDAwMzU0NDRlZjdiM2YxNDRiODZiMWEyNTI0ZjE2NDNiMTFkNTZlMWU4ZjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwYzg4OTE4MzVlNDJmZmJjMWZkOGRkNWU4ZDY4N2FmMWEzZDk3OTZhZTkwY2JlNDMzYjU4NTYyOTRhYThiOTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxMTAyNDFlOTk4MmIyNDZjN2FkOWVjYmYyM2NiYzNiNTZmYjVmNmQ0NmI2MDEwN2RkZDUwYTk5ZmY0YTkwOTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImViZTAyOGNiZDA0OWUxNjQzMzMwNzYyZjBmMGM5ODFkODJlMGIyM2FkZWM1MDAyY2NiYjUyZmVlMDQxOTc3MTkifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1e8fab12206f48d891377594067dba8d",
+      "statement": "`require_admin` is a FastAPI dependency that chains on `get_current_user` and raises 403 unless the user's role is ADMIN.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L61-L67",
+          "version": "repo-lines-v1:sha256:50e15daa4b8327749c7d6d5e239128f02026c4f62359c8b3b714ba2b89dcc240:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlZDU0OGZiNjU5NWE5NjYzMTUwYzAxMzQzZmY1ODI5ODdiYjZjMDMyMjc2MGQxOGQzYjBjZmM4ODBkYTExNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODdlZmYxZTkyODM4ZDdhODU2ZWE3YjBjODM5YWQ5OWQ2NDdmNDdlMDE4OTVmN2NjNTg1M2I1MzBmZWEzZDBhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWM2NmJhM2U5N2U0ZDVkMjg2NWZiNjVmOTU3ZWZhZWFlYTFhOTJhZTg1NTZjZDVhOTI1OWZmMTFiYTVkMGMwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjJmNWExODZjNTg4ZDdmOTk5YmU3OGYzMjcxNGJkMWQ0OGIwNjc2OGNlMmUzYzVmNjM4NDJmN2ViNWViOTAzMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c0c1aea8bb8d4eaa92fe437f154f70af",
+      "statement": "`require_litbang_or_admin` is a FastAPI dependency that chains on `get_current_user` and raises 403 unless the user's role is ADMIN or LITBANG.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L69-L75",
+          "version": "repo-lines-v1:sha256:dbf3dbbc9b68cf0d08ab7f8790e40132a996bdf961aee000ab6f6e2133a56b81:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiM2Q3NzQzNDQzMDA4OWYxYjMzYjMxNTg1NjJlYWVmMmE5YzU3MDJhZGFlMmVkN2U5YjJlNGIxYTBhNzAzN2E5NCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODdlZmYxZTkyODM4ZDdhODU2ZWE3YjBjODM5YWQ5OWQ2NDdmNDdlMDE4OTVmN2NjNTg1M2I1MzBmZWEzZDBhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDQzM2I0ZDRiMTFiZGNhNzM0N2FhMjI1NGYxZGRhZTMxMzk3MGE3MzljYTA0Y2VhNjQwNzE0ZTcwY2ZhNDU4MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5a04df75cb19457e9423b688b2d8bee6",
+      "statement": "The POST /api/auth/login endpoint verifies credentials with verify_password, checks is_active, and returns a JWT containing sub (email) and role claims along with the user object.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/auth.py#L17-L36",
+          "version": "repo-lines-v1:sha256:3348868b32d715932ff1db1a87a54da10744c7fb5fa0a79b46ceea102e23addc:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU4NDQzNWRiN2Q5YWY4MDNkZTYyODQwZDFkNWNiYjEyNWNhOTc4OThiODE0MTYzYmMzMTU4YTA0MTljNWM1MWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImViM2YyNzk5NGRmOThmYWFiZTIyOTYzMzJkYmY2NTg3OTI2ZWY0N2UyOTkzYTQ4MmQ5YzEzYTlkNzM5N2M3MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjlkZWVjY2NmM2FhZTQ2NWZiOWIyMjc3MzE5N2E2MTRlNDA3MDUwNjc3ZWQyNDA1ODNlNDg2M2UzMmM5MDk0MmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_9af6dcedc07e48d7b8982f4c168d5914",
+      "statement": "User CRUD endpoints (GET/POST/PUT/DELETE /api/auth/users) are all guarded by `require_admin`, ensuring only ADMIN users can manage accounts.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/auth.py#L42-L115",
+          "version": "repo-lines-v1:sha256:6f5c97faeeaea8409abc98a4e657c3c016e109aa928c8ac2d2895f93014e69f1:eyJzZWxlY3RlZExpbmVDb3VudCI6NzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBiMTg3MjA0NjgxYzYwOGJlNzg5ZmNiYmVmNTMwYWQ5ZTMzNjg5ZWNlYzI3YzcxMjM5MjdlZDNlZmM1Y2QwMDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1MzQ5ZWZhMGQzMGNjNzkxZjkwZjU2NDYzM2IyYTgwMWMwYjE0ZThkZGUwYzg0MDQyNDk4YTkwZWI1YjIxYzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyOTQ1ZTU4ODVjNTY5MTg1ZTRkODhkOTZmNjVhMWYxNDNmZWE4OWUyYTAxZmEyMDlkYzc2MGI3ZjFmOTU4YjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7f15412f1a7547419b453477afb62db0",
+      "statement": "The frontend Zustand authStore persists token and user to localStorage under key `paroki-auth-storage` and exports a helper `getAuthHeaders()` that returns the Authorization Bearer header.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/authStore.ts#L1-L34",
+          "version": "repo-lines-v1:sha256:4af28cdba81acc73c603c0521d52f4f4c1a059ea3646278fc12382c7238e544a:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImEwZDZjZDVlZjQ2YzcyNGE2NjcyODEwMzEwYTc3ODM5MGU5Zjg3ZDg5YTgzYTdjZWFlYTZiNzM1NWUzMjBiOWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8d7c5c1446af4ac788dba7be11c6b431",
+      "statement": "`init_db_and_seed()` in app/main.py creates tables and seeds ADMIN and LITBANG users at startup using credentials from .env configuration, hashing passwords with bcrypt.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L14-L69",
+          "version": "repo-lines-v1:sha256:3a505d4d014a681cca1a53d5a6b17ea31ecf6655c4cc0c38922cd76dbee42c74:eyJzZWxlY3RlZExpbmVDb3VudCI6NTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1ZDAyMGZkMWUzZDJjOWFiNGRhMzlmNzA0NmU3YzUyZWQ2NTY5N2FjOTgzNmJiZjk1MjVmZGQzNDg1ZTIzNzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNjVjMmJiZTNmNTYwY2IwMGQ3YjEwY2IwZWUzNDI1MDc4NTk0YTY5N2Y2YTc2ZWJkZjk0NDQ1MjhmNTFmMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlNjhkZTU0MTMyYjQ1YWU4MTY0NDc2YjlhZWU5NzgzMDkxMzBiM2M5YWIzOWQxZjhkODNjMmY0YmMzYTQ4OTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjViNDNmNGNjNDk5YmU1M2EyYzMyZWFjODNlZWEyYjFjNjRkODUzMDBmYmU0ZjJkZjMyYTc3YjI2NTNkOGIzYjYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bd5558ec0028428cbd48940c2ceb79a9",
+      "statement": "The App.tsx routes unauthenticated users to LoginPage; the Navbar conditionally renders admin-only tabs (Master Pintu, Pengguna) when user.role is ADMIN.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/App.tsx#L14-L36",
+          "version": "repo-lines-v1:sha256:8f6043dd7214481d585d06c7bf8c44ccae5e88aaa3e8c085c44343ddaa35a94e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY2ZTQxN2RhMTkxNTRhYWNiZjM0ZjVjMzdhNmU3MzNkMjRhN2ZjYzU3MGEzNGJlM2ExNzQ0NTUxMGU1ZWRkNmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMzY2I3OWM0NWJmYmIyNGNlZDc2ZGZlOTgxOTk4NzhiOTA0NmU2ZjAzZDZlOWI1YTZiYzBjZmFlOTM2OGVjZTQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRlNDljMThlNWNkYTFhMzJhZTY5OTVlN2RjMWJmODE4NGJlYzg1M2FkYmUwMWMzMjgzMTFiZmFjYTQzMmQwMjQifQ"
+        },
+        {
+          "resource": "repo://frontend/src/components/Navbar.tsx#L49-L75",
+          "version": "repo-lines-v1:sha256:aedbf86343c23282f7aaa1182e9d221faebae507211f5c175d501888fecb708c:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1NjQ1ZDVmYjM3M2ViY2UzMzlmZDExOTkwOTk5YTVmNWJiNzBjMDkzZTllZWM5OWI3M2JiOWI0MjY3N2QyMDkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE0NDRhMzFkOGVjN2U4OGY4NTU3MTUyNmJmMjdjOTU4ODIwZGZmZDI5ZjY4NTIxZDBjMDViNzcwNWExZjE4YjQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBmNjlkYzIzNGFmZDljNWJiYWJiODA0NTEyYTcwMzhlOTVhNjc5YjIyYWZkNzU0ZWU1M2E4MzZlOTIyZDk3OGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRlMWEzY2QwOGM3ZWI3YjhjMGE4NmJmZmQ2M2Q5ZGVhZDhlODM5NmFmMjg4MWZjYTljNjEwOTgwNTJhZTQxZDUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2310e3a4eae540c3b84c437b324c3aee",
+      "statement": "The User model defines two roles — ADMIN (Tim IT) and LITBANG (Tim Litbang) — stored as strings on the `role` column with a default of LITBANG.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L9-L11",
+          "version": "repo-lines-v1:sha256:fe86d0a3b1560786f4879856983fb0566333951a550f6cd7d07dd72a287422f5:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzk2OGQ1ODE3MjJkYzFmMTQwYjQ4NzNmYjdiZmM3NzhkYTViNzNjYTMyZTE3YjY5MTA1ZTk1MmZmOWMxNjk1MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2FkNzRiYzUyYjkxMTNhNzYwYjNlNTNmZWJjMTYyMzk1MTJkMzIzN2FlOGExZWZjMDA1NjFjNGQyZTA1MmY4NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMDY3ZTk2OGI0NmY1YmRjNmJkOGI2OTIzNjUyMWU4YWM5MWVjMDRlNTVmZjE1NzI2YjRhNDBlMDBmYTlmY2NiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMTczNGIxZThhOWJkZmM3MWE0YzNiODRhOTk1ZWQ0YjZkYjJiNmQzN2I0NWYwZTdkZDY0YmVmYzVkNDk0YWE0ZSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_65964bf866f44d24b0db912f108c3f53",
+      "statement": "Authentication configuration (SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES, seed credentials) is managed via pydantic-settings from .env, with fallback defaults.",
+      "evidence": [
+        {
+          "resource": "repo://app/config.py#L1-L22",
+          "version": "repo-lines-v1:sha256:73f108a1887a41032d35073caed52d5c5e06204644b39f0b9ef3807ced4b52f7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwOWE0YjAyYjQ3NDllY2U0MGQ5YzU5ZGJlMGRlZGMyOTdkZjdhMTdlZWUxZDI4YTkzZTcyMTBjYjc3OTFkNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4ZjRiZjE4NzYxNjAyZDNiNTkwYjM3ZDM5OGZhOTk3Nzk3MzBhNzdiNjgxMzhmZGQxNDA3MzQ5MmUzNzY2ZWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f28e767b43934b5d990ac67d491cbc96",
+      "statement": "POST /api/auth/users validates email uniqueness and constrains the role to ADMIN or LITBANG; PUT /api/auth/users performs partial updates and also validates email uniqueness.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/auth.py#L49-L99",
+          "version": "repo-lines-v1:sha256:2bacb5e171933c134301a927face24b72267744b8372cc95c35a595db5883e5b:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjllMzM1NTY1MWFkYmU2ZTBiZjE2OTE0MjFkYTZkNTc3Mzk4ZTA5MzRmOTkyM2YwOGE4NWU1NDdlZDkzZWJkMDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjOTVjMTkyMTZlZTA0MDIzYzhjYmQwY2NjNGE2YzBhZGVjNzA1OTM1YzFlMzQ2YWM2ZjVjYWQzZGNhMjZjYzkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY4ZjIxNGM5ODI3NGU0MzBkMzkwNDZiMWM4N2ZkMDgyODJhOWVhN2NlNDU1NjhhNTdmN2FkNzZjOGRmODliMDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjE4ZTMyNmM5MjQ4YTZhYTM2NjcwYWIyOTA4ODMzOTk5NTY4NjY4NjhhOTQ2YmQwY2I5YTE0ZjVlYjc4ZDA5OWEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2926be91034c4f6295a7610bbd905395",
+      "statement": "DELETE /api/auth/users/{user_id} prevents self-deletion by checking that the target id differs from the admin's own id, returning 400 if they match.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/auth.py#L101-L115",
+          "version": "repo-lines-v1:sha256:a9f6dc24e3f69ac6709c929e1549938c4d78e112c3c1cb9c6fb7483d3de4fc4e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJhYWI3ZjYyOGQzMWFkMjU0MzkwZTNhZGYwOTkwZDM2ODkxMmEwNGNkNmJmMWI5Y2RlMzVhMzM0NmVhMzJkYjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjE1MzQ5ZWZhMGQzMGNjNzkxZjkwZjU2NDYzM2IyYTgwMWMwYjE0ZThkZGUwYzg0MDQyNDk4YTkwZWI1YjIxYzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM3ZDNlZTAxMWU0ZjkwZTczNDdhYjNjM2FiOGVjMGY1MTQ4YTYwMDBiYWQ5ZDYwOGIwMjcwMTQ5NzJmMTkzYmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e9f809662aac428abe0b84b01a3c1842",
+      "statement": "The LoginPage shows dev-only fast-login pills for Litbang and Admin credentials when import.meta.env.DEV is true (Vite development mode).",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/LoginPage.tsx#L130-L152",
+          "version": "repo-lines-v1:sha256:f93559228a6ff3d161e58da8828c04caf476bc96e7d9cdde159a8a4ac8522981:eyJzZWxlY3RlZExpbmVDb3VudCI6MjMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5MGM5OWFiYTUyMDZmMzM2ZWNmZmJkZDAzOTc1ZWYyNzY0YWU4ZjkzMTI1Mzc2MmIyYWEzMjI4MGYxMTQ4ZTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ3YjhjMTA4NWY5NWExYWZhYmU1ZDE1MmFkNThkYjlkYzI2MzM2YzEyMThlMmI4NDBhZTdhZDgyNmEwZDU3NDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmYzQwMTQ2NGY1OTlhMGM1NmYzNThiOTc2OGVlOTBlYWVmY2IxZTFmNDQzYmMyOGFjMzk4YmMyZmY2NmM5NTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg1ZTI5MGNlMTQxNmUyNjkyY2U4OTkwMThiMWMxNTQxZTMxY2UyMmUwYzVmM2Q2NzRmMzlhNTNlMWJhODVmOWEifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T04:05:02.987Z"
+  }
+}

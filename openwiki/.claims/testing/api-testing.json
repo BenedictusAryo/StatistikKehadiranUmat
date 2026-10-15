@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:b84ddbe40b96289167825462f785b0a784a63aa7649261c82ab92c7820cf04aa",
+  "claims": [
+    {
+      "id": "claim_7536a61bdf6f44a1801106c39ca49863",
+      "statement": "The test suite uses an isolated SQLite database (test_app.db) created via Base.metadata.create_all with a TestingSessionLocal bound to a dedicated engine, and the production get_db dependency is overridden via app.dependency_overrides.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_api.py#L18-L29",
+          "version": "repo-lines-v1:sha256:f69f0d6202066ecc1aca95e658d02abdbcfb286207c0bbaeb4e97e1664ab10f6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQyOWY1YjUzOGVhMjY5YTE3MmNkNThlZTdhZWI5ZWFmYjU2YmM5MWU4N2I0NDM3NjgwODMwN2MzOTc0OWFkZTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5OTVjZGFjNWJhNmFjOThlMzhlODg5YTY3NTA4YjAwZTFlOWZlOTU5NWI0ZDYxYmZiNTE5M2JmYzg5MTc1ZjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFjOTY2ZGFhZmJjYWUyOGFjNjEyNGQyZGQ1MTVlNmM2YTk4ZDM5YWY3NGUwODRiZjUxZWNmYWJmZjBhMTkwYjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhlMTM2MzdiNmJhNzg4YmIyZDgwY2Q3Zjk4NDBiMDVjMDdiNzkwODE2NDE3N2ViNTdiNDQyZDE5OTQxNzBjYTYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1139556fda0e466a83848576d1718345",
+      "statement": "The module-scoped autouse fixture setup_database drops all tables, creates fresh tables, seeds exactly one admin user, one litbang user, and one MasterPos door ('Pintu Barat / Utama' with code 'pintu-barat'), and cleans up test_app.db after all tests complete.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_api.py#L31-L66",
+          "version": "repo-lines-v1:sha256:e73f48be47e82bd26e71ee45262db8b49e731c8c241a01ec3ab29b57382f6134:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0MTJhYWRjMjQ5ZWI4MDNkYmRkMjVjOTY4YThiNTM3Y2VkYjFlZGM4ZjY1YTgyMjE5N2U0ZmQ1YTgyYTk4YzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiYzkwYWIxNGQ0ZjAwY2I1NWJjMTYwZWFjZmJkNTRkOGVhNTA5MTY1YWIwMGY4ODkxNDNjN2M0ZTI0YzI2YmEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYzOWMwYWRhYzZjODA5YWNjYWY1NThhNTc3ZGI2MmI1ZDNkYjY5MDc4Njk4YjIyYTFmNjNjZTM2NTE4OGYyMDMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImE1N2QwY2ViNjQzNTU0MDE2ODNmMzUyZjQ4NmQ4NzYxZjUwZmE2M2RlNDM4OTY3OWJmNTQzZmVkZTI1Y2M2YzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_efc40c6bdcc745aca8cbbc6808834f50",
+      "statement": "test_create_event_and_counter_flow covers the full end-to-end flow: admin login, event creation with auto-populated pos_list, kiosk POS token validation, batch sync of two taps (PAROKI_BINTARO + LUAR_PAROKI), idempotency verification by retrying the exact same batch, live stats assertion (total_umat=2, percentages 50/50, building_breakdown non-empty), and CSV export with expected column headers.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_api.py#L91-L179",
+          "version": "repo-lines-v1:sha256:78b0da5a1c144a525a1cbc7871cce046e712651279e5d6c7b96e4ca80fd5c44b:eyJzZWxlY3RlZExpbmVDb3VudCI6ODksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2NTk0ZjFjNjczZDQ2NDg1MmVkM2ZjN2IyYmFmYjU0MzVhZDA4MjJiMTRhNWM3ZTZjZmZiMGU0YTVjODQ1MTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFhY2ExMjdhM2UwZDI1M2Y4ODMyNTg5ZWI4YTk3OGI0ZDc4OTNmOTdmOGYxMmQxMzIzMGYwMDY3MjcyMzk2ZDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyNDU0MGMwZWU5YThiNzU3YzhjOTQ5OGNiZWM5MzkwMjJkYTMzMzUwYjJkN2M1MWFhZmY4YWQ5ZWI3NjkwN2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxOTQyN2NhZWIwNWExYjU0ZDBlYjVjYzQ2MTdhZmJkODJhYzUwODk1ZGUwMWVjYjlkMDc5ZWExNjUxOGYzYjMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ddb13dbc00ab45968275833c432c823b",
+      "statement": "The idempotency invariant is verified by re-sending the same batch payload: the server returns synced_count=0 and already_existed_count=2, proving that AttendanceLog.id (client UUID primary key) prevents duplicate rows.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L71-L73",
+          "version": "repo-lines-v1:sha256:1067e171b86f597225255bd66749141e74ac4a6debf0ff2b83aadfc139140631:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWZmNjYzNWJkNjQ2YWEyODk5YzNlMDhiMGU2MmYzNjU2NTc0ODg3YWE3NGNiNjBiYzM4NGY3NmU1MzA4NWYxOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODY3MmJlNDNmYmM2MDA2MzYzOGM5ODc2OGY4OWFlN2M1ODZhNzQ4MjAzNDllYzMwOWNkZDY0ZWVmYmRlM2VmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODdiMGVlNTIzMTQ3NTRjZGU3YjhjOTlmMWU1Y2VjZmE5ZjY0OGQxZmY3ZWYzMzliNDVkZWRmMjAwMDhiYWQ3MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTMyOThmYThlY2VkNDc5NzRhYTM4NzliZmEzODdjMzZlYjdjOTczMzJlYTQ1ZmI3YzNjYmY3Yzc2NmJjMjU3NyJ9"
+        },
+        {
+          "resource": "repo://tests/test_api.py#L155-L159",
+          "version": "repo-lines-v1:sha256:354182536715fdc7ad835ec6170b598a666dabf8496ed8153507c4cee7b8890f:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGU3OGM4OTI1NjIwZmMxOTY2NDE5MThhM2E4ZDc3MjRkZGRkOTkwZGYwM2FmZjA1MTBlYWI3YjUxMDMyOTgzOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjcwMWViZGIzOWM5ODI4MTA1MWZhZDk2ZDMzZTlmMWZjZDE2Yjk1ZDI5NTYxNWRhMjkyYTc3NzdjNmQwMTExZCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWJmY2M3MzQ2YjM0ZjRiMjcyN2NlMDkzZmE5OTRjYWIyOWQ1ZGYyZWUyMzYwZTJkYTJlMzg2YjYzOTZlMGE2MiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWFiYzZlOWVhMjhmZjVhYzc3MmVjYzhhNjU1YjllYTZlNTQwZjdjYTAxNWQ4MTk1YTFhMGI5Y2M3ZThmNzEyMCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_459a361c08244ac0b264812af7c03f48",
+      "statement": "test_evaluation_notes_flow covers saving structured evaluation observations, recommendations, and conclusion via PUT /api/events/{id}/evaluation-notes, then verifying the JSON-encoded notes are returned via the live stats endpoint with correct field values.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/misa.py#L182-L199",
+          "version": "repo-lines-v1:sha256:c4291c613b608d70d2e283d9e22186263263bc5a79d980049997c543f55d44e2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU5NDQzZmQ0MDA2OGRlYmY5ZDYzOTAyOGMxN2IyOTkwOWYxMzg4MDhjNGE5OTY1ZmJjOTQ0ZjdiMDZiNTVlNTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmM2ExNTM3YjEyN2UxYWRlNTI4NjlhY2Q4MDA1ZDc5Y2JlZWI2MjM1YTQwMjZlMDAwMjZjYTU0YWJlNWQ1YzMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjM0Mjg3NTBiOTA0YjcwNTgxMDFkZjA3OWI1ZmYwZGE0MjcxMjdhZjE3MGRmNjkzZGVkYmY2ZjYzOTQ2ZTZjYjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijg3Njc5OTZkYjBmYzc4MTE3ZGY0NTBhYTQ1NzJkY2NiODFhNjUxMDA5OWRlMmY3ZTVhYzUwNGMzNmUzMjE3NmYifQ"
+        },
+        {
+          "resource": "repo://app/routers/stats.py#L138-L138",
+          "version": "repo-lines-v1:sha256:a722ee35b57929e44a4f5a9aa7cf72e4280bfd29a6c76f042bfaa53761a90379:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYTcyMmVlMzViNTc5MjllNDRhNGY1YTlhYTdjZjcyZTQyODBiZmQyOWE2Yzc2ZjA0MmJmYWE1Mzc2MWE5MDM3OSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTcyMmVlMzViNTc5MjllNDRhNGY1YTlhYTdjZjcyZTQyODBiZmQyOWE2Yzc2ZjA0MmJmYWE1Mzc2MWE5MDM3OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZmY0MDNkZmU2NzI5NWFiOTdjOGI5NzExODU0YjE0MDEyYzllOWViMTNlNzY1YjNjODFjMDAyNmM3MDU4NWZjMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOThiMzUzMDdhOGFiNDhlZWU4YWVjYTZlMDJmNGNjMzY3NmYxMmE5MzQ5YmI1NTEzOWQxNWE5ZDk4ZmQyMDhlOCJ9"
+        },
+        {
+          "resource": "repo://tests/test_api.py#L227-L271",
+          "version": "repo-lines-v1:sha256:a80c7b5ce2bb7aa4161585528a9c463ded70ba078f0f7e02c465651befd2d3b5:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2M2E1NmZjZjc0YzExZTNlZmJjNGU2MTUxZGNjMmQ5OGRiZDdlZmFmOGMzYzE2MjllNzYwNjk1OWMyOThjMDYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiMzZmNTY2NDIwMjU4ODI2MWU0OTU1NWUwNGI0ZTdhNDVkZjQ1MmI1MWVhODc2NDZjNmZjYWI2ZjQ3OTM2OGMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBhMmNiZWY5MmI5NjFlMjIwMDVhNmQ4NTQ4N2U3ZDUyYzIxNmIzNTM2NWMxYTMxYmE0MzljMDNmZWU5MWIzMWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAxYmE0NzE5YzgwYjZmZTkxMWIwOTFhN2MwNTEyNGI2NGVlZWNlOTY0ZTA5YzA1OGVmOGY5ODA1ZGFjYTU0NmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_39206de11076472d8bd68f4cfe2f3947",
+      "statement": "test_spa_fallback_and_static_serving verifies that GET /, GET /pos/{token}, and GET /videotron/{event_id} all return index.html (containing 'root' or 'Statistik Kehadiran Umat'), confirming the catch-all route at app/main.py correctly serves the SPA for non-API paths.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L109-L133",
+          "version": "repo-lines-v1:sha256:14ea46bdf511db76bd01f0b06547fb426378cd3ca3c260afcb6797bf7b07fae3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0YmE5ZmMyZWEwMTA4MDFjM2Y1ZDFhZjRhZGY3Y2RmMWE4YzFkZDI0MGY3N2VlMzcxNTFlMTlkMjg3MGYwMDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkYjkwYzc0YTVhNGQwOWEyYjdmMjI5NTQ2NGEwZGFjM2IwYjQ3MTRkNWYwM2JlODQ2MDhiODllMmFhNDRjZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_api.py#L181-L195",
+          "version": "repo-lines-v1:sha256:851802fed34967c9fd43a2f133c676b470484c0380ce41cc78c5a762f95be8ca:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk0MDUxZWYyY2FkOGUxNmRkZWU1MDY4MDE0MWMxZDkwODg0ZTJiNGU3NDhhZGMzNzU1YWE4NTA5YmI1MzI5N2IiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2ZWRhODcxNWJlYWZkODIyYWIyNjU0Mzc0MGM1NzBjYzEwMDgxMDgyOGVmOTUwMTlhZGY0Nzg0Zjg1YTQ0ZTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU1OGVhOTdjYmJiZTc4ODMzM2IwN2MxM2ZiNjY1MThlZWM4NzVmMGExZTQ0ZjgxNDdjNDE0YTMwMWNhNmYwOWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzNDIzZWUxMWIyMzJlOWMzYWI3OTRhNzM4ZWY2NTQxMmRkNmU5NWNiYWI4ODNiZGIxYmE5NTkzZjQ1YWY1ODIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_69bafc8b3c134dd78c84f80f6e6412d4",
+      "statement": "test_master_pos_and_user_management verifies the admin-only MasterPos CRUD: listing master positions (asserting at least the seeded door), creating a new door with unique code, and deleting it — confirming RBAC enforcement via require_admin.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L61-L67",
+          "version": "repo-lines-v1:sha256:50e15daa4b8327749c7d6d5e239128f02026c4f62359c8b3b714ba2b89dcc240:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzRlZDU0OGZiNjU5NWE5NjYzMTUwYzAxMzQzZmY1ODI5ODdiYjZjMDMyMjc2MGQxOGQzYjBjZmM4ODBkYTExNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODdlZmYxZTkyODM4ZDdhODU2ZWE3YjBjODM5YWQ5OWQ2NDdmNDdlMDE4OTVmN2NjNTg1M2I1MzBmZWEzZDBhMSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWM2NmJhM2U5N2U0ZDVkMjg2NWZiNjVmOTU3ZWZhZWFlYTFhOTJhZTg1NTZjZDVhOTI1OWZmMTFiYTVkMGMwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZjJmNWExODZjNTg4ZDdmOTk5YmU3OGYzMjcxNGJkMWQ0OGIwNjc2OGNlMmUzYzVmNjM4NDJmN2ViNWViOTAzMiJ9"
+        },
+        {
+          "resource": "repo://app/routers/master_pos.py#L12-L89",
+          "version": "repo-lines-v1:sha256:6d68ba7d6600fc6da31c1f0ab14236805f4cd1afd9019860de0bff238d9156af:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdmYzg2MmFmOTMwMDA0MzVkZmFiZjk1Y2YyOWJlZWVlN2ZlZDIzOWZmNjlmOWRkNjlhNDY1NWRhZjE2MjBiNzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViOTA5MjM4ZjRmZjcyMDdkM2I4ODQ2NzMwZTNhZWYxYzZmN2E3MjA0ZDhjOWQ4MTE4OWM2Y2M1YzcyNDBiNDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImJkODIzOWM4ZTZkOTExN2Q3MDRmYzMxZDRjYzM0OWYxZTZjYjgxMDdiNzBlNGU2N2ZmNDI2YjhiNzkxOGQ3ZjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://tests/test_api.py#L197-L225",
+          "version": "repo-lines-v1:sha256:a61c876c5a1889ecc3fa43240d5d2cdf09eb4fdb0651d2f98df5834b3b4e6c38:eyJzZWxlY3RlZExpbmVDb3VudCI6MjksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmYjg2MzQyODI1Y2E1NWRiZTc1ZDRlYTZjZGFhMzQ2YjA0NTFjMzU5OGY2MzNjMDQwNmJiYWU1OTgyZTQzNGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImNkZThmM2FhN2MzOTI4ZDA3YTZmNzNiMDM3NDkzMDdkNGY4YTk1YWI5MTJjNDRiZjAwYmFkN2Y2YzYyMzlmNzgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjViZWNmODJiY2EwNTgzMTY4ZmEwNTM5NDc4NTA5YTg2NTJjOWNjODdiYjBjODkxODU1YjdiYTY5ZjhmYmYwMjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdkODIxZGZhNTU3MWU1NGM1YTA5OTYyYjlkNmMwNmQ2MTkwMTlhMWM0NGUxNTE0NjUzMjFhMWVmMTdkYWIzMWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b7184e8f048646699ada1109f404f7b4",
+      "statement": "test_login_and_auth validates the JWT authentication flow: POST /api/auth/login returns an access_token, and GET /api/auth/me with the Bearer token returns the correct user email and role.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/auth.py#L17-L40",
+          "version": "repo-lines-v1:sha256:aa6498b59c3735e7c7d04e1a9acf3c6884abe00d78b57b44a09bca61832b1ef2:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU4NDQzNWRiN2Q5YWY4MDNkZTYyODQwZDFkNWNiYjEyNWNhOTc4OThiODE0MTYzYmMzMTU4YTA0MTljNWM1MWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ZWZmMWU5MjgzOGQ3YTg1NmVhN2IwYzgzOWFkOTlkNjQ3ZjQ3ZTAxODk1ZjdjYzU4NTNiNTMwZmVhM2QwYTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImViM2YyNzk5NGRmOThmYWFiZTIyOTYzMzJkYmY2NTg3OTI2ZWY0N2UyOTkzYTQ4MmQ5YzEzYTlkNzM5N2M3MDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY0MGFjMmNlNDUwODVhMzA0YzUwNmQyYTllZTZjNzcwZGU2NjZkMTMxNzA3Yjg0MjI5NGMwMDEyNDkzZDk4NWUifQ"
+        },
+        {
+          "resource": "repo://tests/test_api.py#L75-L89",
+          "version": "repo-lines-v1:sha256:87d2aae06ab825742a877d4d0c2b4ffbcfecbffdf56b0a0a4ab80a796728c87e:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFlZThhN2M0NTE4YzM2NzE4NWNlMTgzNjY5ZmViZDYyNWM1ZjA1NDQwMzIxY2Q2YzljMjJiMzhiNjhlNmViMmEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5MjQwNTE0OGRkZjg0MzZkYTAwMWFlMGFkNjg4ZjRiNzcyMmZkMzljYzgzZTdkMDk1MDdlMGMzNTg5NjYyNzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY2YWE0ZTkxMTU0ZWEyYTgzMjNmNjllZDQyOWVjMzZmOGQ1ZmNmMjk0YTAxNDI2Y2Q4NjdjOWMyZjdmMmM4N2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUxODYxZGNhMzZiYzgyMzZhZmM5NGEyNzBmYjY1MDExZTI1ZmE4NzU5YzhhOWM0ZjIwNzE5ZTY5MGExNTU1MjgifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T04:05:02.987Z"
+  }
+}

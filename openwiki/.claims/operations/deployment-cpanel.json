@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:2e1ca0824230bfc39d62113a09339d1646c59870ae29e1a8f9045f91f4727017",
+  "claims": [
+    {
+      "id": "claim_e91477ebde1743b8961b7fad4fd0f080",
+      "statement": "passenger_wsgi.py is the WSGI entrypoint for cPanel Phusion Passenger: it inserts the project root into sys.path, imports the FastAPI app from app.main, and exposes it as the `application` callable wrapped in a2wsgi.ASGIMiddleware so the ASGI app can serve WSGI requests.",
+      "evidence": [
+        {
+          "resource": "repo://passenger_wsgi.py#L1-L11",
+          "version": "repo-lines-v1:sha256:e02eda9b1f1d750c8283564edafc8a30bdd3abf0f38969dd92531ddec05abd12:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1MTc1Nzc4NTFjNDg5ZTQ1YWJhZTI1OTEyNTZjNDA0MDRhMDVjNmQxOWNkNGQ1YWU3ZmQyMmIwMDg0Y2VjNmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyZDRiOGU0NTA0NzdhNGVkNTY4OGU4ODhmMTRjNjJkZTQxYTczMmRjZGU5ZTc0ZGRiM2I0OTI3MjYwOWE3YTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_53fd2f8b42ba4373bf54531cadb9a449",
+      "statement": "The a2wsgi and pymysql packages in requirements.txt are the two dependencies that make cPanel production possible: a2wsgi bridges WSGI to ASGI for Passenger, and pymysql is the pure-Python MySQL driver named in the production DATABASE_URL.",
+      "evidence": [
+        {
+          "resource": "repo://requirements.txt#L11-L12",
+          "version": "repo-lines-v1:sha256:67d13e825ddb6a08ad89dd898786dd5e7464ad52d5bcf47faf88aa9ec07d3ac8:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNTI2NmNhOGYyMTIwNDA0YzAyNmIwNzE4NDE0MzkzZGEzYWNkMzZlNDBiMTg0NzUyOGYyOWRlNmU2NWUyNmU5MyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYmZmOWZjMTM1YWUwNTljMWI4MzFiNDk5M2E4ODJjMTY0ZWY0MzEzNDY2MjM1YzVmOGQzMjliNzMxMjQ4M2YyNCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMTVlYTBjMzZjZGZhMDdhMTdmZGJhOThiNWUwYWRmYzFjNTAwNzk4ZTNiZTdiZmFmNzY2ZTdmNDk1ZWMxODU4ZiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTZmZjRjMmMwOWQ5ZWNkYjcyZGQ5ZThiODhhYjA0ODc4MGRkNmEwYmNhOWFjMDMwNWU4ZmRlODJhNTQxNTIwZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_88e5ea410e9042f78aedcb99a337a2d0",
+      "statement": "Application configuration is a pydantic-settings BaseSettings subclass (app/config.py) whose DATABASE_URL defaults to SQLite for development and is overridden to mysql+pymysql for cPanel production; the .env file is loaded automatically via env_file='.env' with extra fields allowed.",
+      "evidence": [
+        {
+          "resource": "repo://app/config.py#L5-L22",
+          "version": "repo-lines-v1:sha256:662049a651d3179a17cff657922800d6e8fb4365e9e9dc17c2b1eff5e20e18a6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZjODYzMzFjOTBiNzhjZGI5MTdmZDViZDY5ZmMwNzE0ZDVhNWZlODQ2MGQ4NzYyNzllMTVmZjQyZmZjNzIzNWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4ZjRiZjE4NzYxNjAyZDNiNTkwYjM3ZDM5OGZhOTk3Nzk3MzBhNzdiNjgxMzhmZGQxNDA3MzQ5MmUzNzY2ZWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlMDA3MmE2MDNjMGUyNTZhYzc5MzZmNjI3OGNmMjUzM2E3NTQ1OTA5NWE1MzY1ODBhMTE0YjE3NGIwMzRkMDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7eb866700e0c406cb8d3eb1a32d0d84a",
+      "statement": "The SQLAlchemy engine in app/database.py adapts to the environment: check_same_thread=False is applied only for SQLite connections, pool_pre_ping=True is always set, and the engine is built from settings.DATABASE_URL read at import time.",
+      "evidence": [
+        {
+          "resource": "repo://app/database.py#L5-L17",
+          "version": "repo-lines-v1:sha256:2fd777a9302ff3002730ffc458decb2295f7af5204f911e4aa8413361ecd0fe0:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjJiODAyNTEyY2Y3ZjE5MTgzYTQ3YzkyY2QxZjAyYmYyMjhmNzQwMWMyZTdkM2NhZjMyZmQ1Y2I1YzJkZDgzOWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRhYTVhMGExZjA3NzBhNWE0NGUwMGFlMTA4MTQ3ZGJiZjllYmZmYjVhMmNkODA2YzE3YTg2ZTI2YmFmOGM4YjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNmMjIzYjM4NjcwMmQ4ZDI1NmYxOGZhOTdiOThiNWM4YWE1OWNhMDMwZTkzZmYzMjJiZDJiZmY3ZDhjZmM5MTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhiN2EyNTdlMmVkMzA4OGJhMGYxNDlhN2M3ZWQwMTYyMjE1YWQzMjg1M2ViZDMyZTVlYzI4ZDI1MDA2MGY4YjQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_50228693579f4480946ebb7fea24b373",
+      "statement": "alembic/env.py overrides Alembic's configured sqlalchemy.url with settings.DATABASE_URL (the .env value) and uses app.database.Base.metadata as target_metadata, so `alembic upgrade head` always migrates the environment-configured database; the committed revisions e5a424868b5c (initial schema), e4039a3350a7 (evaluation notes), and cd05de9ff18d (building hierarchy) form the migration chain.",
+      "evidence": [
+        {
+          "resource": "repo://alembic/env.py#L25-L28",
+          "version": "repo-lines-v1:sha256:89238e24182f63e1acf87c31f77e291e0b20c51c5a6b4617010f876526017a4d:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzAyNzk0YjVhNzY5ZDMzYWY2YTcwNDRkNDhiNzUzODgyNmJiNDAwNWRhNDhkYmRhZWJiMjc4ODcxMmI2ODhiMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTRhNzc3MjBiY2JjYTQ2YmNmMTE1ZWZlZTBjYWY5YjRmNDdjOGRmYjA5NWUwMDlhOTgwMDZlYWMzODVhNmQ2OSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMjQ3NDEwYjNkZWYwNGIyMmJmNDk5NmIwNjZjY2JjMzFlZTA3NDY0ZmM5Y2NkZDcyMGFhZmRkMWFmZDBlYmFmOSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjVjMjEyNTk5NjA4ZGVhYWE2Nzk0OTJiODc1YTU3ODVlMjNiZWJiNzMzZGZlNjM4NTllZmU2M2U0ZjYwMjkxNSJ9"
+        },
+        {
+          "resource": "repo://alembic/env.py#L42-L49",
+          "version": "repo-lines-v1:sha256:1a18cc83158992519edc8cb1863f3eedd2425010c67f2a0ba53bfe65d0aa2e33:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjgxNDNlNjMwNjE2OTkxZjY3ZDljMGEwZGM2ZDNiZGY5MGFjYjZiZTgxMmIxOGJkZDljMTFlNmY2NWE2ZDYwMCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBjMWYxODhmMTQyZWQ3YTgyNDY4MGIyMDcxNzJjNTUxOWJjNjE0YTQ4ZmRhN2NmMTY3ZWRiOGRkZjc5OTU2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzkyOTE1MzI5OTFmMjlmZWVlZTE1YmU2ZDMyOWQzNzdlNzQ2OTk4ODcwYTA0OGY1ZDcwZWY4OGRmNWY1MWQ3OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNGI4YzJmZDFhZTNlY2YwNmM0MDVjNzYyOTQyODkyNTQ5ZjMxZTUzNzI2YjNlN2M0ZGE0YmYzZjVmMDM4YzhlOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_d311e12be487419d978a1f459dc171bf",
+      "statement": "At every FastAPI startup, the lifespan handler runs init_db_and_seed(), which creates missing tables via Base.metadata.create_all and idempotently seeds the ADMIN user, the LITBANG user, and seven default master doors (back-filling missing building names), making restarts and repeated startups safe on a shared-hosting MySQL database.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L14-L69",
+          "version": "repo-lines-v1:sha256:3a505d4d014a681cca1a53d5a6b17ea31ecf6655c4cc0c38922cd76dbee42c74:eyJzZWxlY3RlZExpbmVDb3VudCI6NTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1ZDAyMGZkMWUzZDJjOWFiNGRhMzlmNzA0NmU3YzUyZWQ2NTY5N2FjOTgzNmJiZjk1MjVmZGQzNDg1ZTIzNzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNjVjMmJiZTNmNTYwY2IwMGQ3YjEwY2IwZWUzNDI1MDc4NTk0YTY5N2Y2YTc2ZWJkZjk0NDQ1MjhmNTFmMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlNjhkZTU0MTMyYjQ1YWU4MTY0NDc2YjlhZWU5NzgzMDkxMzBiM2M5YWIzOWQxZjhkODNjMmY0YmMzYTQ4OTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjViNDNmNGNjNDk5YmU1M2EyYzMyZWFjODNlZWEyYjFjNjRkODUzMDBmYmU0ZjJkZjMyYTc3YjI2NTNkOGIzYjYifQ"
+        },
+        {
+          "resource": "repo://app/main.py#L71-L83",
+          "version": "repo-lines-v1:sha256:5be962c145fe9c38da11245146e9fea08a569d57e2e905c93e20e895f8e946bf:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3Y2ZmM2YxNzg0MmRlYzZlN2U5MWMzZTNiOGZjZTBhODIyZmMzMTEyNzM4MWIwMGY0NGE5ZjEzMzMzMDNhMmUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjRiMjYzNGZkNjg3OTgyMzJhNjExNWJiMzQ5MjY2NWUyNWJmZDU0YzIxZGI4N2ZkZTcwZWU2ZDA1NDYxODhlMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkZmE5YjUyNDRkZWI0OGU0ZDRjZTIzYmEwYjMwYWYyYWFkODBiOTdjMzQ3MmM0MzY4ZmZjYmUwYTYwMjA1YjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_4c91b1f55b8e4fc592168451a315f53b",
+      "statement": "app/main.py serves the built React SPA from app/static/: the /assets directory is mounted with StaticFiles when present, a catch-all route returns real files or falls back to index.html for client-side routing, api/ paths receive 404 JSON, and a missing frontend build degrades to a JSON welcome message instead of crashing.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L110-L133",
+          "version": "repo-lines-v1:sha256:f91abe515e457d9c9869b17bb5265775c11cf42f2aff5cbfe68c16a302ccdbad:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc2MzljMmJhOWFmYWZkZjg2NzY2OTRkN2VhZjRkZDc5MjcxNDQxMjY3MzQ1MjBiNzU5NzM1ZmMxZTA4NWMwMzAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFmYTRlNzIyNGE5YzM2NjNkYWMzMmZjYTg3ZjMwZjFhYTZkOTI0MGMzMjM3YTJkNGU0NDI1MGI5ZDU5MjlkNTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_d452de9f3dcd4ed2b09c5d4e9381120e",
+      "statement": "The /api/health endpoint returns status, app_name, and parish metadata and can be used to verify a cPanel deployment responds after restart.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L101-L107",
+          "version": "repo-lines-v1:sha256:d48e468e1281ff0638aaecbf74006ef48180ee36a8ba53f21d4bad480ac30580:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZTliYWRmMGE3ZGZjNjM2ZmYzMmU5NDZkYmMwNGE4MzBhOTQ5M2NmNTg0YzE0ODIzMzIzN2U3MTEwYmJkMjdhMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmMwYzkzM2Y2MDMxY2RmZTBiYjgwN2MxMGI0NTdmYWJlOTgzZDFkZDE1Njg4N2FlNzQyOTU5MTQ3ZGM2N2UzNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWZhN2YyMjg5MTk1OGM0YmJmMmZmMTVjODZjODdmMjc1NGQ0N2Q5OGQ3NzI2MTAwZmQwZmRmZGZhZmViNjZiMiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_7a9aa7ab61d84058ade3383c4cf1092f",
+      "statement": "The documented cPanel deployment procedure is: create the MySQL database with ALL PRIVILEGES, create a Setup Python App with Python 3.10, application root statistik_umat, startup file passenger_wsgi.py and entry point application, upload the project (excluding .venv and node_modules, including the built app/static), pip install -r requirements.txt into the cPanel virtualenv, set DATABASE_URL to mysql+pymysql and a production SECRET_KEY in .env, run alembic upgrade head, then restart the app from Setup Python App.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L133-L177",
+          "version": "repo-lines-v1:sha256:08cf49067a0867e0615bd00f3d38026584ac7e260d7b554803cb50ed91ec4203:eyJzZWxlY3RlZExpbmVDb3VudCI6NDUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhMjQ1ZGM4Y2ZjNDI0YmJkMzdlNWNiNTY5MmM3ODM3ODM4MzMwOWE4MzZmMDk4N2JjYjUwZWRlMTk0NWZiMTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNjM2NmNDFiZDY1Mjg4ZjE2YTNiNjU4YWI4ZTRhYWJmODQ0YWZjOGViNjhhMzFkZmFkMmEzOWI2YWRmNmExZDciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAwMWYyZWMxNzU5M2MxMDU0ZWI0NjM2N2Q4NDUzZWYyNGExNzNjZTk2YjcxMTdkOTFmOWE2OGQ0NGZlZjhiMDEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjAwMWYyZWMxNzU5M2MxMDU0ZWI0NjM2N2Q4NDUzZWYyNGExNzNjZTk2YjcxMTdkOTFmOWE2OGQ0NGZlZjhiMDEifQ"
+        },
+        {
+          "resource": "repo://README.md#L69-L74",
+          "version": "repo-lines-v1:sha256:7e415936aaae1c4eb19223c6cae65d2de05ac8cf34fd855e5f8139151a2d2633:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOWJhNjFlMGJkOGEwOGRmZmFmZjQ2ZDE2MGE5ZmYxNWQyMWNmYzg4N2I2MjBhNzI3NmFmNGM5MmQxM2E5MTgwMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDY5MGRhYjM3OGI5NmJjOGVhMjc5OWRiZjQyZDJlMDFiZDk2M2ZjYjg1MzUxMjcyOGE4YjljY2E3YjlhMDM5YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjI1MTkxNmNjODkwMjAzMzExOTIyZjU1OTJlOGUzZjhhZDE2NzNkYzk4OTdkODVmZWIyNzQ0NGQxNjE1MzE5OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMDAxZjJlYzE3NTkzYzEwNTRlYjQ2MzY3ZDg0NTNlZjI0YTE3M2NlOTZiNzExN2Q5MWY5YTY4ZDQ0ZmVmOGIwMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9ae433ae63834442bda5133bb2bb1044",
+      "statement": "The frontend build (npm run build → tsc && vite build) must be produced locally before upload because the resulting SPA files are emitted directly into app/static/, which the FastAPI app serves in production.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L107-L114",
+          "version": "repo-lines-v1:sha256:0f16817c42f31f02bdd7bfb124e064b696091b166e327bb7f70febcd9b9e6be8:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjgzMzlkODkwZmUyMWU5YzAwN2VlZTgxM2M5NGIzY2UyYjg5NTA3ZGU1NWIyNGM4MjU1NDIzNTYwMzQ4MGIzMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWY4OTQwOWZkOWQ3YTQxMjUwNTNjZmNmMzk2MTNjNTRmOTU1NmQzZjg0ODY5MGQ1YTU5NDU4MmU4ZGZkYzlhNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNTJmODFlMmJhOTJlZmJhNGQ3NDFkNmZlNjBkMTIxNzUzMDFlMTYxOTY2N2JhZTJhMDk2OTE1NTkyNmRhOGU5MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYWQyMDUzYjcwMjMyNWJmODQ0MDYzNWFlMDA0ZmMzNTc1YzQ3YTIxMmY3ODViZThmY2Q5NjI5YzdkODM5YWQ2MyJ9"
+        },
+        {
+          "resource": "repo://frontend/package.json#L6-L10",
+          "version": "repo-lines-v1:sha256:07f90436512b24c30f58513a39b4733a633cd78986cd0f319a39a182f5b9a3be:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ4MzNkNTk0OWMwM2E0MGNhOTUyNDkxNjEwYTY2NTk2NDRiM2FhNDY2MzYyZjc5OTAyMGRiZjE5ODE1NDdkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOWRkNTQwN2FiNTk4NDFjZDliNTUzYTliZjUxYTEzMmQ5ZjI4MGQyZjZkZDNmMzg5NTlmMjFiM2I0YTNlOTIwNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2QzNTNlYzMxOTI4MTMwM2Q5YjdlMmQzZmQ3YWFjNzQ3MzM5YmViZTgxMTI3Mzg1ZWUxN2JiYWNlY2VjNWE3OSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T04:05:02.987Z"
+  }
+}

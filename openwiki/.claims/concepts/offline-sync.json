@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:3afa4667f943b9c10ad2721296df166047663918d08c7bb1ba02cad43db5f7c8",
+  "claims": [
+    {
+      "id": "claim_17b11ef8062f469887338fd6f321ae10",
+      "statement": "offlineQueueStore uses Zustand persist middleware with localStorage key 'paroki-kiosk-offline-queue' to survive page reloads; only queue and posCounters are persisted (partialize), while isSyncing, isOnline, lastSyncError, and lastSyncSuccess are re-derived each load.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L176-L182",
+          "version": "repo-lines-v1:sha256:a7139711522be6a4df4825e2a842affb15e2f616b03f262f0aa9e9f438ae7d05:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjljYTg5MWJmZjdhYzFmN2NlYWFlNDBlZjA1MTA2NmJlOWVmZTQ3YjRlNDI4MWU4NmMzMTliZTJjNTVlYmNlNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWIxNGRhNjFlMmY1NzNiZTY1Mzg3MTY2NDZlNDgwY2UxZDE2YTJhYmE5NmIyOTE2ZjQ3MDkxNDc3NjU3YzgwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2Y4N2RhYTU4OTk4OTNhY2M2ZGYwN2JjMGQ2ODlmYTVhNTRjZGZlZDU0ZmJkNjljNDQ1M2ZiYTYzOTI1YmUwOCJ9"
+        },
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L60-L61",
+          "version": "repo-lines-v1:sha256:f613156ab71a51709fca27d34014d4a39c2d4bf04d3abe77dcf620194f8dafda:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGY4MDJhNjkzODFmZDYwMTBkMDQ3OGUwMGUyN2RiZGQyMTdlOWJhMDExMmJiNDY0MGE4MWFhNzVhOGRmODUyYSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNTk0OTVlMzQ1MTQ5Y2FmMmUxMjg1ZDU0MGY3N2E1OGQ4YWJlZGE3N2U5MjQ0MTg1MjdiOTA2ODkzOTJlZmQ3NSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNjhiZDAzOGRkNDJlNTBmMDg5N2NjNzhlM2M3ZmNjM2U5N2MyYjUzYjhjMDgyOGE5NWJkOWU2ZThjYWEzZDUyZSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjAzM2MzZjA3ODUyZGQzYWQ3NmEwMzNlYTk4NWJhOTZhYzQ0OTgzMTkyM2EwZDBkOTc0NzgyNDJjM2ZhMjMyNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_ccb39f5430184f66a3025692cbdebdb4",
+      "statement": "The recordTap method generates a client-side UUID via crypto.randomUUID() (with timestamp fallback), triggers haptic feedback (navigator.vibrate(35)) and harmonic audio chime, updates posCounters optimistically, appends a TapQueueItem to the persisted queue, and fires syncQueue(posToken) without await.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L72-L113",
+          "version": "repo-lines-v1:sha256:358015ddf98c9ad2917bac7ef30144fd7cf7a0bf702ee60c340d8ed792bc0c2e:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiN2RjN2JiZTJjYjQ0MjI2OTE5NDE1MjZjMzM2MmM2N2M2N2I1YzQzMDU2ZjQzODA0NzZiMzUyNDQ3MjUxZWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5NzhlMjUwM2I4Y2YzN2EwNmY3ZDZmMGEzYTZiNmZlMzU2OTFmYmNhYjUwYjg3NzVjYWI2ZmFiYzcxYzU5MmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZGNmYjRmNmFiZmI1MzEwOGQyZDVjZTViZjA1NmQ3ZDQ2NWI3ZDA1NzcyN2ZmZGFkZjE2NWE5NDU0NTJiYWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyMGJjNDdjOTNkOTEzMTUxMDJlMmIzZTIwZDMzMDEwZmQ0NDdlNzdiNDI0MjBhODAyMmEzYTdiZjNlZDkzYmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_836b6927d67745638b25830d466f0d1c",
+      "statement": "syncQueue guards against concurrent requests via isSyncing flag, filters pending taps for the given posToken, POSTs them to /api/counter/{token}/sync, on success prunes queue by sent IDs, and on failure keeps items in queue with isSyncing reset for retry.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L115-L165",
+          "version": "repo-lines-v1:sha256:cffe748b199ef2240b4e34eb595e5b51471f1142a6397b608f9629c2fd5f2a4d:eyJzZWxlY3RlZExpbmVDb3VudCI6NTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjkyMzcwMjJlMThkMjU5NGY0NDRjOGUwYTQzNDg3ZmY5ZWEwMDUyZDUxZGJjOTczYmZhOTBjOWIxMjAyNWE1YjUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5NzhlMjUwM2I4Y2YzN2EwNmY3ZDZmMGEzYTZiNmZlMzU2OTFmYmNhYjUwYjg3NzVjYWI2ZmFiYzcxYzU5MmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImI5YzMwYjI2ZjE1OWUxNDNkZjg4YTBjZWIyYTRiNWUxNDU1ZDljMWM2YzliYWIxM2Y5ZDUxNzcyZjZjMmQzNzgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjRjYjljYWUxMDE3MWQwODQzNGUzYmExZjZjYzMxOTAwNTk0NzdjMDU4ZWEzYTYwZDkyZjRhOWNjMjY1Y2YzZjMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_bdb25b72ad854b59801dc711f04c7e77",
+      "statement": "KioskPage listens to window online/offline events; on online recovery it calls setOnlineStatus(true) and immediately invokes syncQueue(token); a 6-second setInterval heartbeat retries sync when navigator.onLine is true, pendingCount > 0, and !isSyncing.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L69-L93",
+          "version": "repo-lines-v1:sha256:00b79f9057bf7858dbd10509e66a0373eae7139a88bd38d70edc03480d4c982d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5NjZmYmZhODg5OThkYTc0NjU2YzUwMTk0OTU2YzI1ZjA4NDk0NTc2NjBjMDA5ZmU2M2QxZTlmYTlkYzkzMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjZTBhYjMwYmQyODg3MjhlMTFiM2ZiNDNlMTUwNjkwMjE3MWQzM2FlMGZhZjhjZTc2NmIwOWY0ZTIzNTE5NzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1OTg5ZmY4YmZiODNmMmE4NzAyYTNkN2NhMzQxZmU5YzZjNThiM2U3YjgyNjJjZDZmYTgzM2YzN2U2MzcyZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUzOThhYWJmMjA5ZTVjNDBkNzY2MzYyNjU1NDIxNTE2MzUxN2JhMWU2ZDI3MGY3YmVlN2U0OGQ3MmUyZDcyZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_239ec02ebe584c72b9981b03101de840",
+      "statement": "KioskPage enforces a 500ms cooldown (isCooldown state) between successive taps to prevent double-taps; handleTouchChoice returns early if isCooldown is true or if event_status is COMPLETED.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L96-L119",
+          "version": "repo-lines-v1:sha256:56171cae162c33b76064e8fc8ef4ac0e88632016643dddce2ec75393558f714a:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5NDMwNGViMGIzMDQ0MDY0YjM5MjhlNzY3YmVlMjEyYWU5ZmMxNTIzNzZjYjcyMmZmMWQ1YjY4MGRhYzg4MDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY4OWIxZDBlMzQ3ZThhMGExYmQzY2M4ODgxMTJhMzNkMmRiYmNiOGJkZjcyZmUxMDU0MTEzODViMjVmMThjZWEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ4Y2E1Njk4ODE4OGM5MjE3ZjE5NDNiMDAxZGY5NDQ3ZmFjYTFiYzk3NjgzYzBjNGFlMTc2ZDA2OTRlMWFjZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxYzUxYTAzMGYwMWM3Zjg0ZjYwMjc0NzE4Y2MxOWZmOGUwZDE4N2VhMTIxYWE4MjYzOTdkZDE2NjVhODg5ZmEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ac2dfe8c3baf4a66979bb27c4007dce1",
+      "statement": "The server-side batch sync endpoint POST /api/counter/{token}/sync validates the POS token and its event, returns 404 if invalid, returns synced_count=0 if event status is COMPLETED, and performs idempotent deduplication by querying AttendanceLog.id before inserting.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L38-L115",
+          "version": "repo-lines-v1:sha256:305f76ae016c3dad0d33236fe46b052e369ff0c6cccf3ca9cb380b9e706476a1:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhmMjBmNTViYjM5NzEzNmJjZWI1YWIyNjUwNjM5ZDFiZmMwNGIwMTVlNmUwZWQxY2ZmYmJiZWVhMjU4ZDMyZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5YmQxMzcyMmZmNmMxMDFmZGMzNWM0YmQ2Y2M3NTZjOGQxZTA5YjAyMGQ4OTYyYmE3NmQ1NzUxNzdhZjU0YjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e91e537a3a9445fe9a1fed6b232bd153",
+      "statement": "Idempotency is achieved by using the client-generated UUID as the AttendanceLog.id primary key: the server queries existing IDs via AttendanceLog.id.in_(incoming_ids) and skips matches; the client prunes by ID set after any successful response, guaranteeing exactly one row per tap even on retransmission.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L69-L73",
+          "version": "repo-lines-v1:sha256:d4d8dc1de9791a0351de8f24be22dc91083196605072fbc9344598baccb36635:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNmU0YzBmYzE3NmYyMTdiMDAxMmIyM2E1ZjcwMmNjZThlMGVmYWY0ZmFiNDEyMTMzNGYzZDA0N2I4ZjgwMjhhMyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiODY3MmJlNDNmYmM2MDA2MzYzOGM5ODc2OGY4OWFlN2M1ODZhNzQ4MjAzNDllYzMwOWNkZDY0ZWVmYmRlM2VmNiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiODJlOTlmYzIwNTcyNzQ0ODk1ZTM3MGZjZDZjZGY1Y2FiZWFmOWUxMDUyMzAyMTkyYWNkMjFkNGZkODNiYTE1ZCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTMyOThmYThlY2VkNDc5NzRhYTM4NzliZmEzODdjMzZlYjdjOTczMzJlYTQ1ZmI3YzNjYmY3Yzc2NmJjMjU3NyJ9"
+        },
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L147-L151",
+          "version": "repo-lines-v1:sha256:887c01fcd8c267eb46e7d944c82afd78f49c86f1113e54d52681a5e08c11847d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWNjMDkxOTRmYjZhNWIyMmQ2NmFlNWQ0YzQ2M2QwYTAwNWQxNWEwZDQ5MGRlNzAzMmQ0Y2FmOGMxMGQ4YTE5NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGRiMzllYmQzOWFiY2JmZDQxYTU4OTkxYWQyNDg5M2YwYzYyOTJkYmM3MTQxNDQ1NTU0ZDMzMDE0OTBjMWQ5NCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2MxZTk0ODk4MThjM2MwMGQ4MmVmNzQ2NGI1NTFkNTk5OTI4MjljZjllN2QwN2I0MTY0OTViNmNmOGMwNGVhMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYmE2ZGYwZjIyZTAwMjFjZWYwMWRlZjhmNjYyN2Q1YWQ1NDExMTBiNGZjOTcwMWQ0YTA0NzY2ZDI5NjVkZGI4OSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_01abcffb92f847ba9ea18f7ec70fe027",
+      "statement": "After inserting new AttendanceLog rows, the sync endpoint invalidates the live stats cache via stats_cache.invalidate(f\"stats_{event.id}\") to force the next Videotron poll to recompute aggregation from the database.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L108-L108",
+          "version": "repo-lines-v1:sha256:acc0129156c07ec5399704a262361030f839f513bc98f671d211a6f7b3f19570:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYWNjMDEyOTE1NmMwN2VjNTM5OTcwNGEyNjIzNjEwMzBmODM5ZjUxM2JjOThmNjcxZDIxMWE2ZjdiM2YxOTU3MCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWNjMDEyOTE1NmMwN2VjNTM5OTcwNGEyNjIzNjEwMzBmODM5ZjUxM2JjOThmNjcxZDIxMWE2ZjdiM2YxOTU3MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2EwMmIzNTU2NTliZTk0NjZiMGFiMjYyYTY1MDU4MmMzNTQxNWNiMzBmZmJlYWMwZjA5YWQwZmM5OThiNzNiMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZGYyYWQ5MWVlMDBkNTFjMmQyMTVjM2EyZDM2YWQ0NDQ0ZjhiNjI3MjcxYzUzNjNkNjk0MzAyMzMzMzVkMTEwYyJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c74f8ade1cd143bc9ec38c5d5e782209",
+      "statement": "SimpleTTLCache is a thread-safe in-memory dictionary cache with configurable TTL (default 3 seconds); it supports get, set, and invalidate(prefix) operations for clearing cache entries by key prefix.",
+      "evidence": [
+        {
+          "resource": "repo://app/cache.py#L5-L34",
+          "version": "repo-lines-v1:sha256:3b1fad7899834c2111460ba87c7b63f29509240c2fc174fc446d5fa1f764b35c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1MzlmM2Q0YWNjMTljYjJlMTNmY2JmNjJmMGZlY2FkNDg4N2Y2NWI1ZDlmMmExMDQzMTExNzlmYzA2NmU1YzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliNmQ3ODExZWFjMDJhZTQxNTFmZGQyY2Y4YzI1M2UzMDI1ZmI2YzliZDA0ZmVlZWUzNGIzMTVmZWUwMTQ4MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjNjMDdiNzk3ZDcxM2NkZWY0MjI0NDZkZDNhNjE1ZGU5NjkxMzFhOTk0YTY2MzY0YmVhMGI4OWFiMjFjZWUzMjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjA5OWVkYWQ4YmUwYTMwMTIwYzdiNWM4NWRhMDM2ZWM3NDUzMTYwN2ZiNGMyZTllZjUwMjIxNGQ1ZDk4YzNkNGIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ab6897babf844e1ca66286ef11246ea9",
+      "statement": "The TapQueueItem interface defines fields id (string UUID), posToken, choiceCode ('PAROKI_BINTARO' | 'LUAR_PAROKI'), clientTimestamp (ISO string), and optional metadata (Record<string, any>).",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/types.ts#L119-L125",
+          "version": "repo-lines-v1:sha256:3adc85d78feaaa6343bdac1d7a361b503c7fffd658a137d5b62586a4fb8479df:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDhlNjY4OTQxMzJlNDU5MTNiNDkwMjQ5YTRmZmNiOGYyNmQzM2UyNjQ1ZGI2MzUzMDQ4N2ViMTg3MTIzYzE0YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzU2ZjlkZDZlYjdjNjM0N2YxYmMyMjU5MDIyNGFhODBmM2M3MTBjMmI2YWE0YmQ4NjhlY2Q5OWE1YzlmMTliMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c7732962691e41c3b2a6c502dc2e913e",
+      "statement": "The server-side TapItem schema mirrors the client: id (str for client UUID), choice_code (str), client_timestamp (datetime), metadata (optional dict). BatchSyncRequest wraps a list of TapItem.",
+      "evidence": [
+        {
+          "resource": "repo://app/schemas.py#L129-L136",
+          "version": "repo-lines-v1:sha256:629efd113ef992602b418ae9f095a4bf16279d126e7f872ad6cf458e9dfd0fe3:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzE2ZDg3ZWM3ODY4YWQxYWUzNDAwNjE4YzRkMzk3MjY4YmMzODA3M2I3NTBkYzNmYmM0Y2Q1Y2NiNzI3NmIxYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMmE0Mjk4NjQ3M2Y3NWVjMzcwODVkNGYyMzZlNTg5NjY5Mjc3MGUwZjg5ZDgyNDEzNjAwOWQ4Y2Y3N2YzOGNhOSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMmE1Mzg1NjM0MmZlNTMyM2RjODIyZTBmM2UzNzI3ZmJkNzQ4YWRjZDhiMTAwMGU2NjJlOGVlZjk4MGVmYjYwNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDAzNmI0MjQ3ODE1NDJjZDA2MTJlYThkMmRkODY2M2ZlYTI2MTM3MTNmMTNlYWViMTZhNmQ2MjYyZDljZGQ1ZiJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_615c276895974bc5bb70fe6bff5e26bb",
+      "statement": "AttendanceLog uses the client UUID as its primary key (Column(String(64), primary_key=True)), with event_id, pos_id, choice_code, client_timestamp, server_timestamp, and metadata_json columns.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L79-L91",
+          "version": "repo-lines-v1:sha256:25cb55bb53cee4a6903e2cb6faf81f3e47ed700d0d89b3b49252171f0793dcff:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwMTlkYzU5MGIxM2JmMDZmYzM0ZGMyMzIwNDAyMTBkMDZlZjI2MGU0ZTNiYTgwZGMzM2RkZjEwMmM4ODJhYjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMzYWY2N2UwYjYyNGJmNzFkN2JlM2ZmMWIwY2EzOTNhM2FlYWRlMWI4YjZhNTg0NTY1OWIwYjE1MGZjMjhhMmUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5NjI3ZTQ2M2QwMjg3YmY2MzhiZjExMTI3MDdlYTAyODVjMjVmYTdkZWZmZGQ0Yjg1NGQ5MGRlODRmODZlOTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_aaace7b8f1ad420ba1b9e2f043aca587",
+      "statement": "The integration test test_create_event_and_counter_flow validates: POS token validation, batch sync of two taps, idempotent retry (synced_count=0, already_existed_count=2), and live stats aggregation correctness (total=2, PB=1, LP=1, 50/50 percentages).",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_api.py#L91-L179",
+          "version": "repo-lines-v1:sha256:78b0da5a1c144a525a1cbc7871cce046e712651279e5d6c7b96e4ca80fd5c44b:eyJzZWxlY3RlZExpbmVDb3VudCI6ODksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM2NTk0ZjFjNjczZDQ2NDg1MmVkM2ZjN2IyYmFmYjU0MzVhZDA4MjJiMTRhNWM3ZTZjZmZiMGU0YTVjODQ1MTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFhY2ExMjdhM2UwZDI1M2Y4ODMyNTg5ZWI4YTk3OGI0ZDc4OTNmOTdmOGYxMmQxMzIzMGYwMDY3MjcyMzk2ZDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyNDU0MGMwZWU5YThiNzU3YzhjOTQ5OGNiZWM5MzkwMjJkYTMzMzUwYjJkN2M1MWFhZmY4YWQ5ZWI3NjkwN2UiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkxOTQyN2NhZWIwNWExYjU0ZDBlYjVjYzQ2MTdhZmJkODJhYzUwODk1ZGUwMWVjYjlkMDc5ZWExNjUxOGYzYjMifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T04:05:02.987Z"
+  }
+}

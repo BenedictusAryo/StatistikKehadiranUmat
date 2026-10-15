@@ -1,0 +1,4 @@
+# Files
+
+- [Admin Dashboard & Reports System](admin-dashboard.md) - The admin dashboard subsystem for the Gereja St. Matius Penginjil Paroki Bintaro attendance counter application. It provides authenticated event lifecycle management, real-time live monitoring with per-pos and per-building breakdowns, an official A4 report print view with KPI cards and evaluation notes, QR code display for door tokens, and CSV export. Accessible to ADMIN and LITBANG roles.
+- [Videotron Public Display System](videotron.md) - Real-time congregation-facing display system shown on church projectors during mass. Documents the three view modes (SPLIT, NUMBERS, CHART), 6-second polling cycle, 15-minute time-series arrival chart using Recharts, capacity thresholds (75% WARNING, 95% FULL) with animated alert banners, digital clock, building/zone breakdown, and the backend TTL cache layer that serves aggregated stats without database pressure.

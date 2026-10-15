@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:2ba7b5e2ab0ead524dab6fbc3e4f514e20a7de31a40ab66684601f896070390b",
+  "claims": [
+    {
+      "id": "claim_baf8e383a2104ac39403fb106c8d64a3",
+      "statement": "The kiosk counter is rendered when navigating to /pos/{token} in the browser, which is detected by the App.tsx SPA router and renders KioskPage with the extracted token.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L23-L26",
+          "version": "repo-lines-v1:sha256:ec28751bd976361dfe617d673d8644d8131128057a887db27aa59733aac7cc63:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGNiNDA3YmNkZTZlNzk2NTRhMmMwZDg3YzI0MGE5Nzk4NDA1MWMwOTM5M2VlNWNkYWQ5N2U5OTA2NTMwZTgxNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiM2NhNDE1NTQzNTIwM2ZlNzBlOGIwNTZjYjdhNGNhYWM4ODcxMmRkY2VmNDllYjQwMTc3ZTQ3NThlNGIwODEwNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjc5Yjk0MDZjOTA3MDU3NTUyZTU1OGYxMDNhZjM4NDc5YjI5ZjQzZjcxZTRiYjI3ZDhhNmRjOTdhMGQ3MmE3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmZhOTNkN2Y5YTQ0OWQyYWMyYjE3ZTM4MmYwNGFiMjhiODllZThhNmE5MDZmYWEyZTkyNmQ1MjhjNDU0ODA5NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b66f406027924c1e84dc62c3c1b7701f",
+      "statement": "KioskPage is a fullscreen React component that validates the POS token on mount via GET /api/counter/validate/{token}, renders two large touch buttons (Umat Paroki Bintaro and Umat Luar Paroki), and provides haptic, audio, and visual feedback on each tap.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L1-L371",
+          "version": "repo-lines-v1:sha256:2f50e03e368186c494a19e0b502a43cb0ae3aed7f08097508ec91ce2bf6aaead:eyJzZWxlY3RlZExpbmVDb3VudCI6MzcxLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiI0NWMxMDFhMTFjZTJkODcyZTI2MDgxZmEwYzIyYjIzYTcxYmQxZDRmNWZlNTIxODZiZmFiNTU0OTZhOGUwMTkxIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJhYTFkMWE2MzM5MDIyOWM3OTgzNDdlODNhMDQwNTQ0MWM5NDAwMDM1Mjg0YWQxNjhjMWJmNmNkZjFkNzBhMzcwIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_66489459370041d1b314b2702d81a095",
+      "statement": "The GET /api/counter/validate/{token} endpoint validates the POS token by querying EventPos by token and is_active, then returns event metadata including event_name, category, event_status, pos_name, building, and start_time.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L16-L36",
+          "version": "repo-lines-v1:sha256:22721e25df8d243614becc1587917d0070ea43a2cf2fcac48d31c76c927d3543:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3ZmRmNDQxN2I2NTU0NWQ2OTE5NTkyNDg3YTRjZjI3OTM2MGJhYmRmZDExNjljZTBiYWIzMzMzOWNjYTUzOTQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjU1OWNiZmUwODdhMDM5NWZjNDRmOGI1MWEyMGM4MTU5OWI2OGU3NjJhMjRjY2Q2OTMxMmNkN2ZkY2MyYzJmZjYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiYjA0NThkZDdmMzJmMmNlMzY4ZjZmMDA1MTI1MjNiYmIzZTAwZmVlNzA4YjgyYjEwNzU1MmRhYTUwMWU2MTAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1daecce65da54df98dda75892fc2333c",
+      "statement": "Each tap is protected by a 500ms isCooldown debounce to prevent accidental double-taps. When an event is COMPLETED, handleTouchChoice returns early and buttons are disabled.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L96-L120",
+          "version": "repo-lines-v1:sha256:b25ca92810ac8a366dfe1dfeea35dd0e71e00c10f0a9c99eff552bed3f6c12fb:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg5NDMwNGViMGIzMDQ0MDY0YjM5MjhlNzY3YmVlMjEyYWU5ZmMxNTIzNzZjYjcyMmZmMWQ1YjY4MGRhYzg4MDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQyYTJjYjI1YTEyMmI0NDIyMWE2MjM0ZWM2NjBhN2I1ZmI3ZjliZGU3YjNiOWUyYjNjNTU5YTBkOTZmYWM3MzkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQ4Y2E1Njk4ODE4OGM5MjE3ZjE5NDNiMDAxZGY5NDQ3ZmFjYTFiYzk3NjgzYzBjNGFlMTc2ZDA2OTRlMWFjZjUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFhNzZkZDU3MTc3YjIxMWU2Mzg5OWMyN2ViMjM1OGI1MjliZGI4ODIwODJkNzAzOTM0M2E2Mjc0Y2VmYzllMmUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2288bdf2f0d347cea3aa1c944ef98f87",
+      "statement": "recordTap in offlineQueueStore triggers haptic feedback (navigator.vibrate(35)), plays a harmonic two-tone audio chime (D5 at 587Hz then A5 at 880Hz), generates a client UUID for idempotency, increments local posCounters optimistically, appends to the persisted queue, and fires background syncQueue.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L72-L113",
+          "version": "repo-lines-v1:sha256:358015ddf98c9ad2917bac7ef30144fd7cf7a0bf702ee60c340d8ed792bc0c2e:eyJzZWxlY3RlZExpbmVDb3VudCI6NDIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNiN2RjN2JiZTJjYjQ0MjI2OTE5NDE1MjZjMzM2MmM2N2M2N2I1YzQzMDU2ZjQzODA0NzZiMzUyNDQ3MjUxZWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI5NzhlMjUwM2I4Y2YzN2EwNmY3ZDZmMGEzYTZiNmZlMzU2OTFmYmNhYjUwYjg3NzVjYWI2ZmFiYzcxYzU5MmIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFlZGNmYjRmNmFiZmI1MzEwOGQyZDVjZTViZjA1NmQ3ZDQ2NWI3ZDA1NzcyN2ZmZGFkZjE2NWE5NDU0NTJiYWMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImMyMGJjNDdjOTNkOTEzMTUxMDJlMmIzZTIwZDMzMDEwZmQ0NDdlNzdiNDI0MjBhODAyMmEzYTdiZjNlZDkzYmIifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a90b2c1791334bd69dbcffba97751f71",
+      "statement": "The offline queue is persisted in localStorage via Zustand persist middleware with the key 'paroki-kiosk-offline-queue'. Only queue and posCounters are persisted; transient sync state (isSyncing, isOnline, lastSyncError, lastSyncSuccess) is not.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/store/offlineQueueStore.ts#L176-L182",
+          "version": "repo-lines-v1:sha256:a7139711522be6a4df4825e2a842affb15e2f616b03f262f0aa9e9f438ae7d05:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZjljYTg5MWJmZjdhYzFmN2NlYWFlNDBlZjA1MTA2NmJlOWVmZTQ3YjRlNDI4MWU4NmMzMTliZTJjNTVlYmNlNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDg5M2Y0MGUzNzgxZWI4OTZjODJkMDQ2YTA4MDY3YTExZTM1Y2RmMmYxZGZhZjI2ZmVhOTBiOGRiNjY3NjQxMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYWIxNGRhNjFlMmY1NzNiZTY1Mzg3MTY2NDZlNDgwY2UxZDE2YTJhYmE5NmIyOTE2ZjQ3MDkxNDc3NjU3YzgwMiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiY2Y4N2RhYTU4OTk4OTNhY2M2ZGYwN2JjMGQ2ODlmYTVhNTRjZGZlZDU0ZmJkNjljNDQ1M2ZiYTYzOTI1YmUwOCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_aaa2e5aba4de4c80869bba6aee798def",
+      "statement": "KioskPage manages connectivity recovery by listening to window online/offline events and running a 6-second heartbeat interval that retries syncQueue when online with pending items and no active sync.",
+      "evidence": [
+        {
+          "resource": "repo://frontend/src/pages/KioskPage.tsx#L69-L93",
+          "version": "repo-lines-v1:sha256:00b79f9057bf7858dbd10509e66a0373eae7139a88bd38d70edc03480d4c982d:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5NjZmYmZhODg5OThkYTc0NjU2YzUwMTk0OTU2YzI1ZjA4NDk0NTc2NjBjMDA5ZmU2M2QxZTlmYTlkYzkzMWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjZTBhYjMwYmQyODg3MjhlMTFiM2ZiNDNlMTUwNjkwMjE3MWQzM2FlMGZhZjhjZTc2NmIwOWY0ZTIzNTE5NzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY1OTg5ZmY4YmZiODNmMmE4NzAyYTNkN2NhMzQxZmU5YzZjNThiM2U3YjgyNjJjZDZmYTgzM2YzN2U2MzcyZDkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUzOThhYWJmMjA5ZTVjNDBkNzY2MzYyNjU1NDIxNTE2MzUxN2JhMWU2ZDI3MGY3YmVlN2U0OGQ3MmUyZDcyZTgifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T04:05:02.987Z"
+  }
+}

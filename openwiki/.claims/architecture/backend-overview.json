@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:4cb1fb19355670a3c0df663e3301eeb7089aa60240ebb15a6524b8473f847e73",
+  "claims": [
+    {
+      "id": "claim_53a600d061a84b82b7a5299879588555",
+      "statement": "The FastAPI application is constructed at module level in /app/main.py so that ASGI servers (uvicorn, Passenger via a2wsgi) can import it directly as `app`.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L1-L83",
+          "version": "repo-lines-v1:sha256:68d738f15c5720d1ca52303843289981d33a163c79534eddc66d01da3549e573:eyJzZWxlY3RlZExpbmVDb3VudCI6ODMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM3MjdhZGZmNTI0ZTA2MTYwMjJlYWRkOGY0YWYyMWEwNzc4YjI5ZmM0Yzc3YmRmZWZkMWFmY2UyY2JmNWU0YjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhZmJhMDUyN2MzOTUzYzRiNmUwZTViNTczOWJhODM2MTJmODA1M2JjZGM5NDY2NzMwMTkzY2QxZDU5MGI0MDgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkZmE5YjUyNDRkZWI0OGU0ZDRjZTIzYmEwYjMwYWYyYWFkODBiOTdjMzQ3MmM0MzY4ZmZjYmUwYTYwMjA1YjcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5278bcb9be8e4de081fd7f6399c4fe0a",
+      "statement": "On startup, `init_db_and_seed()` creates all tables via `Base.metadata.create_all` and seeds an admin user, a litbang user, and seven default master door positions across three buildings if they do not already exist.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L14-L69",
+          "version": "repo-lines-v1:sha256:3a505d4d014a681cca1a53d5a6b17ea31ecf6655c4cc0c38922cd76dbee42c74:eyJzZWxlY3RlZExpbmVDb3VudCI6NTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1ZDAyMGZkMWUzZDJjOWFiNGRhMzlmNzA0NmU3YzUyZWQ2NTY5N2FjOTgzNmJiZjk1MjVmZGQzNDg1ZTIzNzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNjVjMmJiZTNmNTYwY2IwMGQ3YjEwY2IwZWUzNDI1MDc4NTk0YTY5N2Y2YTc2ZWJkZjk0NDQ1MjhmNTFmMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZlNjhkZTU0MTMyYjQ1YWU4MTY0NDc2YjlhZWU5NzgzMDkxMzBiM2M5YWIzOWQxZjhkODNjMmY0YmMzYTQ4OTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjViNDNmNGNjNDk5YmU1M2EyYzMyZWFjODNlZWEyYjFjNjRkODUzMDBmYmU0ZjJkZjMyYTc3YjI2NTNkOGIzYjYifQ"
+        },
+        {
+          "resource": "repo://app/main.py#L71-L76",
+          "version": "repo-lines-v1:sha256:ae4e33abcf429bf2927e54aba6279c76c1a2065e5f072c1bc3b5390d829f9895:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODdjZmYzZjE3ODQyZGVjNmU3ZTkxYzNlM2I4ZmNlMGE4MjJmYzMxMTI3MzgxYjAwZjQ0YTlmMTMzMzMwM2EyZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGNkMzBlNTRiOWZlODUzMTA2YTUwNGI1YTNiMzVjMzVlMWJiNWM5ODhjYTEyNWUyM2VjYmI0MDg2ZTAxMzFjMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGIyNjM0ZmQ2ODc5ODIzMmE2MTE1YmIzNDkyNjY1ZTI1YmZkNTRjMjFkYjg3ZmRlNzBlZTZkMDU0NjE4OGUzNSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZWYxODhhNTI0NDJlOGFiYzE4OWM2MWEwYWZkZjYwNzM5YmI5NGRmMjg1YTZlZjdiZmM3NjM2OTFmZDEwODRjNCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_b757d645e1d046b5a21a12a0f1813b75",
+      "statement": "Five API routers are included in the application: auth at /api/auth, master_pos at /api/master-pos, misa at /api/events, counter at /api/counter, and stats at /api/stats.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L95-L99",
+          "version": "repo-lines-v1:sha256:2fd694e07176dec674aba3d2ec95d5df05a2236e3ece2b396961ed804fffa94d:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMGU4YzMxYzYzYWI3YjU5YTg3NjMwNTVjYTZjY2ZmMWNkOWJmMzcxOTNjYzFlZTMzM2FmNWMzYjFiYjg1YjM4YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMWM1MDkwNWEyYTMwMDJmZThmMDE0Mjk2MThjNjI1NjRmOTk4MWMwZTY0ZjQzODc3YjNjMDlkZmFhZGNkMTdmMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZjQzZjBkNjUzZWY3MmZlMGJjMzRiMzBlMjIyYjQwNWE3MDNhYTMwNTJiZWIwM2NkMzUzYWVhODU5YjYzMmNkOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzU2MjQzYmRkZTZhNzk3MjA3NTk5NTEzNDA1ODE5YjczZTdiN2EwMDNmZTgwMWRhZmVmOWYwOWU2YjFiNDYzMSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_197e267a987744548a69bc42e34699ab",
+      "statement": "A permissive CORS middleware is applied with `allow_origins=[\"*\"]`, allowing all origins, methods, and headers.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L86-L92",
+          "version": "repo-lines-v1:sha256:859ba34a0b2e3cf58cc4fa94faff4c736e55c2418eb41418c803a1acb1e570ac:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzJmOTA3ZGVjNmZiMjUxZmU5N2RhYjhhNWViYmIyYmViMjc5N2FmNDAxNmVmOGY1NWU0NDQ2MmRkYjg2YjE0OCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZmFmYmEwNTI3YzM5NTNjNGI2ZTBlNWI1NzM5YmE4MzYxMmY4MDUzYmNkYzk0NjY3MzAxOTNjZDFkNTkwYjQwOCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGYwNDAwOTA3MDgzZjE2NjgzM2VmNzFkYmZjMDI1OTdkZTQwODFlYjc4Y2RlMjMxODExYzRlMmNjMjdiZDNiMCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiM2YwZWM2ODZlZGZlNTcwZjM2NDliYTgyNWU4NThmNTFjOGMyZTU5MzE5ODFlZWRlNTA5NmVjNTYwNmU5OGYwNSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_6bd24f1b85494b01903971e4dfbc0169",
+      "statement": "The SPA fallback catch-all route at `GET /{full_path:path}` serves static files from `app/static/` and falls back to `index.html` for client-side routing, rejecting `api/` prefixed paths with 404.",
+      "evidence": [
+        {
+          "resource": "repo://app/main.py#L109-L133",
+          "version": "repo-lines-v1:sha256:14ea46bdf511db76bd01f0b06547fb426378cd3ca3c260afcb6797bf7b07fae3:eyJzZWxlY3RlZExpbmVDb3VudCI6MjUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU0YmE5ZmMyZWEwMTA4MDFjM2Y1ZDFhZjRhZGY3Y2RmMWE4YzFkZDI0MGY3N2VlMzcxNTFlMTlkMjg3MGYwMDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU5MDlhNTNhNjE4ZDAyOGUxZDMwMDBjMGE3YWJjZWVjYmU1ZmIzN2Y0ZTUxMWVmZTQ2NjQzZmFkNmU2Njg3MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkYjkwYzc0YTVhNGQwOWEyYjdmMjI5NTQ2NGEwZGFjM2IwYjQ3MTRkNWYwM2JlODQ2MDhiODllMmFhNDRjZTYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_eb612cf29fba490b8ca2194525468d0b",
+      "statement": "The `stats_cache` is a thread-safe in-memory TTL cache (`SimpleTTLCache`) with a default TTL of 3 seconds, used to cache live stats responses and prevent database overload under concurrent polling.",
+      "evidence": [
+        {
+          "resource": "repo://app/cache.py#L1-L36",
+          "version": "repo-lines-v1:sha256:493b39ff9abfff907df9c218f9c8427f731f069ae231b6b72dbf6313b6d9733c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiMmRkYjhhMmU2NGM2MTY2ZmVlZGFmMzBlZTUwYWM2MjE2NWZlMTQ5ZmRkOGIwZDdiNzc3ZWJlZTIxY2EzNGQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0ZWI0YmQ4OGQ5MDBmYWJjMWU1ZTY2ZGYxYjY2YTI4OTU3NTZjMmZkNWNlZjRhZjYyYTc5NzM2MzViOGM3Y2UiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://app/config.py#L18-L18",
+          "version": "repo-lines-v1:sha256:78341b980142802021b8ff413a320e8e2d8cf604ad8c8c52c8cdb8ab72567391:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzNDFiOTgwMTQyODAyMDIxYjhmZjQxM2EzMjBlOGUyZDhjZjYwNGFkOGM4YzUyYzhjZGI4YWI3MjU2NzM5MSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzgzNDFiOTgwMTQyODAyMDIxYjhmZjQxM2EzMjBlOGUyZDhjZjYwNGFkOGM4YzUyYzhjZGI4YWI3MjU2NzM5MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTNkN2EwZWIyMGM5ZWEzOTFiNTRjYTU3Mjk3YzlhZjEwYjM5MDlkMjU1MjE5NjhkODBmZWYwZjVmNDQxMWNlNiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNTMxN2M3MGE0Y2U4NDZjMjIwNjNhYjdkNjI5MzU1MmMxNGJhYmQzNmU2NGVkMjRlYTY1NTM5OTM3NTRiZDllZCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_fc4c55d99ffc41b1a7f85e1a6a4b30a5",
+      "statement": "The counter endpoint `POST /api/counter/{token}/sync` provides offline-first batch sync with idempotency: incoming tap UUIDs are checked against existing `AttendanceLog.id` values before insertion, and duplicates are silently skipped.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L38-L115",
+          "version": "repo-lines-v1:sha256:305f76ae016c3dad0d33236fe46b052e369ff0c6cccf3ca9cb380b9e706476a1:eyJzZWxlY3RlZExpbmVDb3VudCI6NzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjhmMjBmNTViYjM5NzEzNmJjZWI1YWIyNjUwNjM5ZDFiZmMwNGIwMTVlNmUwZWQxY2ZmYmJiZWVhMjU4ZDMyZmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5YmQxMzcyMmZmNmMxMDFmZGMzNWM0YmQ2Y2M3NTZjOGQxZTA5YjAyMGQ4OTYyYmE3NmQ1NzUxNzdhZjU0YjciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_76742e43d9354370bd2bc62552a0f81b",
+      "statement": "The counter endpoint does not require JWT authentication; the `EventPos.token` (a random hex string embedded in a QR code) serves as the credential for kiosk devices.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/counter.py#L16-L115",
+          "version": "repo-lines-v1:sha256:c9fc19134bd98aadf9bf273a78bebf223a0374e6c23d8882ad9ebc8ca9fe54f9:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAwLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzN2ZkZjQ0MTdiNjU1NDVkNjkxOTU5MjQ4N2E0Y2YyNzkzNjBiYWJkZmQxMTY5Y2UwYmFiMzMzMzljY2E1Mzk0IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiI0ODkzZjQwZTM3ODFlYjg5NmM4MmQwNDZhMDgwNjdhMTFlMzVjZGYyZjFkZmFmMjZmZWE5MGI4ZGI2Njc2NDEzIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiI1NTljYmZlMDg3YTAzOTVmYzQ0ZjhiNTFhMjBjODE1OTliNjhlNzYyYTI0Y2NkNjkzMTJjZDdmZGNjMmMyZmY2IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_c7f74fe2b65346ba877bb695149ebfd3",
+      "statement": "The live stats endpoint `GET /api/stats/{event_id}/live` uses a cache-first pattern: it returns a cached `LiveStatsResponse` if available within TTL, otherwise computes totals, per-pos breakdowns, per-building rollups, 15-minute time-series buckets, and capacity status from the database, then caches the result.",
+      "evidence": [
+        {
+          "resource": "repo://app/routers/stats.py#L19-L144",
+          "version": "repo-lines-v1:sha256:ca72eb2849aef44b7aa36e844dd8a8d63fce3ee29b5a1b67653be5264544c4a3:eyJzZWxlY3RlZExpbmVDb3VudCI6MTI2LCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzMDc2ZmIwYmUyYjA3YTU5ZDQ4YzIwYWM2MDM1OTAzNWY0NDcxZmZlNzc0M2UzNmM2N2Q0NzE4OWNiZDFkYjQxIiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiJmYTExYzA1NjdkMGE1ZjllOWIxMzVmNjVjZDI1MzcyZGZkNjI4Nzc1ZjdjMWVkMjUzZjhiYWQ0MmRkMmQ2NjY5IiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MywicHJlY2VkaW5nQ29udGV4dEhhc2giOiJhNDU1MDZmOGNmYTg1ZjI5MWRmNzZiYWE0YTE0Y2E1OTBkOGQ0NTJhMmEzYzFjZWRjZjhlZDY3Y2RmNDk1ZGM2IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MywiZm9sbG93aW5nQ29udGV4dEhhc2giOiJjZTY4ZGY3MDA2YzUxYWExOWZiNDUwMTFmNTY5NzFiMjZhMzAyMmYxMjkyNDY2MGE5MzM5MGM1OGRiZTBlYzM5In0"
+        }
+      ]
+    },
+    {
+      "id": "claim_a7998fc9e1b84a9b831c9caf826c89a9",
+      "statement": "The auth dependency chain uses `HTTPBearer` -> `get_current_user()` (decodes JWT, queries user by email, checks is_active) -> `require_admin()` or `require_litbang_or_admin()` which enforce role checks returning HTTP 403 on failure.",
+      "evidence": [
+        {
+          "resource": "repo://app/auth.py#L37-L75",
+          "version": "repo-lines-v1:sha256:eb583a1b98fac5226b76ccaea294c7008afe95bcc3838fcd2df2eba5c86ecb02:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc5OGY5ZjhjNGM3NGVlZDMwNGYxNDAwMzU0NDRlZjdiM2YxNDRiODZiMWEyNTI0ZjE2NDNiMTFkNTZlMWU4ZjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3ZWZmMWU5MjgzOGQ3YTg1NmVhN2IwYzgzOWFkOTlkNjQ3ZjQ3ZTAxODk1ZjdjYzU4NTNiNTMwZmVhM2QwYTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYxMTAyNDFlOTk4MmIyNDZjN2FkOWVjYmYyM2NiYzNiNTZmYjVmNmQ0NmI2MDEwN2RkZDUwYTk5ZmY0YTkwOTkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_c7dc367676c84d12919550426cd30087",
+      "statement": "Database access is provided through a `get_db()` FastAPI dependency that yields a `SessionLocal` instance and closes it in a `finally` block, with SQLite `check_same_thread=False` configured when applicable.",
+      "evidence": [
+        {
+          "resource": "repo://app/database.py#L1-L24",
+          "version": "repo-lines-v1:sha256:3dfc56a1029837981f3c023a7a315020404965f0b430e9559667e2968ccd1cf8:eyJzZWxlY3RlZExpbmVDb3VudCI6MjQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM0YWJiZjI0Mjg3N2MxZWJmZTMwZWZkNmM1OGIxOTA4NmVkZWZlYjBjMmFjNzc0NTJmMDEyNDkzMzY2NjlkMzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmNjVjMmJiZTNmNTYwY2IwMGQ3YjEwY2IwZWUzNDI1MDc4NTk0YTY5N2Y2YTc2ZWJkZjk0NDQ1MjhmNTFmMDUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_2bf0f5434bb74e6e915b1f8a5b360ee1",
+      "statement": "Production deployment on cPanel uses `/passenger_wsgi.py` which adapts the ASGI app to WSGI via `a2wsgi.ASGIMiddleware`, exporting the `application` callable for Phusion Passenger.",
+      "evidence": [
+        {
+          "resource": "repo://passenger_wsgi.py#L1-L11",
+          "version": "repo-lines-v1:sha256:e02eda9b1f1d750c8283564edafc8a30bdd3abf0f38969dd92531ddec05abd12:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM1MTc1Nzc4NTFjNDg5ZTQ1YWJhZTI1OTEyNTZjNDA0MDRhMDVjNmQxOWNkNGQ1YWU3ZmQyMmIwMDg0Y2VjNmMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYyZDRiOGU0NTA0NzdhNGVkNTY4OGU4ODhmMTRjNjJkZTQxYTczMmRjZGU5ZTc0ZGRiM2I0OTI3MjYwOWE3YTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_14a8dd4b4df0488596cda2533f7be1c8",
+      "statement": "Configuration is loaded from environment or `.env` file via Pydantic Settings v2 with defaults for DATABASE_URL (SQLite), SECRET_KEY, JWT ALGORITHM (HS256), ACCESS_TOKEN_EXPIRE_MINUTES (1440), CACHE_TTL_SECONDS (3), and initial seed credentials.",
+      "evidence": [
+        {
+          "resource": "repo://app/config.py#L1-L22",
+          "version": "repo-lines-v1:sha256:73f108a1887a41032d35073caed52d5c5e06204644b39f0b9ef3807ced4b52f7:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwOWE0YjAyYjQ3NDllY2U0MGQ5YzU5ZGJlMGRlZGMyOTdkZjdhMTdlZWUxZDI4YTkzZTcyMTBjYjc3OTFkNjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImE4ZjRiZjE4NzYxNjAyZDNiNTkwYjM3ZDM5OGZhOTk3Nzk3MzBhNzdiNjgxMzhmZGQxNDA3MzQ5MmUzNzY2ZWQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_ef7ab271e0f34cf8a12f10c768d77fe0",
+      "statement": "AttendanceLog.id is a client-provided UUID string used as an idempotency key: the sync endpoint queries existing IDs and skips inserts for any tap whose ID already exists.",
+      "evidence": [
+        {
+          "resource": "repo://app/models.py#L82-L82",
+          "version": "repo-lines-v1:sha256:7632ab3b76b5308fba89c9e263fe81dc20d88eed0b829fa81d2fc3d87aac6e3e:eyJzZWxlY3RlZExpbmVDb3VudCI6MSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNzYzMmFiM2I3NmI1MzA4ZmJhODljOWUyNjNmZTgxZGMyMGQ4OGVlZDBiODI5ZmE4MWQyZmMzZDg3YWFjNmUzZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNzYzMmFiM2I3NmI1MzA4ZmJhODljOWUyNjNmZTgxZGMyMGQ4OGVlZDBiODI5ZmE4MWQyZmMzZDg3YWFjNmUzZSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYjkxYmM2MzY5ZjEzZTIwM2QyY2YyMGQ1OWMyNjE2NTExZmE5YzZhMTExMGE2Y2JkZTE4M2JlNGJlOTE2MjYzYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYjhiYmZhOTA5YzlmNjNiZWYzM2E5OTJhMjQ2MTNjN2Y2ZTZiZTRjMDgxYzgyNjdjOTdjZWVmNDAwMjFjNDZiNyJ9"
+        },
+        {
+          "resource": "repo://app/routers/counter.py#L68-L102",
+          "version": "repo-lines-v1:sha256:6cc67acf541a078bdf9b2bb78c9dd59506b35e64f320d6f2eefb24cc99766746:eyJzZWxlY3RlZExpbmVDb3VudCI6MzUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzMTliMzNhNjA5YmUzZWQ3OTZkYWE0N2E4MTlhNDFlOWIxZWRiNWQ3YmNmNGU2ZGMzYzFlZDgxYWEyNTg2NTgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmMTgxNjdjNTdmMDhiMGVkNmQ1ZjYwOGUwNTEyY2I3YTgyMzIwNzgwYzFmZDA3ODNlOTgxM2RiODg0NzY0M2MiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6Ijk1ZmUxMDQxNTA4NTkzZTMzOGQ3N2M0MjAzNDYzNWQ5Njk4MWRhZTg2NWY5YTlkYWZiNjA3Y2VmNTYzODc3YjgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQxYjA2OWQ5ODY0YzI2OGY1YjdjMjNmZTkyZWQ3OTc5ZTgxNTA2ZjkzNGM3NjUwMTUxY2MxOWJkNDBiZGNiMzEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_26654e45ecdd4b2f9ba0593ca3293fd7",
+      "statement": "Tests use a separate SQLite test database with dependency override and cover health check, login/auth, full event-to-counter-to-stats flow, idempotency, SPA fallback, master POS CRUD, user management, and evaluation notes.",
+      "evidence": [
+        {
+          "resource": "repo://tests/test_api.py#L1-L272",
+          "version": "repo-lines-v1:sha256:e92ff0e87acb39b3913c43879f337b415aba5b24b5d30d6a21fbed1436e846c1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcyLCJmaXJzdFNlbGVjdGVkTGluZUhhc2giOiIzNzI3YWRmZjUyNGUwNjE2MDIyZWFkZDhmNGFmMjFhMDc3OGIyOWZjNGM3N2JkZmVmZDFhZmNlMmNiZjVlNGI3IiwibGFzdFNlbGVjdGVkTGluZUhhc2giOiIwMWJhNDcxOWM4MGI2ZmU5MTFiMDkxYTdjMDUxMjRiNjRlZWVjZTk2NGUwOWMwNThlZjhmOTgwNWRhY2E1NDZiIiwicHJlY2VkaW5nQ29udGV4dExpbmVDb3VudCI6MCwicHJlY2VkaW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1IiwiZm9sbG93aW5nQ29udGV4dExpbmVDb3VudCI6MCwiZm9sbG93aW5nQ29udGV4dEhhc2giOiJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1In0"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.5.1",
+    "at": "2026-10-04T04:05:02.987Z"
+  }
+}
