@@ -76,14 +76,32 @@ if venv_path:
         sys.path.insert(1, str(site_packages))
         print(f"[WSGI] Added VIRTUAL_ENV site-packages: {site_packages}", flush=True)
 
-# 5. Load and bridge FastAPI application via a2wsgi
+# 5. Load and bridge FastAPI application via fork-safe a2wsgi wrapper
 try:
     from a2wsgi import ASGIMiddleware
-    from app.main import app
+    from app.main import app, init_db_and_seed
+    from app.database import engine
 
-    print("[WSGI] Bridging FastAPI ASGI application via a2wsgi.ASGIMiddleware...", flush=True)
-    # Expose WSGI application callable for Phusion Passenger
-    application = ASGIMiddleware(app)
+    print("[WSGI] Initializing database and bridging FastAPI via fork-safe ASGIMiddleware...", flush=True)
+    try:
+        init_db_and_seed()
+    except Exception as db_exc:
+        print(f"[WSGI] Warning during init_db_and_seed: {db_exc}", flush=True)
+
+    _wsgi_app = None
+    _wsgi_pid = None
+
+    def application(environ, start_response):
+        """Fork-safe WSGI entry point for LiteSpeed (lswsgi) & Phusion Passenger."""
+        global _wsgi_app, _wsgi_pid
+        current_pid = os.getpid()
+        if _wsgi_app is None or _wsgi_pid != current_pid:
+            engine.dispose()
+            _wsgi_app = ASGIMiddleware(app)
+            _wsgi_pid = current_pid
+            print(f"[WSGI] Initialized ASGIMiddleware event loop in worker PID {current_pid}", flush=True)
+        return _wsgi_app(environ, start_response)
+
     print("[WSGI] Application loaded successfully and ready to serve.", flush=True)
 
 except Exception as exc:
