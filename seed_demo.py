@@ -31,6 +31,12 @@ def create_demo_data():
             "conclusion": "Simulasi misa berjalan sangat lancar, pembagian umat paroki dan tamu peziarah terdata akurat."
         }
 
+        area_caps = {
+            "Gedung Gereja Utama": 400,
+            "Gedung Karya Pastoral (GKP)": 250,
+            "Tenda & Selasar Luar": 200
+        }
+
         event = EventSession(
             id=event_id,
             name="Misa Hari Minggu Biasa XXVIII (Demo Live)",
@@ -39,8 +45,9 @@ def create_demo_data():
             start_time=start_time,
             end_time=end_time,
             status=EventStatus.OPEN,
-            capacity_target=850,
+            capacity_target=sum(area_caps.values()),
             enable_capacity_warning=True,
+            area_capacities=json.dumps(area_caps),
             evaluation_notes=json.dumps(demo_notes)
         )
         db.add(event)
