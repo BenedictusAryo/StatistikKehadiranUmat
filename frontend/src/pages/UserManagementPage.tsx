@@ -141,7 +141,7 @@ export const UserManagementPage: React.FC = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="user@matius.id"
+                  placeholder="user@parokibintaro.org"
                   className="w-full px-3.5 py-2.5 text-xs bg-slate-50 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 font-mono transition-spring"
                 />
               </div>

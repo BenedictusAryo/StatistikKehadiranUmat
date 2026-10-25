@@ -388,3 +388,69 @@ def test_area_capacities_and_warning_thresholds():
     bld_map = {b["building"]: b for b in stats["building_breakdown"]}
     assert bld_map[church_door.get("building") or "Gedung Gereja Utama"]["capacity_status"] == "FULL"
 
+
+def test_wib_timezone_conversion():
+    # Login Admin
+    login_res = client.post("/api/auth/login", json={
+        "email": "admin@matius.id",
+        "password": "AdminMatius2026!"
+    })
+    token = login_res.json()["access_token"]
+    headers = {"Authorization": f"Bearer {token}"}
+
+    # Create Event with UTC timestamp 2026-12-24T10:00:00Z (= 17:00:00 WIB)
+    ev_res = client.post("/api/events", headers=headers, json={
+        "name": "Misa Uji WIB",
+        "category": "Misa",
+        "start_time": "2026-12-24T10:00:00Z",
+        "capacity_target": 500,
+        "enable_capacity_warning": False
+    })
+    assert ev_res.status_code == 200
+    ev_data = ev_res.json()
+    ev_id = ev_data["id"]
+    pos_token = ev_data["pos_list"][0]["token"]
+
+    # Returned start_time must be serialized in Asia/Jakarta (+07:00) -> 17:00:00+07:00
+    assert ev_data["start_time"].startswith("2026-12-24T17:00:00")
+    assert "+07:00" in ev_data["start_time"]
+
+    # Sync a tap with UTC timestamp 2026-12-24T09:32:15Z (= 16:32:15 WIB -> 16:30 bucket)
+    tap_id = str(uuid.uuid4())
+    sync_res = client.post(f"/api/counter/{pos_token}/sync", json={
+        "taps": [
+            {
+                "id": tap_id,
+                "choice_code": "PAROKI_BINTARO",
+                "client_timestamp": "2026-12-24T09:32:15Z"
+            }
+        ]
+    })
+    assert sync_res.status_code == 200
+
+    # Verify DB still stores naive UTC timestamp (existing DB convention preserved)
+    from app.models import AttendanceLog
+    db = TestingSessionLocal()
+    tap_row = db.query(AttendanceLog).filter(AttendanceLog.id == tap_id).first()
+    assert tap_row is not None
+    assert tap_row.client_timestamp.hour == 9
+    assert tap_row.client_timestamp.minute == 32
+    db.close()
+
+    # Verify Live Stats buckets in WIB (16:30) and returns +07:00 timestamps
+    stats_res = client.get(f"/api/stats/{ev_id}/live")
+    assert stats_res.status_code == 200
+    stats = stats_res.json()
+    assert stats["start_time"].startswith("2026-12-24T17:00:00")
+    assert "+07:00" in stats["start_time"]
+    assert "+07:00" in stats["last_updated"]
+    assert len(stats["time_series"]) == 1
+    assert stats["time_series"][0]["time_label"] == "16:30"
+    assert stats["time_series"][0]["total"] == 1
+
+    # Verify CSV export converts timestamp to WIB (16:32:15)
+    csv_res = client.get(f"/api/stats/{ev_id}/export/csv")
+    assert csv_res.status_code == 200
+    assert "2026-12-24 16:32:15" in csv_res.text
+
+

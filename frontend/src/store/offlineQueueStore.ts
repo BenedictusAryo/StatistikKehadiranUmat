@@ -151,7 +151,7 @@ export const useOfflineQueueStore = create<OfflineQueueState>()(
             queue: s.queue.filter((t) => !syncedIds.has(t.id)),
             isSyncing: false,
             isOnline: true,
-            lastSyncSuccess: new Date().toLocaleTimeString(),
+            lastSyncSuccess: `${new Date().toLocaleTimeString('id-ID', { timeZone: 'Asia/Jakarta' })} WIB`,
             lastSyncError: null,
           }));
         } catch (error: any) {

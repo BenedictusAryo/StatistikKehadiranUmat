@@ -120,6 +120,7 @@ export const ReportPrintView: React.FC<ReportPrintViewProps> = ({ event, onBack 
   };
 
   const formattedDate = new Date(event.start_time).toLocaleDateString('id-ID', {
+    timeZone: 'Asia/Jakarta',
     weekday: 'long',
     day: 'numeric',
     month: 'long',
@@ -228,7 +229,7 @@ export const ReportPrintView: React.FC<ReportPrintViewProps> = ({ event, onBack 
           <div className="text-right text-[11px] text-slate-500 hidden sm:block">
             <p className="font-semibold text-slate-700">Seksi Litbang DPH</p>
             <p>Tangerang Selatan, Banten</p>
-            <p className="font-mono mt-1 text-[10px]">Dicetak: {new Date().toLocaleDateString('id-ID')} WIB</p>
+            <p className="font-mono mt-1 text-[10px]">Dicetak: {new Date().toLocaleDateString('id-ID', { timeZone: 'Asia/Jakarta' })} WIB</p>
           </div>
         </div>
 
@@ -280,7 +281,7 @@ export const ReportPrintView: React.FC<ReportPrintViewProps> = ({ event, onBack 
         {/* SECTION A: Waktu Kedatangan (Line Chart & Bullet Points) */}
         <div className="mb-6 pt-2">
           <div className="inline-block bg-emerald-600 text-white text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-md shadow-sm mb-3">
-            A. Waktu Kedatangan (Interval 5 Menit)
+            A. Waktu Kedatangan (Interval 5 Menit • WIB)
           </div>
 
           <div className="border border-slate-200 rounded-2xl p-4 bg-slate-50/40">
@@ -299,6 +300,7 @@ export const ReportPrintView: React.FC<ReportPrintViewProps> = ({ event, onBack 
                         color: '#fff',
                         fontSize: '11px',
                       }}
+                      labelFormatter={(label) => `Rentang Waktu: ${label} WIB`}
                     />
                     <Line
                       type="monotone"
@@ -326,7 +328,7 @@ export const ReportPrintView: React.FC<ReportPrintViewProps> = ({ event, onBack 
               </li>
               {peakBucket && (
                 <li>
-                  Jam puncak kedatangan umat adalah rentang waktu <strong>{peakBucket.rangeLabel}</strong> dengan <strong>{peakBucket.total} umat</strong> ({stats && stats.total_umat > 0 ? Math.round((peakBucket.total / stats.total_umat) * 100) : 0}% dari total kehadiran).
+                  Jam puncak kedatangan umat adalah rentang waktu <strong>{peakBucket.rangeLabel} WIB</strong> dengan <strong>{peakBucket.total} umat</strong> ({stats && stats.total_umat > 0 ? Math.round((peakBucket.total / stats.total_umat) * 100) : 0}% dari total kehadiran).
                 </li>
               )}
               <li>

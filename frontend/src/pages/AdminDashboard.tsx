@@ -124,14 +124,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
     fetchEvents();
     fetchMasterPos();
     
-    // Default start time: now + 1 hour rounded to nearest 15 mins
+    // Default start time in Asia/Jakarta (WIB, GMT+7): now + 1 hour rounded to nearest 15 mins
     const now = new Date();
     now.setHours(now.getHours() + 1);
     now.setMinutes(Math.ceil(now.getMinutes() / 15) * 15);
     now.setSeconds(0);
-    const tzOffset = now.getTimezoneOffset() * 60000;
-    const localISOTime = new Date(now.getTime() - tzOffset).toISOString().slice(0, 16);
-    setStartTime(localISOTime);
+    // Shift to GMT+7 (WIB) for datetime-local input value (YYYY-MM-DDTHH:mm)
+    const wibMs = now.getTime() + 7 * 60 * 60 * 1000;
+    const wibISOTime = new Date(wibMs).toISOString().slice(0, 16);
+    setStartTime(wibISOTime);
   }, []);
 
   const handleCreateEvent = async (e: React.FormEvent) => {
@@ -150,11 +151,15 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         });
       }
 
+      const startIso = startTime.includes('+') || startTime.endsWith('Z')
+        ? new Date(startTime).toISOString()
+        : new Date(`${startTime}:00+07:00`).toISOString();
+
       const payload = {
         name: name.trim(),
         category,
         description: description.trim() || undefined,
-        start_time: new Date(startTime).toISOString(),
+        start_time: startIso,
         capacity_target: enableCapacityWarning && totalCalculatedCapacity > 0 ? totalCalculatedCapacity : undefined,
         enable_capacity_warning: enableCapacityWarning,
         area_capacities: enableCapacityWarning && Object.keys(cleanAreaCapacities).length > 0 ? cleanAreaCapacities : undefined,
@@ -373,6 +378,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {filteredEvents.map((ev) => {
             const startDate = new Date(ev.start_time).toLocaleString('id-ID', {
+              timeZone: 'Asia/Jakarta',
               weekday: 'short',
               day: 'numeric',
               month: 'short',

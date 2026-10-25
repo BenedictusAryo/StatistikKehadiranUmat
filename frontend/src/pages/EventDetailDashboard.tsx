@@ -163,7 +163,17 @@ export const EventDetailDashboard: React.FC<EventDetailDashboardProps> = ({
                 )}
               </div>
               <p className="text-xs text-slate-500 mt-0.5 font-medium">
-                Gereja St. Matius Penginjil • Paroki Bintaro
+                Gereja St. Matius Penginjil • Paroki Bintaro •{' '}
+                {new Date(currentEvent.start_time).toLocaleString('id-ID', {
+                  timeZone: 'Asia/Jakarta',
+                  weekday: 'short',
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}{' '}
+                WIB
               </p>
             </div>
           </div>
@@ -459,113 +469,130 @@ export const EventDetailDashboard: React.FC<EventDetailDashboardProps> = ({
         </div>
       )}
 
-      {/* Arrival Trends Chart */}
-      {stats && stats.time_series.length > 0 && (
-        <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-subtle">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 gap-3">
-            <div>
-              <h3 className="text-base font-bold text-slate-900 tracking-tight">
-                Grafik Lonjakan Kehadiran per 5 Menit
-              </h3>
-              <p className="text-xs text-slate-500">
-                Mencerminkan waktu aktual rekaman sentuhan di pos pintu masuk
-              </p>
-            </div>
-            <div className="flex items-center space-x-2">
-              <div className="inline-flex bg-slate-100/90 p-1 rounded-xl text-xs font-semibold">
-                <button
-                  onClick={() => setChartType('line')}
-                  className={`px-3 py-1 rounded-lg transition-spring ${
-                    chartType === 'line'
-                      ? 'bg-white text-blue-600 shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  📈 Garis (Line)
-                </button>
-                <button
-                  onClick={() => setChartType('bar')}
-                  className={`px-3 py-1 rounded-lg transition-spring ${
-                    chartType === 'bar'
-                      ? 'bg-white text-blue-600 shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900'
-                  }`}
-                >
-                  📊 Batang (Bar)
-                </button>
-              </div>
-              <span className="text-xs font-mono text-slate-400">Interval 5m</span>
-            </div>
-          </div>
+          {/* Arrival Trends Chart */}
+      {stats && stats.time_series.length > 0 && (() => {
+        const formattedTimeSeries = stats.time_series.map((t) => {
+          const [hStr, mStr] = t.time_label.split(':');
+          const h = parseInt(hStr || '0', 10);
+          const m = parseInt(mStr || '0', 10);
+          const endM = (m + 5) % 60;
+          const endH = m + 5 >= 60 ? (h + 1) % 24 : h;
+          const rangeLabel = `${String(h).padStart(2, '0')}.${String(m).padStart(2, '0')}-${String(endH).padStart(2, '0')}.${String(endM).padStart(2, '0')} WIB`;
+          return {
+            ...t,
+            rangeLabel,
+          };
+        });
 
-          <div className="h-64 w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              {chartType === 'line' ? (
-                <LineChart data={stats.time_series}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                  <XAxis dataKey="time_label" stroke="#64748b" fontSize={11} tickLine={false} />
-                  <YAxis stroke="#64748b" fontSize={11} tickLine={false} axisLine={false} />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#090d16',
-                      borderRadius: '1rem',
-                      color: '#fff',
-                      border: 'none',
-                      fontSize: '12px',
-                    }}
-                  />
-                  <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '8px' }} />
-                  <Line
-                    type="monotone"
-                    dataKey="total"
-                    name="Total Hadir"
-                    stroke="#0284c7"
-                    strokeWidth={3}
-                    dot={{ r: 4, fill: '#0284c7' }}
-                    activeDot={{ r: 6 }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="paroki_bintaro"
-                    name="Paroki Bintaro"
-                    stroke="#2563eb"
-                    strokeWidth={2}
-                    strokeDasharray="4 4"
-                    dot={{ r: 3, fill: '#2563eb' }}
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="luar_paroki"
-                    name="Luar Paroki"
-                    stroke="#d97706"
-                    strokeWidth={2}
-                    strokeDasharray="4 4"
-                    dot={{ r: 3, fill: '#d97706' }}
-                  />
-                </LineChart>
-              ) : (
-                <BarChart data={stats.time_series}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                  <XAxis dataKey="time_label" stroke="#64748b" fontSize={11} tickLine={false} />
-                  <YAxis stroke="#64748b" fontSize={11} tickLine={false} axisLine={false} />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#090d16',
-                      borderRadius: '1rem',
-                      color: '#fff',
-                      border: 'none',
-                      fontSize: '12px',
-                    }}
-                  />
-                  <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '8px' }} />
-                  <Bar dataKey="paroki_bintaro" name="Paroki Bintaro" fill="#2563eb" radius={[6, 6, 0, 0]} />
-                  <Bar dataKey="luar_paroki" name="Luar Paroki" fill="#d97706" radius={[6, 6, 0, 0]} />
-                </BarChart>
-              )}
-            </ResponsiveContainer>
+        return (
+          <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-subtle">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 gap-3">
+              <div>
+                <h3 className="text-base font-bold text-slate-900 tracking-tight">
+                  Grafik Lonjakan Kehadiran per 5 Menit (WIB)
+                </h3>
+                <p className="text-xs text-slate-500">
+                  Mencerminkan waktu aktual rekaman sentuhan di pos pintu masuk dalam Waktu Indonesia Barat (GMT+7)
+                </p>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div className="inline-flex bg-slate-100/90 p-1 rounded-xl text-xs font-semibold">
+                  <button
+                    onClick={() => setChartType('line')}
+                    className={`px-3 py-1 rounded-lg transition-spring ${
+                      chartType === 'line'
+                        ? 'bg-white text-blue-600 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    📈 Garis (Line)
+                  </button>
+                  <button
+                    onClick={() => setChartType('bar')}
+                    className={`px-3 py-1 rounded-lg transition-spring ${
+                      chartType === 'bar'
+                        ? 'bg-white text-blue-600 shadow-sm'
+                        : 'text-slate-600 hover:text-slate-900'
+                    }`}
+                  >
+                    📊 Batang (Bar)
+                  </button>
+                </div>
+                <span className="text-xs font-mono text-slate-400">Interval 5m • WIB</span>
+              </div>
+            </div>
+
+            <div className="h-64 w-full">
+              <ResponsiveContainer width="100%" height="100%">
+                {chartType === 'line' ? (
+                  <LineChart data={formattedTimeSeries}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                    <XAxis dataKey="time_label" stroke="#64748b" fontSize={11} tickLine={false} />
+                    <YAxis stroke="#64748b" fontSize={11} tickLine={false} axisLine={false} />
+                    <Tooltip
+                      labelFormatter={(label, payload) => payload?.[0]?.payload?.rangeLabel || `${label} WIB`}
+                      contentStyle={{
+                        backgroundColor: '#090d16',
+                        borderRadius: '1rem',
+                        color: '#fff',
+                        border: 'none',
+                        fontSize: '12px',
+                      }}
+                    />
+                    <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '8px' }} />
+                    <Line
+                      type="monotone"
+                      dataKey="total"
+                      name="Total Hadir"
+                      stroke="#0284c7"
+                      strokeWidth={3}
+                      dot={{ r: 4, fill: '#0284c7' }}
+                      activeDot={{ r: 6 }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="paroki_bintaro"
+                      name="Paroki Bintaro"
+                      stroke="#2563eb"
+                      strokeWidth={2}
+                      strokeDasharray="4 4"
+                      dot={{ r: 3, fill: '#2563eb' }}
+                    />
+                    <Line
+                      type="monotone"
+                      dataKey="luar_paroki"
+                      name="Luar Paroki"
+                      stroke="#d97706"
+                      strokeWidth={2}
+                      strokeDasharray="4 4"
+                      dot={{ r: 3, fill: '#d97706' }}
+                    />
+                  </LineChart>
+                ) : (
+                  <BarChart data={formattedTimeSeries}>
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                    <XAxis dataKey="time_label" stroke="#64748b" fontSize={11} tickLine={false} />
+                    <YAxis stroke="#64748b" fontSize={11} tickLine={false} axisLine={false} />
+                    <Tooltip
+                      labelFormatter={(label, payload) => payload?.[0]?.payload?.rangeLabel || `${label} WIB`}
+                      contentStyle={{
+                        backgroundColor: '#090d16',
+                        borderRadius: '1rem',
+                        color: '#fff',
+                        border: 'none',
+                        fontSize: '12px',
+                      }}
+                    />
+                    <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '8px' }} />
+                    <Bar dataKey="paroki_bintaro" name="Paroki Bintaro" fill="#2563eb" radius={[6, 6, 0, 0]} />
+                    <Bar dataKey="luar_paroki" name="Luar Paroki" fill="#d97706" radius={[6, 6, 0, 0]} />
+                  </BarChart>
+                )}
+              </ResponsiveContainer>
+            </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       {/* Pos / Doors Management & Live Breakdown */}
       <div className="bg-white rounded-3xl border border-slate-200/80 p-6 shadow-subtle">

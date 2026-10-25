@@ -1,7 +1,8 @@
 import io
 import csv
 import json
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from fastapi import APIRouter, Depends, HTTPException, Response
 from sqlalchemy.orm import Session
 from sqlalchemy import func
@@ -14,6 +15,17 @@ from app.models import (
 from app.schemas import LiveStatsResponse, PosStatItem, TimeSeriesBucket, BuildingStatItem
 from app.cache import stats_cache
 from app.config import settings
+
+WIB_TZ = ZoneInfo("Asia/Jakarta")
+
+
+def to_wib(dt: datetime) -> datetime:
+    """Convert database datetime (naive UTC or tz-aware) to Asia/Jakarta (WIB, GMT+7)."""
+    if dt is None:
+        return dt
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(WIB_TZ)
 
 router = APIRouter(prefix="/api/stats", tags=["Realtime Stats & Reports"])
 
@@ -129,15 +141,15 @@ def get_live_stats(event_id: str, db: Session = Depends(get_db)):
             cap_status = "NORMAL"
         cap_pct = overall_cap_pct
 
-    # Time series aggregation (5-minute buckets based on client_timestamp)
+    # Time series aggregation (5-minute buckets based on client_timestamp in WIB)
     # Group logs by bucket
     buckets_map: Dict[str, Dict[str, int]] = {}
     
     # Sort logs by client_timestamp
     sorted_logs = sorted(total_logs, key=lambda x: x.client_timestamp)
     for log in sorted_logs:
-        # Round to nearest 5 mins (e.g. HH:MM)
-        ct = log.client_timestamp
+        # Round to nearest 5 mins in Asia/Jakarta (WIB, GMT+7)
+        ct = to_wib(log.client_timestamp)
         minute_bucket = (ct.minute // 5) * 5
         time_key = f"{ct.hour:02d}:{minute_bucket:02d}"
         if time_key not in buckets_map:
@@ -163,7 +175,7 @@ def get_live_stats(event_id: str, db: Session = Depends(get_db)):
         event_name=event.name,
         category=event.category,
         status=event.status,
-        start_time=event.start_time,
+        start_time=to_wib(event.start_time),
         capacity_target=total_cap,
         enable_capacity_warning=event.enable_capacity_warning,
         area_capacities=area_caps,
@@ -178,7 +190,7 @@ def get_live_stats(event_id: str, db: Session = Depends(get_db)):
         pos_breakdown=pos_items,
         time_series=time_series,
         evaluation_notes=event.evaluation_notes,
-        last_updated=datetime.utcnow()
+        last_updated=to_wib(datetime.now(timezone.utc))
     )
 
     # Store in TTL Cache
@@ -240,11 +252,11 @@ def export_csv(
             b_name,
             p_name,
             choice_label,
-            log.client_timestamp.strftime("%Y-%m-%d %H:%M:%S")
+            to_wib(log.client_timestamp).strftime("%Y-%m-%d %H:%M:%S")
         ]
         if include_debug:
             row.extend([
-                log.server_timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+                to_wib(log.server_timestamp).strftime("%Y-%m-%d %H:%M:%S"),
                 log.metadata_json or ""
             ])
         writer.writerow(row)

@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime, timezone
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List, Optional
@@ -14,6 +15,14 @@ from app.cache import stats_cache
 import json
 
 router = APIRouter(prefix="/api/events", tags=["Events & Pos Management"])
+
+
+def _to_naive_utc(dt: Optional[datetime]) -> Optional[datetime]:
+    if dt is None:
+        return None
+    if dt.tzinfo is not None:
+        return dt.astimezone(timezone.utc).replace(tzinfo=None)
+    return dt
 
 @router.get("", response_model=List[EventSessionResponse])
 def list_events(
@@ -42,8 +51,8 @@ def create_event(
         name=payload.name,
         category=payload.category,
         description=payload.description,
-        start_time=payload.start_time,
-        end_time=payload.end_time,
+        start_time=_to_naive_utc(payload.start_time),
+        end_time=_to_naive_utc(payload.end_time),
         status=EventStatus.SCHEDULED,
         capacity_target=capacity_target,
         enable_capacity_warning=payload.enable_capacity_warning,
@@ -151,9 +160,9 @@ def update_event(
     if payload.description is not None:
         event.description = payload.description
     if payload.start_time is not None:
-        event.start_time = payload.start_time
+        event.start_time = _to_naive_utc(payload.start_time)
     if payload.end_time is not None:
-        event.end_time = payload.end_time
+        event.end_time = _to_naive_utc(payload.end_time)
     if payload.status is not None:
         if payload.status in [EventStatus.SCHEDULED, EventStatus.OPEN, EventStatus.COMPLETED]:
             event.status = payload.status

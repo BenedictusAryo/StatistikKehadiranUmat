@@ -88,14 +88,16 @@ export const VideotronPage: React.FC<VideotronPageProps> = ({ eventId }) => {
     );
   }
 
-  // Format date and time in Indonesian
+  // Format date and time in Indonesian (Asia/Jakarta WIB)
   const formattedDate = currentTime.toLocaleDateString('id-ID', {
+    timeZone: 'Asia/Jakarta',
     weekday: 'long',
     day: 'numeric',
     month: 'long',
     year: 'numeric',
   });
   const formattedTime = currentTime.toLocaleTimeString('id-ID', {
+    timeZone: 'Asia/Jakarta',
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit',
@@ -405,10 +407,10 @@ export const VideotronPage: React.FC<VideotronPageProps> = ({ eventId }) => {
                 <div className="flex items-center space-x-2">
                   <TrendingUp className="w-5 h-5 text-sky-400" />
                   <h3 className="font-bold text-sm sm:text-base text-slate-100 tracking-tight">
-                    Grafik Lonjakan Kedatangan Umat (Interval 5 Menit)
+                    Grafik Lonjakan Kedatangan Umat (Interval 5 Menit • WIB)
                   </h3>
                 </div>
-                <span className="text-xs font-mono text-slate-400">Arus Waktu Kedatangan</span>
+                <span className="text-xs font-mono text-slate-400">Arus Waktu Kedatangan (WIB)</span>
               </div>
 
               <div className="h-64 sm:h-72 w-full">
@@ -425,6 +427,7 @@ export const VideotronPage: React.FC<VideotronPageProps> = ({ eventId }) => {
                           borderRadius: '1rem',
                           color: '#fff',
                         }}
+                        labelFormatter={(label) => `Rentang Waktu: ${label} WIB`}
                       />
                       <Legend wrapperStyle={{ fontSize: '12px', paddingTop: '8px' }} />
                       <Line
@@ -475,8 +478,8 @@ export const VideotronPage: React.FC<VideotronPageProps> = ({ eventId }) => {
                   <TrendingUp className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-lg text-white tracking-tight">Kurva Waktu Kedatangan Umat</h3>
-                  <p className="text-xs text-slate-400">Lonjakan arus kehadiran per rentang 5 menit</p>
+                  <h3 className="font-bold text-lg text-white tracking-tight">Kurva Waktu Kedatangan Umat (WIB)</h3>
+                  <p className="text-xs text-slate-400">Lonjakan arus kehadiran per rentang 5 menit (GMT+7)</p>
                 </div>
               </div>
 

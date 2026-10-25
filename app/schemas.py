@@ -1,7 +1,19 @@
 from pydantic import BaseModel, EmailStr, Field, ConfigDict, field_validator
-from datetime import datetime
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 from typing import Optional, List, Dict, Any
 import json
+
+WIB_TZ = ZoneInfo("Asia/Jakarta")
+
+
+def ensure_wib(dt: Optional[datetime]) -> Optional[datetime]:
+    """Ensure datetime is timezone-aware in Asia/Jakarta (WIB, GMT+7) when serialized for display."""
+    if dt is None or not isinstance(dt, datetime):
+        return dt
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt.astimezone(WIB_TZ)
 
 # ================= AUTH & USER =================
 class UserLogin(BaseModel):
@@ -30,6 +42,11 @@ class UserResponse(BaseModel):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+    @field_validator("created_at", mode="after")
+    @classmethod
+    def serialize_wib(cls, v):
+        return ensure_wib(v)
 
 class TokenResponse(BaseModel):
     access_token: str
@@ -62,6 +79,11 @@ class MasterPosResponse(MasterPosBase):
 
     model_config = ConfigDict(from_attributes=True)
 
+    @field_validator("created_at", mode="after")
+    @classmethod
+    def serialize_wib(cls, v):
+        return ensure_wib(v)
+
 # ================= EVENT & POS =================
 class EventPosResponse(BaseModel):
     id: str
@@ -74,6 +96,11 @@ class EventPosResponse(BaseModel):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+    @field_validator("created_at", mode="after")
+    @classmethod
+    def serialize_wib(cls, v):
+        return ensure_wib(v)
 
 # ================= EVALUATION NOTES & OBSERVATIONS =================
 class ObservationItem(BaseModel):
@@ -139,6 +166,11 @@ class EventSessionResponse(BaseModel):
                 return {}
         return v
 
+    @field_validator("start_time", "end_time", "created_at", "updated_at", mode="after")
+    @classmethod
+    def serialize_wib(cls, v):
+        return ensure_wib(v)
+
 # ================= COUNTER & SYNC =================
 class TapItem(BaseModel):
     id: str  # Client-side UUID
@@ -165,6 +197,11 @@ class PosAccessValidationResponse(BaseModel):
     pos_name: str
     pos_code: str
     start_time: datetime
+
+    @field_validator("start_time", mode="after")
+    @classmethod
+    def serialize_wib(cls, v):
+        return ensure_wib(v)
 
 # ================= STATS & DASHBOARD =================
 class PosStatItem(BaseModel):
@@ -212,3 +249,8 @@ class LiveStatsResponse(BaseModel):
     time_series: List[TimeSeriesBucket]
     evaluation_notes: Optional[str] = None
     last_updated: datetime
+
+    @field_validator("start_time", "last_updated", mode="after")
+    @classmethod
+    def serialize_wib(cls, v):
+        return ensure_wib(v)

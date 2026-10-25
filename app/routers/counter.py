@@ -81,13 +81,16 @@ def sync_taps(
         
         meta_str = json.dumps(tap.metadata) if tap.metadata else None
 
-        # Parse or use client_timestamp
+        # Parse or use client_timestamp (stored as naive UTC in DB)
         c_time = tap.client_timestamp
         if isinstance(c_time, str):
             try:
                 c_time = datetime.fromisoformat(c_time.replace("Z", "+00:00"))
             except Exception:
                 c_time = server_now
+        if isinstance(c_time, datetime) and c_time.tzinfo is not None:
+            from datetime import timezone
+            c_time = c_time.astimezone(timezone.utc).replace(tzinfo=None)
 
         log = AttendanceLog(
             id=tap.id,
